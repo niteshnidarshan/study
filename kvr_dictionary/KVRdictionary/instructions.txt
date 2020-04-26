@@ -1,0 +1,11 @@
+Hi,
+Thank you for downloading KVR Dictionary.
+follow these instructions to use this dictionary.
+Step 1:double click on KVRDictionary.jar
+	It is benificial to make a shortcut on desktop for "KVRDictionary.jar" file.
+===========================================================
+If it is not working, It means in your computer java is not there.
+If java is not installed in your computer, please visit the following link to install java. 
+	https://java.com/en/download/index.jsp
+===========================================================
+Do not temper any file, It will cause to program error!

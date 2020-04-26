@@ -1,0 +1,1037 @@
+a		 : 	एक
+about		 : 	के बारे में
+above		 : 	ऊपर
+across		 : 	के पार
+act		 : 	कार्य
+actions		 : 	कार्रवाई
+adapted		 : 	अनुकूलित
+add		 : 	जोड़ना
+added		 : 	जोड़ दिया
+address		 : 	पता
+aeroplane	 : 	हवाई जहाज
+afraid		 : 	भयभीत
+after		 : 	के बाद
+again		 : 	फिर
+aileen		 : 	ऐलीन (नाम)
+air		 : 	हवा
+alexei		 : 	अलेक्सई (नाम)
+all		 : 	सब
+alligator	 : 	घड़ियाल
+alligators	 : 	घड़ियाल (एक से ज्यादा)
+along		 : 	साथ में
+aloud		 : 	जोर से
+also		 : 	भी
+am		 : 	हूँ
+an		 : 	एक
+anandi		 : 	आनंदी (नाम)
+and		 : 	और
+angry		 : 	नाराज
+animal		 : 	पशु
+animals		 : 	जानवर (एक से ज्यादा)
+another		 : 	एक और
+ans		 : 	उत्तर, जवाब
+answer		 : 	उत्तर, जवाब
+ant		 : 	चींटी
+ants		 : 	चीटियाँ 
+anup		 : 	अनूप(नाम)
+any		 : 	कोई
+anyone		 : 	किसी
+anything	 : 	कुछ भी
+aplenty		 : 	कसरत से
+apple		 : 	सेब
+apples		 : 	सेब (एक से ज्यादा)
+appu		 : 	अप्पू(नाम)
+april		 : 	अप्रैल
+are		 : 	हैं
+around		 : 	चारों ओर
+artist		 : 	कलाकार
+as		 : 	जैसा
+asked		 : 	पूछा
+asks		 : 	पूछता है
+asleep		 : 	सोया हुआ
+astronaut	 : 	खगोलयात्री, अन्तरिक्ष यात्री 
+at		 : 	में, पर 
+ate		 : 	खाया
+away		 : 	दूर
+axe		 : 	कुल्हाड़ी
+babies		 : 	बच्चो, शिशुओं
+baby		 : 	बच्चा
+back		 : 	वापस, पीछे, पीठ
+bad		 : 	बुरा
+bag		 : 	बैग
+ball		 : 	गेंद
+balloon		 : 	गुब्बारा
+balloons	 : 	गुब्बारे
+balls		 : 	गेंदों
+banana		 : 	केला
+bananas		 : 	केले
+band		 : 	बैंड
+bang		 : 	जोर का आवाज
+bank		 : 	बैंक
+baruch		 : 	बारूक (नाम)
+basket		 : 	टोकरी
+bat		 : 	बल्लेबाजी
+bath		 : 	स्नान
+bathe		 : 	स्नान
+batman		 : 	बैटमैन  (नाम)
+be		 : 	होना
+beads		 : 	मोती
+beak		 : 	चोंच
+bear		 : 	भालू, सहन 
+beautiful	 : 	सुंदर
+became		 : 	बन गया
+because		 : 	क्योंकि
+become		 : 	हो जाना
+bed		 : 	बिस्तर
+bee		 : 	मधुमक्खी
+beehive		 : 	मधुमक्खी का छत्ता
+been		 : 	किया गया
+bees		 : 	मधुमक्खियों
+began		 : 	शुरू किया
+beginning	 : 	शुरुआत
+behind		 : 	पीछे
+bell		 : 	घंटी
+below		 : 	नीचे
+belt		 : 	बेल्ट
+bend		 : 	मोड़
+berry		 : 	बेर
+best		 : 	सबसे अच्छा
+big		 : 	बड़ा
+bin		 : 	बिन,सामान रखने की जगह
+bird		 : 	पक्षी
+birds		 : 	पक्षियाँ 
+biscuit		 : 	बिस्कुट
+bit		 : 	थोडा 
+bite		 : 	काटना
+black		 : 	काला
+blanks		 : 	कारतूस
+bleat		 : 	मिमयाना
+bleed		 : 	खून बहाना
+blew		 : 	विस्फोट से उड़ा दिया
+blow		 : 	झटका, बहना
+blows		 : 	वार, बहता है 
+blue		 : 	नीला
+bluebells	 : 	एक तरह का फूल 
+boat		 : 	नाव
+bobby		 : 	बॉबी (नाम)
+book		 : 	किताब
+books		 : 	पुस्तकें
+born		 : 	जन्म
+both		 : 	दोनों
+bought		 : 	खरीदा
+bow		 : 	धनुष
+bowl		 : 	कटोरा
+box		 : 	डिब्बा
+boy		 : 	लड़का
+boys		 : 	लड़कों
+branches	 : 	शाखाओं
+brave		 : 	बहादुर
+breeze		 : 	बयार
+brick		 : 	ईंट
+bricks		 : 	ईंटों
+bride		 : 	दुल्हन
+bright		 : 	उज्ज्वल
+bring		 : 	लाना
+brings		 : 	लाता है
+broke		 : 	तोड़ दिया
+brought		 : 	लाया
+brown		 : 	भूरा 
+bubble		 : 	बुलबुला
+bubbles		 : 	बुलबुले
+buffalo		 : 	भैंस
+bull		 : 	बैल
+bun		 : 	एक तरह की रोटी
+bungalow	 : 	बंगला
+burning		 : 	जलाता हुआ
+burst		 : 	फटना 
+but		 : 	लेकिन
+butterflies	 : 	तितलियाँ
+butterfly	 : 	तितली
+buttons		 : 	बटन
+buzz		 : 	भनभनाना
+buzzed		 : 	भनभनाया
+buzzing		 : 	गूंज
+by		 : 	द्वारा
+call		 : 	कॉल, आवाज देना
+called		 : 	कहा जाता है
+came		 : 	आया
+can		 : 	कर सकते हैं
+cap		 : 	टोपी
+car		 : 	कार
+careful		 : 	सावधान
+carolyn		 : 	कैरोलिन  (नाम)
+carry		 : 	ले जाना
+carrying	 : 	ले जा रहा 
+cart		 : 	गाड़ी
+cat		 : 	बिल्ली
+catch		 : 	पकड़
+caterpillars	 : 	कैटरपिलर
+cats		 : 	बिल्लियाँ 
+caw		 : 	कांव (कौवे की आवाज)
+cc		 : 	प्रतिलिपि
+chakravarti	 : 	चक्रवर्ती (नाम)
+chance		 : 	अवसर
+chanced		 : 	संयोग
+checks		 : 	की जाँच
+cheek		 : 	गाल
+chicks		 : 	मुर्गी का बच्चा 
+child		 : 	बच्चा
+children	 : 	बच्चे
+chilli		 : 	मिर्च
+chirp		 : 	चहचहाना
+chitra		 : 	चित्रा (नाम)
+choice		 : 	पसंद
+choose		 : 	चुनें
+choosing	 : 	चुनने
+circle		 : 	वृत्त
+circles		 : 	वृत्त (एक से ज्यादा)
+city		 : 	शहर
+clap		 : 	ताली
+clapped		 : 	ताली बजाया 
+class		 : 	वर्ग
+clear		 : 	स्पष्ट
+cleo		 : 	क्लीओ (नाम)
+clever		 : 	चालाक
+climb		 : 	चढ़ाई
+climbed		 : 	चढ़ गए
+clothes		 : 	वस्त्र, कपडे 
+cloud		 : 	बादल
+clouds		 : 	बादलों
+clues		 : 	सुराग
+coconut		 : 	नारियल
+cold		 : 	ठंड
+collect		 : 	इकट्ठा करना
+colour		 : 	रंग
+coloured	 : 	रंगीन, रंग दिया 
+colourful	 : 	रंगीन
+colours		 : 	रंग (एक से ज्यादा)
+comb		 : 	कंघी
+come		 : 	आना
+comes		 : 	आता है
+complete	 : 	पूरा
+continue	 : 	जारी रखना 
+continued	 : 	जारी रखा, निरंतर
+cool		 : 	शीतल, ठंढा  
+correct		 : 	सही
+cot		 : 	खाट
+could		 : 	कर सकता
+count		 : 	गणना
+cow		 : 	गाय
+crawl		 : 	घुटनों के बल चलना
+crawling	 : 	घुटनों के बल चल रहा
+crawls		 : 	क्घुटनों के बल चलता है 
+create		 : 	बनाना
+creatures	 : 	जीव
+cried		 : 	रोया
+crocodile	 : 	मगरमच्छ
+crops		 : 	फसलों
+cross		 : 	पार करना
+crossword	 : 	पहेली
+crow		 : 	कौआ
+crows		 : 	कौवे
+cry		 : 	रोना
+cup		 : 	कप
+cut		 : 	काटना, कटौती
+cutting		 : 	काट रहा 
+dance		 : 	नृत्य, नाचना 
+dancing		 : 	नृत्य कर रहा 
+day		 : 	दिन
+days		 : 	दिन (एक से ज्यादा)
+decorate	 : 	सजाना
+dentist		 : 	दंत चिकित्सक
+describe	 : 	वर्णन करना
+dew		 : 	ओस
+dictionary	 : 	शब्दकोश
+did		 : 	किया
+different	 : 	अलग
+dig		 : 	खुदाई
+dixon		 : 	डिक्सन  (नाम) 
+dizzy		 : 	चक्कर, अचंभे में डाल देना
+do		 : 	करना
+doctor		 : 	चिकित्सक
+does		 : 	करता है
+dog		 : 	कुत्ता
+doing		 : 	कर रही है
+don		 : 	डॉन (नाम) 
+done		 : 	किया
+donkey		 : 	गधा
+donkeys		 : 	गदहे
+door		 : 	दरवाजा
+dorothy		 : 	डोरोथी (नाम)
+dot		 : 	बिंदु 
+dots		 : 	बिन्दुएँ 
+dotted		 : 	बिंदु से भरा 
+down		 : 	नीचे
+dozing		 : 	ऊँघ रहा 
+drain		 : 	नाली
+draw		 : 	खींचना, बनाना 
+drawing		 : 	तस्वीर 
+draws		 : 	बनाता है 
+dreaming	 : 	सपना देख रहा
+dress		 : 	पोशाक
+drew		 : 	बनाया, खिंचा 
+drop		 : 	बूंद
+dry		 : 	सूखी
+drying		 : 	सुख रहा
+duck		 : 	बतख
+during		 : 	दौरान
+dustbin		 : 	कचरा - टोकनी
+each		 : 	प्रत्येक
+ears		 : 	कान
+earth		 : 	पृथ्वी
+eat		 : 	खाना 
+eating		 : 	खा रहा 
+eats		 : 	खाती है
+eel		 : 	इल(एक प्रकार की मछली)
+eels		 : 	 ईल (एक से ज्यादा)
+eggs		 : 	अंडे
+eight		 : 	आठ
+elephant	 : 	हाथी
+elephants	 : 	हाथीयां 
+eleven		 : 	ग्यारह
+else		 : 	अन्यथा
+english		 : 	अंग्रेज़ी
+enjoy		 : 	आनंद लेना 
+etc		 : 	आदि
+ever		 : 	कभी
+every		 : 	प्रत्येक
+everyday	 : 	प्रतिदिन
+everyone	 : 	हर
+everywhere	 : 	हर जगह
+eyes		 : 	आंखें
+face		 : 	चेहरा
+faces		 : 	चेहरे
+fair		 : 	निष्पक्ष
+fall		 : 	गिरना
+falls		 : 	गिर जाता है
+fan		 : 	पंखा, प्रशंसक
+farm		 : 	खेत
+farmer		 : 	किसान
+fast		 : 	तेज
+fat		 : 	मोटा , वसा
+favourite	 : 	प्रिय
+feather		 : 	पंख
+fed		 : 	खिलाया
+feeding		 : 	खिला रहा 
+feel		 : 	महसूस करना
+feelings	 : 	भावनाओं
+feet		 : 	पैर
+fell		 : 	गिर गया
+few		 : 	कुछ
+field		 : 	क्षेत्र
+fifteen		 : 	पंद्रह
+fill		 : 	भरना
+filled		 : 	भरा हुआ
+find		 : 	खोज
+fingers		 : 	उँगलियाँ 
+fire		 : 	आग
+first		 : 	पहले
+fish		 : 	मछली
+fisher		 : 	मछुआ
+fishes		 : 	मछलियाँ 
+five		 : 	पांच
+flat		 : 	फ्लैट, घर 
+flea		 : 	एक तरह का कीड़ा
+flew		 : 	उड़ान भरी
+flies		 : 	मक्खियाँ 
+float		 : 	तैरना
+floor		 : 	मंजिल
+flower		 : 	फूल
+flowers		 : 	फूल (एक से ज्यादा)
+fly		 : 	मक्खी
+flying		 : 	उड़ान
+following	 : 	निम्नलिखित
+food		 : 	भोजन
+for		 : 	के लिए
+forest		 : 	वन, जंगल
+forgets		 : 	भूल जाता है
+found		 : 	पाया
+four		 : 	चार
+fourteen	 : 	चौदह
+fox		 : 	लोमड़ी
+friday		 : 	शुक्रवार
+friend		 : 	दोस्त
+friends		 : 	मित्रों
+friendship	 : 	दोस्ती
+frog		 : 	मेंढक
+from		 : 	से
+fruit		 : 	फल
+fruits		 : 	फल
+fun		 : 	मजाक
+games		 : 	खेल
+garden		 : 	बगीचा , उद्यान
+gave		 : 	दे दिया
+gay		 : 	समलैंगिक
+get		 : 	पाना 
+giant		 : 	विशाल
+giraffe		 : 	जिराफ़
+girl		 : 	लड़की
+girls		 : 	लड़कियां 
+give		 : 	देना
+given		 : 	दिए गए
+giving		 : 	दे रही है
+glitter		 : 	चमक
+glory		 : 	महिमा
+glue		 : 	गोंद
+go		 : 	जाना
+goat		 : 	बकरी
+gobbled		 : 	जल्दी जल्दी खाया 
+going		 : 	जा रहा
+gonu		 : 	गोनू (नाम)
+good		 : 	अच्छा
+goose		 : 	हंस
+got		 : 	पाया 
+gown		 : 	गाउन (एक तरह का कपड़ा)
+graham		 : 	ग्रैहम (नाम)
+grain		 : 	अनाज
+grandmother	 : 	दादी
+grapes		 : 	अंगूर
+grapevine	 : 	अंगूर का पेड़ 
+grass		 : 	घास
+great		 : 	महान
+green		 : 	हरा
+grew		 : 	बढ़ी
+grey		 : 	ग्रे (नाम)
+grow		 : 	बढ़ना
+growing		 : 	बढ़ रही है
+grows		 : 	बढ़ता है
+guess		 : 	अनुमान
+gun		 : 	बंदूक
+had		 : 	था
+hands		 : 	हाथ
+hang		 : 	लटकाना
+hangs		 : 	लटका हुआ है
+happens		 : 	होता है
+happily		 : 	सुख से
+happy		 : 	खुश
+hard		 : 	कठिन
+hardly		 : 	मुश्किल से
+has		 : 	है
+hat		 : 	टोपी
+hatched		 : 	अंडा सेवा 
+have		 : 	है
+having		 : 	होने
+he		 : 	वह
+head		 : 	सिर
+heart		 : 	दिल
+helicopter	 : 	हेलीकाप्टर
+hello		 : 	नमस्ते
+help		 : 	मदद
+helpless	 : 	असहाय
+helps		 : 	मदद करता है
+hen		 : 	मुर्गी
+her		 : 	उसके
+here		 : 	यहां
+hey		 : 	हे
+hide		 : 	छिपाना
+high		 : 	ऊँचा , उच्च
+him		 : 	उसे
+himself		 : 	स्वयं
+hindi		 : 	हिंदी
+his		 : 	उसके
+hit		 : 	मारना
+holding		 : 	पकड़े हुए
+home		 : 	घर
+homes		 : 	घरों
+hop		 : 	एक पैर पर कूदना 
+horse		 : 	घोड़ा
+hot		 : 	गरम
+house		 : 	घर
+houses		 : 	घरों
+how		 : 	कैसे
+huff		 : 	आवेश
+huffed		 : 	जोर से फूंका 
+huffs		 : 	जोर से फूंकता है 
+huge		 : 	विशाल
+hurry		 : 	जल्दी
+hurt		 : 	चोट
+hut		 : 	झोपड़ी
+i		 : 	मैं
+idea		 : 	विचार
+if		 : 	अगर
+igloo		 : 	इग्लू (एक तरह का घर )
+ill		 : 	बीमार
+imagine		 : 	कल्पना करना
+in		 : 	में
+india		 : 	भारत
+indian		 : 	भारतीय
+indigo		 : 	नील
+inside		 : 	अंदर
+instead		 : 	बजाय
+into		 : 	में
+is		 : 	है
+it		 : 	यह
+its		 : 	इसके
+itself		 : 	खुद
+jam		 : 	मुरब्बा
+jeep		 : 	जीप
+join		 : 	शामिल होना, जोड़ना 
+journey		 : 	यात्रा
+joy		 : 	आनंद
+jug		 : 	सुराही
+juice		 : 	रस
+juicy		 : 	रसदार
+jump		 : 	कूद
+jumped		 : 	कूद
+jungle		 : 	जंगल
+just		 : 	केवल
+kalu		 : 	कालू (नाम)
+kangaroo	 : 	कंगारू
+keeps		 : 	रखता है 
+kick		 : 	पैर से मारना
+kinds		 : 	प्रकार
+king		 : 	राजा
+kissed		 : 	चूमा
+kit		 : 	किट, सामान 
+kite		 : 	पतंग
+kites		 : 	पतंग (एक से ज्यादा)
+kitten		 : 	बिल्ली का बच्चा
+knee		 : 	घुटना
+knit		 : 	बुनना
+knot		 : 	गांठ
+know		 : 	जानना
+krishna		 : 	कृष्णा (नाम) 
+lace		 : 	फीता
+laddu		 : 	लड्डू
+lady		 : 	महिला
+lake		 : 	झील
+lal		 : 	लाल
+lalu		 : 	लालू (नाम) 
+lamp		 : 	दीपक
+language	 : 	भाषा
+later		 : 	बाद में
+laugh		 : 	हंसी
+laughter	 : 	हंसी
+leaf		 : 	पत्ती
+leaped		 : 	कूदा
+learn		 : 	सीखना
+least		 : 	कम से कम
+leaves		 : 	पत्ते
+left		 : 	छोड़ दिया
+leg		 : 	पैर
+legs		 : 	पैर (एक से ज्यादा)
+length		 : 	लंबाई
+less		 : 	कम
+let		 : 	मान लेना
+letter		 : 	पत्र
+letters		 : 	पत्रों 
+liar		 : 	झूठा
+lick		 : 	चाटना
+lie		 : 	झूठ
+life		 : 	जीवन
+light		 : 	प्रकाश
+like		 : 	जैसा
+liked		 : 	पसंद आया
+line		 : 	पंक्ति, रेखा 
+lines		 : 	पंक्तियां
+lion		 : 	शेर
+lip		 : 	ओंठ
+listen		 : 	सुनना
+little		 : 	थोड़ा
+live		 : 	जीना
+lived		 : 	रहते थे
+lizard		 : 	छिपकली
+lizards		 : 	छिपकलियाँ 
+log		 : 	लकड़ी का टुकरा
+long		 : 	लंबे समय तक
+look		 : 	देखना
+looked		 : 	देखा
+looking		 : 	देख रहा है
+looks		 : 	लग रहा है
+loose		 : 	ढीला
+lost		 : 	खोया
+lots		 : 	बहुत सारे
+loud		 : 	जोरदार
+love		 : 	प्यार
+loved		 : 	प्यार करता था
+loves		 : 	प्यार करता है
+made		 : 	निर्मित
+make		 : 	बनाना
+makes		 : 	बनाता है
+making		 : 	निर्माण
+man		 : 	आदमी
+mango		 : 	आम
+mangoes		 : 	आम (एक से ज्यादा)
+manorama	 : 	मनोरमा (नाम) 
+many		 : 	बहुत
+marble		 : 	संगमरमर
+march		 : 	मार्च
+marigold	 : 	गेंदा
+mat		 : 	चटाई
+match		 : 	मैच
+material	 : 	सामग्री
+materials	 : 	सामग्री (एक से ज्यादा)
+may		 : 	मई
+maze		 : 	उलझन
+me		 : 	मुझे
+merry		 : 	हँसमुख
+met		 : 	मुलाकात की
+mew		 : 	म्याऊँ - म्याऊँ करना
+milli		 : 	मिल्ली  (नाम) 
+mittu		 : 	मिट्टू  (नाम) 
+mohini		 : 	मोहिनी  (नाम) 
+monday		 : 	सोमवार
+monkey		 : 	बंदर
+monkeys		 : 	बंदरों
+months		 : 	महीने
+monu		 : 	मोनू  (नाम) 
+moon		 : 	चांद
+more		 : 	अधिक
+mosquito	 : 	मच्छर
+most		 : 	अधिकांश
+mother		 : 	मां
+mountains	 : 	पहाड़ों
+mouse		 : 	चूहा
+mouth		 : 	मुंह
+move		 : 	चाल
+mrinalini	 : 	मृणालिनी  (नाम) 
+much		 : 	ज्यादा
+mud		 : 	कीचड़
+mug		 : 	मग
+mum		 : 	मां
+murali		 : 	मुरली  (नाम)
+must		 : 	चाहिए
+my		 : 	मेरे
+myself		 : 	अपने आप
+name		 : 	नाम
+names		 : 	नामों
+narendran	 : 	नरेन्द्रन (नाम)
+nature		 : 	प्रकृति
+naughty		 : 	शरारती
+near		 : 	निकट
+need		 : 	आवश्यकता
+needle		 : 	सुई
+nervous		 : 	परेशान
+nest		 : 	घोंसला
+never		 : 	कभी नहीं
+new		 : 	नई
+newspapers	 : 	अखबारों
+nice		 : 	अच्छा
+night		 : 	रात
+nine		 : 	नौ
+nip		 : 	चुटकी
+no		 : 	नहीं
+nobody		 : 	कोई नहीं
+nod		 : 	सिर का इशारा
+noise		 : 	शोर
+nose		 : 	नाक
+not		 : 	नहीं
+note		 : 	नोट
+now		 : 	अब
+number		 : 	अंक, संख्या
+numbers		 : 	अंको 
+nut		 : 	अखरोट
+objects		 : 	वस्तुओं
+odd		 : 	अजीब
+of		 : 	की
+off		 : 	बंद
+often		 : 	अक्सर
+oh		 : 	आह
+old		 : 	पुराना
+on		 : 	पर
+once		 : 	एक बार
+one		 : 	एक
+ones		 : 	लोगों
+open		 : 	खुला
+or		 : 	या
+orange		 : 	नारंगी, संतरा 
+oranges		 : 	संतरे
+order		 : 	आदेश
+other		 : 	अन्य
+our		 : 	हमारे
+out		 : 	बाहर, आउट
+outside		 : 	बाहर
+over		 : 	के ऊपर
+owl		 : 	उल्लू
+own		 : 	खुद के, अपना 
+page		 : 	पन्ना 
+pain		 : 	दर्द
+paint		 : 	रंग
+paints		 : 	रंगता है 
+pair		 : 	जोड़ा
+pairs		 : 	जोड़े
+pan		 : 	कड़ाही
+pants		 : 	पैंट (एक से ज्यादा)
+paper		 : 	काग़ज़
+parrot		 : 	तोता
+part		 : 	भाग
+paste		 : 	चिपकाना 
+path		 : 	पथ, रास्ता 
+patterns	 : 	नमूना, साँचा
+paw		 : 	पंजा
+peach		 : 	एक तरह का फल 
+peacock		 : 	मोर
+pecked		 : 	चोंच मारा
+peela		 : 	पीला 
+peelu		 : 	पीलू (नाम)
+pen		 : 	कलम
+pencil		 : 	पेंसिल
+people		 : 	लोग
+perch		 : 	चिडियों के बैठने का अड्डा
+percy		 : 	पर्सी (नाम)
+person		 : 	व्यक्ति
+pick		 : 	चुनना
+picked		 : 	उठाया
+picture		 : 	तस्वीर
+pictures	 : 	तस्वीरें 
+pig		 : 	सुअर
+pigs		 : 	सूअरों
+pilot		 : 	पायलट
+pineapples	 : 	अनानास (एक से ज्यादा)
+pink		 : 	गुलाबी
+pit		 : 	गड्ढा 
+plant		 : 	पौधा
+plants		 : 	पौधें 
+play		 : 	खेल
+playing		 : 	खेल रहा 
+please		 : 	कृपया
+pluck		 : 	तोड़ना 
+plus		 : 	जोड़ना 
+poem		 : 	कविता
+pond		 : 	पोखर
+pop		 : 	पॉप
+postman		 : 	डाकिया , पोस्टमैन
+pot		 : 	बर्तन 
+pranab		 : 	प्रणव (नाम)
+pretend		 : 	ढोंग करना
+pretty		 : 	सुंदर
+pricked		 : 	चुभ गया 
+proud		 : 	गर्व
+puddle		 : 	पोखर
+puddles		 : 	पोखर  (एक से ज्यादा)
+puff		 : 	कश
+puffed		 : 	हवा खीचा
+puffs		 : 	हवा खिचता है 
+purple		 : 	बैंगनी
+push		 : 	धक्का देना 
+put		 : 	रखना
+puzzle		 : 	पहेली
+quack		 : 	नीम हकीम
+queen		 : 	रानी
+question	 : 	सवाल
+quick		 : 	तुरंत 
+quietly		 : 	चुपचाप
+quilt		 : 	रजाई
+rabbit		 : 	खरगोश
+rain		 : 	बारिश
+rainbow		 : 	इंद्रधनुष
+rainbows	 : 	इंद्रधनुष (एक से ज्यादा)
+raindrops	 : 	वर्षाबूंदों
+raining		 : 	बारिश हो रही
+rains		 : 	बारिश
+ran		 : 	भागा
+rat		 : 	चूहा
+rats		 : 	चूहों
+ray		 : 	किरण
+reach		 : 	पहुचना 
+reached		 : 	पहुंचा 
+read		 : 	पढ़ना
+reading		 : 	पढ़ रहा 
+ready		 : 	तैयार
+really		 : 	वास्तव में
+rearrange	 : 	पुनर्व्यवस्थित करना
+reasons		 : 	कारणों
+recite		 : 	सुनाना
+red		 : 	लाल
+rhinoceros	 : 	गैंडा
+rhyme		 : 	पद्यक (छोटी कविता)
+rhymes		 : 	गाया जाता है
+ribbon		 : 	फीता  
+rich		 : 	धनी
+riddle		 : 	पहेली
+ride		 : 	सवारी करना
+right		 : 	सही
+ring		 : 	अंगूठी
+ripe		 : 	पका हुआ
+ripple		 : 	लहर
+river		 : 	नदी
+roar		 : 	गर्जन
+rode		 : 	सवारी किया
+roller		 : 	रोलर
+roof		 : 	छत
+rose		 : 	गुलाब
+roses		 : 	गुलाब (एक से ज्यादा)
+round		 : 	गोल , दौर
+run		 : 	दौड़ना, चलाना
+running		 : 	दौड़ रहा, चला रहा 
+ruth		 : 	रुथ (नाम)
+sad		 : 	उदास 
+said		 : 	कहा
+sailor		 : 	नाविक
+sails		 : 	खेव रहा 
+sat		 : 	बैठा 
+save		 : 	बचाना
+saw		 : 	देखा
+say		 : 	कहना
+saying		 : 	कहावत
+says		 : 	कहते हैं
+school		 : 	विद्यालय , स्कूल
+scissors	 : 	कैंची
+scraped		 : 	हटाया 
+screamed	 : 	चिल्लाया
+sea		 : 	समुद्र
+seagull		 : 	एक तरह की चिड़ियाँ 
+seal		 : 	सील (एक तरह का जानवर )
+seals		 : 	सील (एक से ज्यादा)
+season		 : 	मौसम
+seasons		 : 	मौसमों
+see		 : 	देखना
+seed		 : 	बीज
+seen		 : 	देखा
+sees		 : 	देखता है
+sentences	 : 	वाक्य
+sequins		 : 	सितारा 
+seven		 : 	सात
+shade		 : 	छाया
+shake		 : 	हिलाना 
+shall		 : 	करेगा
+shapes		 : 	आकृतियाँ 
+share		 : 	हिस्सा 
+sharp		 : 	तेज़
+she		 : 	वह
+sheep		 : 	भेड़
+shell		 : 	खोल
+shines		 : 	चमकता है
+shining		 : 	चमकदार, चमक रहा
+shiny		 : 	चमकदार
+ship		 : 	जहाज
+shirt		 : 	शर्ट, कुर्ता
+shirts		 : 	शर्ट (एक से ज्यादा)
+shoe		 : 	जूता
+shoes		 : 	जूते
+shooed		 : 	भगा दिया 
+shook		 : 	हिला कर रख दिया
+shop		 : 	दुकान
+short		 : 	कम
+shorts		 : 	शॉर्ट्स, पैंट
+should		 : 	चाहिए
+shouted		 : 	चिल्लाया
+show		 : 	दिखाना
+showing		 : 	दिखा रहा
+sick		 : 	बीमार
+side		 : 	पक्ष
+silly		 : 	मूर्ख
+sing		 : 	गाना
+singing		 : 	गा रहा
+sink		 : 	डूबना 
+sit		 : 	बैठना
+sitting		 : 	बैठक
+six		 : 	छह
+skip		 : 	छोड़ना 
+sky		 : 	आकाश
+sleep		 : 	नींद
+slow		 : 	धीमा
+small		 : 	छोटा
+smelly		 : 	बदबूदार
+smile		 : 	मुस्कान
+smiled		 : 	मुस्कराए
+smiling		 : 	मुस्कुरा रहा, मुस्कुराता 
+smita		 : 	स्मिता (नाम)
+so		 : 	इसलिए
+socks		 : 	मोज़े
+some		 : 	कुछ
+someone		 : 	कोई
+something	 : 	कुछ
+song		 : 	गीत
+sonu		 : 	सोनू  (नाम)
+soon		 : 	जल्दी
+sorry		 : 	खेद
+sounds		 : 	आवाज करता है, लगता है
+space		 : 	अंतरिक्ष
+spaceship	 : 	अंतरिक्ष - जहाज़
+speak		 : 	बोलना
+spiders		 : 	मकड़ियाँ 
+splash		 : 	छप(पानी में कूदने की आवाज)
+spoon		 : 	चम्मच
+squirrels	 : 	गिलहरी
+srivastava	 : 	श्रीवास्तव (नाम)
+stars		 : 	सितारों
+start		 : 	प्रारंभ
+started		 : 	शुरू कर दिया
+stay		 : 	रहना
+stick		 : 	छड़ी
+sticks		 : 	चिपक जाती है
+stone		 : 	पत्थर
+stop		 : 	रोक
+stopped		 : 	रोक दिया
+story		 : 	कहानी
+straw		 : 	पुआल
+stretch		 : 	फैलाना
+stretched	 : 	फैलाया 
+string		 : 	तार, रस्सी
+strip		 : 	पट्टी
+strong		 : 	मज़बूत
+struck		 : 	मारा
+study		 : 	अध्ययन
+summer		 : 	गर्मी
+sun		 : 	सूरज
+sundari		 : 	सुन्दरी(नाम)
+sunday		 : 	रविवार
+sunflower	 : 	सूरजमुखी
+superman	 : 	सुपरमैन (नाम)
+sweet		 : 	मीठा
+swing		 : 	झुला 
+swings		 : 	झूलों
+tadpole		 : 	मेढक का बच्चा
+tail		 : 	पूंछ
+tailor		 : 	दर्जी
+tails		 : 	पूंछ (एक से ज्यादा)
+take		 : 	लेना
+talk		 : 	बातचीत
+talking		 : 	बात कर रहा 
+tall		 : 	लंबा
+tap		 : 	नल
+tasty		 : 	स्वादिष्ट
+teacher		 : 	शिक्षक
+teeth		 : 	दांत
+tell		 : 	कहना
+ten		 : 	दस
+that		 : 	कि
+the		 : 	यह
+their		 : 	उनके
+them		 : 	उन
+then		 : 	तो
+there		 : 	वहाँ
+these		 : 	इन
+they		 : 	वे
+things		 : 	चीज़ें
+think		 : 	सोचना
+thirteen	 : 	तेरह
+this		 : 	यह
+thread		 : 	धागा
+three		 : 	तीन
+threw		 : 	फेंक दिया
+throw		 : 	फेकना 
+tick		 : 	चिन्ह करना 
+tied		 : 	बंधे
+tiger		 : 	बाघ
+till		 : 	तक
+time		 : 	समय
+tin		 : 	टिन
+tiny		 : 	नन्हा
+tired		 : 	थका हुआ
+to		 : 	से
+today		 : 	आज
+toes		 : 	पैर की उंगलियों
+toffees		 : 	टॉफी (एक से ज्यादा)
+together	 : 	एक साथ
+tolstoy		 : 	टॉलस्टॉय (नाम)
+tomato		 : 	टमाटर
+too		 : 	भी
+took		 : 	ले लिया
+towel		 : 	तौलिया
+trace		 : 	निशान
+tracing		 : 	अनुरेखण
+train		 : 	रेलगाड़ी
+tree		 : 	पेड़
+trees		 : 	पेड़ (एक से ज्यादा)
+trick		 : 	चाल
+tried		 : 	कोशिश किया 
+troubles	 : 	मुसीबतों, मुसीबतें 
+trousers	 : 	पतलून
+true		 : 	सच
+trunk		 : 	सूंड (हाथी का)
+try		 : 	कोशिश
+tub		 : 	टब
+tug		 : 	बल से खींचना
+tugged		 : 	जोर से खिंचा 
+tune		 : 	धुन
+turtle		 : 	कछुआ
+turtles		 : 	कछुए
+twelve		 : 	बारह
+two		 : 	दो
+umbrella	 : 	छाता
+under		 : 	नीचे
+underline	 : 	रेखांकन
+unit		 : 	इकाई
+until		 : 	जब तक
+up		 : 	ऊपर
+upon		 : 	पर
+us		 : 	हमें
+use		 : 	उपयोग
+using		 : 	का उपयोग कर
+vale		 : 	घाटी
+van		 : 	वैन
+vase		 : 	फूलदान
+vegetables	 : 	सब्जियां 
+very		 : 	बहुत
+view		 : 	देखना
+vineeta		 : 	विनीता (नाम)
+violet		 : 	बैंगनी
+violin		 : 	सारंगी
+voice		 : 	आवाज़
+vote		 : 	वोट
+wake		 : 	जगाना
+walk		 : 	चलना
+walked		 : 	चला गया
+wall		 : 	दीवार
+walls		 : 	दीवारों
+want		 : 	चाहना 
+wanted		 : 	चाहा
+was		 : 	था
+water		 : 	पानी
+watered		 : 	पानी पिलाया
+wave		 : 	लहर
+waves		 : 	लहरों
+wax		 : 	मोम
+way		 : 	रास्ता
+we		 : 	हम
+wear		 : 	पहनना
+webs		 : 	जाले
+well		 : 	अच्छा 
+went		 : 	चला गया
+were		 : 	थे
+wet		 : 	गीला
+whale		 : 	व्हेल
+whales		 : 	व्हेल
+what		 : 	क्या
+whatever		 : 	जो कुछ
+wheel		 : 	पहिया
+when		 : 	जब
+where		 : 	जहां
+wherever		 : 	जहां कहीं
+which		 : 	जो
+whichever		 : 	कोई भी
+white		 : 	सफ़ेद
+who		 : 	कौन
+whole		 : 	संपूर्ण
+why		 : 	क्यों
+will		 : 	होगा
+wind		 : 	हवा
+window		 : 	खिड़की
+windows		 : 	विंडोज़
+wing		 : 	पंख
+wings		 : 	पंख
+wipe		 : 	पोंछ
+wish		 : 	इच्छा
+with		 : 	साथ
+woke		 : 	उठा
+wolf		 : 	भेड़िया
+wooden		 : 	लकड़ी का
+wool		 : 	ऊन
+word		 : 	शब्द
+words		 : 	शब्द
+works		 : 	कार्य
+would		 : 	होगा
+wow		 : 	वाह
+wrist		 : 	कलाई
+write		 : 	लिखना
+xmas		 : 	क्रिसमस
+yak		 : 	याक
+yawn		 : 	जंभाई
+year		 : 	वर्ष
+years		 : 	साल
+yell		 : 	चिल्लाना
+yellow		 : 	पीला
+yes		 : 	हां
+you		 : 	आप, तुम 
+young		 : 	युवा
+your		 : 	आपके
+yourself	 : 	स्वयं
+yummy		 : 	स्वादिष्ट
+zebra		 : 	ज़ेबरा
+zig		 : 	टेढ़ा
+zigzag		 : 	टेढ़ा मेढ़ा
+zip		 : 	ज़िप
+zoo		 : 	चिड़ियाघर
+zoom		 : 	बड़ा करना 
