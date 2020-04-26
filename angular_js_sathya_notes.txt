@@ -1,0 +1,1181 @@
+AngularJS 
+=======================
+https://drive.google.com/open?id=1LZy7VNnlAeZjU7SIOkFy9RnF75BVMoOg
+
+Basic coverage
+=======================
+https://www.sublimetext.com/
+
+sublimetext
+
+q)how many ways i can include js in the html?
+
+2 ways
+
+1) internal
+
+2) external(best)
+
+primitive datatype represent single value.
+
+reference datatype represent some memory location.
+
+number:-
+
+	integer and decimal values
+	
+String:-
+
+		characters and strings
+		
+		'a' "hello world"
+		
+		"hello world" 'hello world'
+	
+boolean:-
+		true false
+	
+null and undefined
+
+		absense of value is called as null.
+		
+		absense of data type is called as undefined.
+		
+javascript identify the data type based on the value it is representing;		
+	
+type information is fixed in other pl..
+
+in javascript it is variable.
+
+javascript is loosly type language.
+
+how to identify the datatype of variable?
+
+by using the typeof keyword.	
+
+Arrays -- group of similar type values.
+
+
+1) different datatype values also represent in the same array
+
+2) array dynamic in nature. we can add or remove based on the requirement.
+
+	push -- add
+	pop	 -- remove
+	
+	var values = [1,2,3,4,5];
+		value[0];
+
+Objects are used to represent group of key and value pairs.
+
+		var student = {"id":1,"name":"student1"};
+
+		student.course = "Angular 5";
+
+		student.name = "sathya";
+
+		console.log(student);
+
+
+Anonymous function : A function without name.
+
+
+
+
+Day1_Lecture
+===========================
+all function calls which is in the script will execute once web page loads into the browser.
+
+		in the script
+		execute based on user interaction(event)
+
+
+DOM -- document object model
+
+document -- webpage convert into document once it loads into browser
+
+			    JS JQUERY 				ANGULARJS
+			    -----------------------			---------------------------------
+DOM 			--  more lines				less lines
+DataBindings		--  we need to write				default
+
+
+
+dynamic table rows example
+
+<table>
+	<tr>
+		<td>
+			1
+		</td>
+	</tr>
+	<tr>
+		<td>
+			2
+		</td>
+	</tr>
+	<tr>
+		<td>
+			3
+		</td>
+	</tr>
+</table>
+
+getElementById -- to access existing element
+
+createElement  -- to create new html content
+
+appendChild    -- to make association with existing html
+
+
+
+
+document --- html -- head -- script
+				  -- body -- select
+						  -- button
+						  
+dynamic options for the select.
+
+
+html can be changed by using javascript. dom manipulation. document.
+
+developer need to write lot of code.
+
+fresher -- yes UI --- java .net node php
+
+				angular 1X 2->4->5->6
+				JS		   TS
+				
+				Bootstrap == css framework
+				
+				html5 css3 JS6
+
+Setup:-
+
+1)	https://angularjs.org/ --> download --> uncompressed --> download
+
+2) ctrl + s --> save into your machine.
+
+3) move this file into practice folder.
+
+Example practice :-
+
+4) create one html file in practice folder
+
+5)	include angular.js file by using script tag.
+
+6)	create a module and configure by using ng-app.
+
+
+
+
+
+flipkart							ABC
+	user module		--user module
+	billing module	--billing module
+	products module
+	orders module
+	payments module
+	offers module
+	....
+	
+	angular.module("FlipaKartApp",['userApp','billingApp',..]);
+	
+	<html ng-app="FlipaKartApp">
+	
+	</html>
+	
+	angular.module("userApp",[]);
+	
+1) fast application developement
+
+2) to reuse the logic in other applicaitons.
+
+3) testing is easy.
+
+4) to use the angular module in the html we use ng-app.
+
+<input type="text" />
+
+input -- element or tag			html stand or specification
+
+type is the attribute
+
+ng-app angular --> angular functionalities into browser understandable.
+
+Controller		-- data or event for our html
+
+Service		-- communication with server(send/access data)
+
+Filter			-- formating -- 01/02/2018 -- india dd/mm/yyyy
+													mm/dd/yyyy
+
+Directive		--	html	-- 	required		ng-model
+								minlength
+								maxlength
+								pattern
+
+-----------------------------------------------------------------------
+
+
+<!DOCTYPE html>
+<html ng-app="StudentApp">
+<head>
+	<title>My first angular web page</title>
+	<script type="text/javascript" src="angular.js"></script>
+	<script type="text/javascript">
+		
+		angular.module('StudentApp', []);
+
+	</script>
+</head>
+<body>
+
+	<input type="text" name="studentName" ng-model="sname">
+	Name is {{sname}}
+</body>
+</html>
+
+
+sublime text
+
+angular --> angular.js
+
+how to create a module?
+
+angular.module("StudentApp",[]);
+
+angular.module("M1",["M2","M3"])
+
+<html ng-app="M1">
+
+</html>
+
+<html>
+	
+	<body>
+		<div ng-app="M1">
+			..................
+		</div>
+		<div>
+			..................
+		</div>
+	</body>
+</html>
+
+<html ng-app="M2">
+
+</html>
+
+<html ng-app="M3">
+
+</html>
+
+when we see the angular expression with curly braces there is configuration error.
+to identify the error
+	F12 --> click on the console tab.
+
+
+DATA BINDING:-
+
+providing the connection between html elements with data.
+
+	HTML --- DATA variables (scope)
+	
+	Controller --> DataBindings for html
+	
+	module --> Function area of our application.
+
+	angular.module('StudentApp').controller("StudentController",function($scope){
+	
+	
+		$scope.message = "hello world";
+		
+	
+	});
+	
+	html and angular ---------------- shared data/functions is available in $scope.
+				
+				
+	<button onclick="m1();">Click</button>
+
+
+always configure external js file in html.
+
+data binding
+========================
+Associating the data between controller & HTML element.
+
+1 way data binding
+------------------------
+	{{}} --  sending data from controller to the UI.
+
+2 way data binding
+------------------------	
+ng-repeat = "vn in array"
+
+{{vn}}
+		
+	controller --  service  --- server db
+
+	
+	angularjs 1.x  -- javascript development.
+	
+	angular 2 4 5 6 -- typescript devlopment.
+	
+
+event binding
+=====================	
+	onclick  ng-click="m1();" // Here m1() is the controller function.
+
+	ng-change, ng-mousehover, ng-focus ...
+
+
+
+
+Now Start
+===========================
+
+Every application development is divided into functional areas. 
+These functional areas are usually configured as a "module".
+
+
+include the file angular.js
+--------------------------------
+<script type = "text/javascript" src="angular.js"></script>
+
+
+Creating a module
+---------------------
+angular.module('ModuleName', []); // [] is called dependencies.
+//Here angular is an object and module("moduleName",[dependencies]) is the method.
+//Only one module is possible per web page. If multiple modules available then only the first will be considered.
+
+
+To use a module (ng-app)
+----------------------------
+By using "ng-app" attribute.
+<html ng-app = "ModuleName">
+
+
+To bind the text field data (ng-model)
+------------------------------------------
+<input type = "text" name = "studentName" ng-model = "sname">
+<br>
+<p>Name is {{sname}} </p> //{{}} is called expression.
+
+//Here exporting the text field data to the variable "sname". or called text field data bind with the variable.
+
+
+<!DOCTYPE html>
+<html ng-app="StudentApp">
+<head>
+	<title>My first angular web page</title>
+	<script type = "text/javascript" src="angular.js"></script>
+	
+	<script type = "text/javascript">
+		angular.module('StudentApp',[]);
+	</script>
+</head>
+<body>
+	<input type = "text" name = "studentName" ng-model = "sname">
+
+	Name is {{sname}}
+</body>
+</html>
+
+
+Creating a Controller - Managing the data binding
+===================================================
+By using module reference
+
+angular.module("ModuleName").controller("ControllerName",function($scope){});
+
+//$scope - This is a pre defined object and acts as a sharable memory for html & angular.
+
+//$scope contains data & functions. or data & function associate with $scope.
+
+//Every controller has it's own object.
+
+//$scope is used to create a variable like - $scope.<variableName>
+	$scope.message
+
+//every controller has its own scope
+
+//Request & response is done by controllers.
+
+
+
+How to get scope data in html under ng-controller attribute/ directive
+------------------------------------------------------------------------
+By using {{}} i.e. expression.
+ 
+
+Example
+-------------
+
+<!DOCTYPE html>
+<html ng-app="StudentApp">
+<head>
+	<title>My first angular web page</title>
+	<script type = "text/javascript" src="angular.js"></script>
+	
+	<script type = "text/javascript">
+		
+		angular.module('StudentApp',[]);
+		
+		angular.module('StudentApp').controller("StudentController1",function($scope){
+				
+			$scope.message = "controller1";
+
+			$scope.m1 = function(){
+				$scope.message = "event is fired from controller1!";
+			}
+			
+		});
+		
+		angular.module('StudentApp').controller("StudentController2",function($scope){
+
+			$scope.message = "controller2";
+
+			$scope.m1 = function(){
+				$scope.message = "event is fired from controller2!";
+			}
+	
+		});
+
+	</script>
+</head>
+<body>
+
+	<div ng-controller = "StudentController1">
+		
+			{{message}} <button ng-click="m1();">Click</button>	
+	
+	</div>
+	
+	<div ng-controller = "StudentController2">
+		
+			{{message}} <button ng-click="m1();">Click</button>	
+	
+	</div>
+
+</body>
+</html>
+
+
+//ng-<eventname> is also a directive 
+//like ng-click, ng-focus, ng-blur, ng-change...
+
+
+Only one module can be used per web page while controllers can be a number of...
+
+
+
+
+Day_2_Lecture
+==========================
+Group of values [ng-repeat = "temp_variable in array"]
+--------------------------
+in separate js [app.js]
+--------------------------
+angular.module('StudentApp',[]);
+angular.module('StudentApp').controller('C1', function($scope){
+	
+	$scope.message = "Hello World!";
+	
+	$scope.names = ["s1","s2","s3"];
+	
+	$scope.m1 = function(){
+		$scope.names = ["s1","s2","s3"]; //changing values
+	}
+});
+
+in HTML
+----------
+<!DOCTYPE html>
+<html ng-app = "StudentApp">
+<head>
+	<title>Basic Example</title>
+	<script type = "text/javascript" src = "angular.js"></script>
+	<script type = "text/javascript" src = "app.js"></script>
+</head>
+<body>
+	<div ng-controller="C1">
+		{{names[0]}} - {{names[1]}} - {{names[2]}} //For manual access using index.
+
+		<table>
+			<tr ng-repeat = "n in names">. // With loop in table
+				<td>{{n}}</td>
+			</tr>
+		</table>
+		<select>
+			<option ng-repeat = "n in names">{{n}}</option>	
+		</select>
+		<button ng-click="m1();">Click</button>
+	</div>
+</body>
+</html>
+
+
+Working with Objects
+=============================
+in separate js [app.js]
+--------------------------
+angular.module('StudentApp',[]);
+angular.module('StudentApp').controller('C1', function($scope){
+	
+	var student1 = {"id":1,"name":"student1","email":"s1@gmail.com"}; // creating objects
+	var student2 = {"id":2,"name":"student2","email":"s2@gmail.com"};
+	var student3 = {"id":3,"name":"student3","email":"s3@gmail.com"};
+	
+	$scope.students = [student1,student2,student3]; //creating array
+
+	$scope.m1 = function(){
+		
+		var student3 = {"id":3,"name":"student3","email":"s3@gmail.com"};
+		var student4 = {"id":4,"name":"student4","email":"s4@gmail.com"};
+		var student5 = {"id":5,"name":"student5","email":"s5@gmail.com"};
+	
+		$scope.students = [student3,student4,student5];	
+
+	}
+});
+
+
+in HTML
+----------
+<!DOCTYPE html>
+<html ng-app = "StudentApp">
+<head>
+	<title>Basic Example</title>
+	<script type = "text/javascript" src = "angular.js"></script>
+	<script type = "text/javascript" src = "app.js"></script>
+</head>
+<body>
+	<div ng-controller="C1">
+		<table>
+			<tr ng-repeat = "s in students">. // With loop in table
+				<td>{{s.id}}</td>
+				<td>{{s.name}}</td>
+				<td>{{s.email}}</td>
+			</tr>
+		</table>
+		 
+		<button ng-click="m1();">Click</button>
+	</div>
+</body>
+</html>
+
+
+
+
+Day_3_Lecture
+======================
+Controller -- Service -- DBServer
+
+Creating Service - To create
+--------------------------------------------
+angular.module('StudentApp').service('StudentService',function(){}).
+
+
+creating directive - To add the new behaviour to the module
+--------------------------------------------------------------
+angular.module('StudentApp').directive('DirectiveName',function(){});
+
+
+creating filter
+---------------------
+angular.module('StudentApp').filter('DirectiveName',function(){});
+
+
+Service Layer
+---------------------
+1) Service contains business logic.
+2) service contains server communication logic.
+3) provides a common logic to the controller.
+4) services are singleton object, so only one object is available. It is maintained by angular.
+
+Data is managed in controller, and service is used to fetch the data. So, Controller provides the data to HTML by communicating to the services.
+
+HTML <-- controller <-- services <-- db  //provides data
+
+
+in separate js [app.js]
+--------------------------
+angular.module('StudentApp',[]);
+
+angular.module('StudentApp').controller('StudentController', function($scope, StudentService){
+	 	
+	$scope.students = StudentService.getStudents(); // Accessing data from service.
+
+});
+
+angular.module('StudentApp').service('StudentService',function(){
+	
+	var student3 = {"id":3,"name":"student3","email":"s3@gmail.com"};
+	var student4 = {"id":4,"name":"student4","email":"s4@gmail.com"};
+	var student5 = {"id":5,"name":"student5","email":"s5@gmail.com"};
+
+	this.getStudents = function(){
+
+		// Server rest API calls
+
+		var data = [student1,student2,student3];
+
+		return data;
+	}
+});
+
+
+in HTML
+----------
+<!DOCTYPE html>
+<html ng-app = "StudentName">
+<head>
+	<title>Basic Example</title>
+	<script type = "text/javascript" src = "angular.js"></script>
+	<script type = "text/javascript" src = "app.js"></script>
+</head>
+<body>
+	<div ng-controller="StudentController">
+		<table>
+			<tr ng-repeat = "s in students">. // With loop in table
+				<td>{{s.id}}</td>
+				<td>{{s.name}}</td>
+				<td>{{s.email}}</td>
+			</tr>
+		</table>
+		 
+		<button ng-click="m1();">Click</button>
+	</div>
+</body>
+</html>
+
+
+
+Ajax Service - $http
+----------------------------
+Used for server calls
+
+$http services
+---------------
+get - to access the data from server [selection]
+post - to send data to server for insertion [insertion]
+put - to send data to server for update [updation]
+delete -  to delete data in database [deletion]
+
+
+
+example in separate js [app.js]
+---------------------------------
+angular.module('StudentApp',[]);
+
+angular.module('StudentApp').controller('StudentController', function($scope, StudentService){
+	 	
+	$scope.students = []; //Empty array
+
+	StudentService.getStudents().then(function(serverdata){
+		$scope.students	=	serverdata.data;
+	});
+
+});
+
+angular.module('StudentApp').service('StudentService',function($http){
+	
+		this.getStudents = function(){
+
+		// Server DB calls/ Web services API
+
+		return $http.get("http://localhost:3000/students");
+	}
+});
+
+
+
+
+
+
+
+day_4_Lecture
+======================
+Handle response 
+----------------------
+Rest API/ DB calls might be fail/success.
+
+To register a response we use, then() function.
+
+StudentService.getStudents().then(function(success){},function(error){});
+
+
+
+$scope acts as a memory area for the controller.
+
+ 
+example in separate js [app.js]
+---------------------------------
+angular.module('StudentApp',[]);
+
+angular.module('StudentApp').controller('StudentListController', function($scope, StudentService){
+	 	
+	$scope.students = []; //Empty array
+
+	//To register a response we use, then() function.
+	//fn1 illustrates success response
+	//fn2 illustrates failure response
+
+	StudentService.getStudents().then(
+		
+		function(serverdata){	  //"serverdata" can be any name, its anonymous.  
+			//success code
+			//consol.log(serverdata);  // It will show the response object in details.
+			$scope.stuents = serverdata.data;
+
+			
+		},
+		function(error){
+			//failure code
+			alert("data loading error!");
+		}
+	);
+
+});
+
+angular.module('StudentApp').service('StudentService',function($http){
+	
+		this.getStudents = function(){
+
+			// Server DB calls/ Web services API
+
+			return $http.get("http://localhost:3000/students");
+		}
+});
+
+
+in HTML
+----------
+<!DOCTYPE html>
+<html ng-app = "StudentApp">
+<head>
+	<title>Basic Example</title>
+	<script type = "text/javascript" src = "angular.js"></script>
+	<script type = "text/javascript" src = "app.js"></script>
+</head>
+<body>
+	<div ng-controller="StudentListController">
+		<table>
+			<tr ng-repeat = "s in students">. // With loop in table
+				<td>{{s.id}}</td>
+				<td>{{s.name}}</td>
+				<td>{{s.email}}</td>
+			</tr>
+		</table> 
+	</div>
+</body>
+</html>
+
+
+
+
+
+day_5_lecture
+=================
+To send data to the server
+-----------------------------
+HTML(form) --> controller --> services --> server --> db  //provides data
+
+post("url",clienSideData);
+
+tsd - technical specification document
+
+variable binding - to handle few input fields manually.
+objct binding - to handle more input fields.
+
+
+in app.js
+-----------------
+//module
+angular.module("StudentName",[]);
+
+//controller
+angular.module("StudentName").controller("StudentFormController", fuunction($scope, StudentService){
+
+	$scope.sid = "";// variable binding - To handle few form data manually.
+	$scope.sname = "";// variable binding
+
+	$scope.insert = function(){
+		var studentData = new Object();
+		
+		student.id = $scope.sid;
+		student.sname = $scope.sname;
+
+		StudentService.insertStudent(studentData)then(
+		
+			function(serverdata){
+				alert("success!");	//response code = 200
+			},
+			function(error){
+				alert("failed!");				
+			});
+	}
+});
+
+//service
+angular.module("StudentName").service("StudentService",function($http){
+	this.insertStudent = function(data){
+		//console.log(data);
+		return $http.post("http://localhost:3000/student",data);
+	}
+});
+
+
+in html
+--------------
+
+<body ng-controller = "StudentFormController">
+	<form>
+		Id<input type ="text" name = "id" ng-model = "sid"/><br/>
+		Name<input type ="text" name = "name" ng-model = "sname"/><br/>
+
+		<button ng-click = "insert();">Save</button>
+	</form>
+</body>
+
+
+
+Object binding - To deal with maximum form inputs
+------------------------------------------------------
+in app.js
+-----------------
+//module
+angular.module("StudentName",[]);
+
+//controller
+angular.module("StudentName").controller("StudentFormController", fuunction($scope, StudentService){
+
+	//object binding - to bind whole form data
+
+	$scope.student = new Object(); //creating object to store whole form data
+
+	$scope.insert = function(){
+		
+		StudentService.insertStudent($scope.student).then(
+		
+			function(serverdata){
+				alert("success!");	//response code = 200
+			},
+			function(error){
+				alert("failed!");				
+			});
+	}
+});
+
+//service
+angular.module("StudentName").service("StudentService",function($http){
+	this.insertStudent = function(data){
+		//console.log(data);
+		return $http.post("http://localhost:3000/student",data);
+	}
+});
+
+
+in html
+--------------
+
+<body ng-controller = "StudentFormController">
+	<form>
+		Id<input type ="text" name = "id" ng-model = "student.sid"/><br/>
+		Name<input type ="text" name = "name" ng-model = "student.sname"/><br/>
+
+		<button ng-click = "insert();">Save</button>
+	</form>
+</body>
+
+
+
+
+day_6_Lecture
+========================
+
+On demand loading
+
+To get data By $http.get
+-----------------------------------------------------
+
+in app.js
+------------------------
+//module - represnts functional areas of the project
+angular.module("StudentApp",[]);
+
+//controller - data & event management
+angular.module(StudentApp).controller("StudentListController"),function($scope, StudentSrvice){
+
+	$scope.students = [];
+	
+	$scope.load = function(){
+		StudentService.getStudent().then(
+			function(successdata){
+				//console.log(successdata); will show the server side response structure in console.
+				$scope.students = successdata.data;
+			},
+			function(errordata){
+				console.log(errordata);
+		}
+		);
+	}
+	
+});
+
+//service - business logic
+angular.module("StudentApp").service("StudentService",function($http){
+	this.getStudents = function(){
+		return $http.get('http://localhost:3000/students');
+	}
+});
+
+in html
+------------------
+<html ng-app = "StudentApp">
+<head>
+	add angular.js & app.js
+</head>	
+<body>
+
+	<button ng-click="load();">Load data</button>
+	<table>
+		<tr ng-repeat = "student in students">
+			<td>{{student.id}}</td>
+			<td>{{student.name}}</td>
+		</tr>
+	</table>
+</body>
+</html>
+
+
+To Debug
+============
+developer tools in browser - F12
+
+
+$http.post - sending data to update
+-------------------------------------
+in app.js
+------------------------
+//module
+angular.module("StudentApp",[]);
+
+//controller - data & event management
+angular.module(StudentApp).controller("StudentUpdateController"),function($scope, StudentSrvice){
+
+	$scope.student = [];
+	
+	//for update 
+	$scope.update_student = function(){
+		StudentService.updateStudent($scope.student.id).then(
+			function(successdata){
+				//console.log(successdata); will show the server side response structure in console.
+				alert('success!');
+			},
+			function(errordata){
+				console.log(errordata);
+		}
+		);
+	}
+
+	//for delete
+	$scope.delete_student = function(){
+		StudentService.deleteStudent($scope.student.id).then(
+			function(successdata){
+				//console.log(successdata); will show the server side response structure in console.
+				alert('data deleted!');
+			},
+			function(errordata){
+				console.log(errordata);
+		}
+		);
+	}
+	
+});
+
+//service - business logic
+angular.module("StudentApp").service("StudentService",function($http){
+	
+	//for update
+	this.updateStudent = function(studentData){
+		return $http.put('http://localhost:3000/students'+ studentData.id, studentData);
+	}
+
+	//for delete
+	this.deleteStudent = function(id){
+		return $http.delete('http://localhost:3000/students'+ id);
+	}
+});
+
+in html
+------------------
+<html ng-app = "StudentApp">
+<head>
+	add angular.js & app.js
+</head>	
+<body>
+	<form>
+		<input type = "text" name = "id" ng-model = "">
+		<input type = "text" name = "name" ng-model = "">
+
+		<button ng-click="update_student();">Update</button>
+		<button ng-click="delete_student();">Delete</button>
+
+	</form>
+</body>
+</html>
+
+
+
+download example : https://drive.google.com/open?id=1LZy7VNnlAeZjU7SIOkFy9RnF75BVMoOg
+
+
+day_7_Lecture
+======================
+What is promise?
+------------------
+	It is a return object with success & failure status which is handled by then(success(),failure()).
+
+	for e.g.
+	-------------
+	$scope.insert = function(){
+		
+		StudentService.insertStudent($scope.student).then(
+		
+			function(serverdata){
+				alert("success!");	//response code = 200
+			},
+			function(error){
+				alert("failed!");				
+			});
+	}
+
+
+	Here, success() is mandatory.
+
+
+Creating JSON Server
+--------------------------------
+1) install nodejs software environment.
+2) Open terminal
+	$npm install -g json-server
+
+3) prepare test data by creating JSON file. 
+
+	- To test the angular js application.
+
+	every json object is in the form of {}.
+
+	{
+		"students":[
+			{"id":1,"name":"student1"},
+			{"id":2,"name":"student2"},
+			{"id":3,"name":"student3"},
+			{"id":4,"name":"student4"}
+		]
+	}
+
+	Here, 'students' is the key for this JSON
+ 
+	save it as /xyz/abc.json
+
+
+4) execute inside xyz directory path by terminal
+	$json-server abc.json 
+
+
+5) in browser
+
+	http://localhost:3000/students
+
+	'students' is the key of our json file.
+
+	e.g.2
+	{
+		"students":[
+			{"id":1,"name":"student1"},
+			{"id":2,"name":"student2"},
+			{"id":3,"name":"student3"},
+			{"id":4,"name":"student4"}
+		],
+		"employees":[
+			{"id":1,"name":"student1","salary":1000000},
+			{"id":2,"name":"student2","salary":1000000},
+			{"id":3,"name":"student3","salary":1000000},
+			{"id":4,"name":"student4","salary":1000000}
+		] 
+	}
+
+	$json-server abc.json 
+
+	http://localhost:3000/students
+	http://localhost:3000/employees
+
+to change the port 
+---------------------
+$json-server --port
+
+
+Now angular application
+===========================
+<!DOCTYPE html>
+<html ng-app = "EmployeeApp">
+<head>
+	<script type = "text/javascript" src="angular.js"></script>
+	<script type = "text/javascript" src="app.js"></script>
+</head>	
+<body>
+	<div ng-controller = "EmployeeListController">
+		<table>
+			<tr ng-repeat="emp in emplyees">
+				<td>{{emp.id}}</td>
+				<td>{{emp.name}}</td>
+				<td>{{emp.salary}}</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>
+
+
+app.js
+-----------
+//module
+angular.moule('EmployeeApp',[]);
+
+//controller
+angular.module('EmployeeApp').controller('EmployeeListController',function($scope,EmployeeService){
+	
+	$scope.employees = [];
+
+	EmployeeService.getEmployee().then(
+		function(qqq){
+			$scope.employees = qqq.data;
+		}
+	);
+});
+
+
+//service
+angular.module('EmployeeApp').service("EmployeeService",function($http){
+	this.getEmployee = function(){
+		return $http.get("http://localhost:3000/employees");
+	}
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
