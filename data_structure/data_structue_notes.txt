@@ -1,0 +1,67 @@
+Algorithm & Program
+----------------------
+A sequence of instructions is called an algorithm, 
+and coded algorithm, in a specific computer language is called a program.
+
+Complexity Theory
+----------------------
+Complexity theory in computer science is a part of theory of computation dealing with the resources required during computation to solve a given problem.
+
+	common resources are 
+	1) time (how many steps (time) does it take to solve a problem) 
+	2) space (how much memory does it take to solve a problem).
+
+Algorithm should have the following five characteristic features:
+	1. Input
+	2. Output
+	3. Definiteness 
+	4. Effectiveness 
+	5. Termination.
+
+	Therefore, an algorithm can be defined as a sequence of definite and effective instructions, which terminates with the production of correct output from the given input.
+
+Complexity & Asymptotic Analysis
+------------------------------------
+Complexity refers to the rate at which the required storage or consumed time grows as a function of the problem size. The absolute growth depends on the machine used to execute the program, the compiler used to construct the program, and many other factors. We would like to have a way of describing the inherent complexity of a program (or piece of a program), independent of machine/compiler considerations. This means that we must not try to describe the absolute time or storage needed. We must instead concentrate on a “proportionality” approach, expressing the complexity in terms of its relationship to some known function. This type of analysis is known as asymptotic analysis.
+
+It may be noted that we are dealing with complexity of an algorithm not that of a problem.
+
+We will learn about various techniques to bind the complexity function. 
+
+In fact, our aim is not to count the exact number of steps of a program or the exact amount of time required for executing an algorithm. 
+
+In theoretical analysis of algorithms, it is common to estimate their complexity in asymptotic sense, i.e., to estimate the complexity function for reasonably large length of input ‘n’. 
+
+Big O notation, omega notation Ω and theta notation Θ are used for this purpose. 
+
+In order to measure the performance of an algorithm underlying the computer program, our approach would be based on a concept called asymptotic measure of complexity of algorithm. 
+
+There are notations like big O, Θ, Ω for asymptotic measure of growth functions of algorithms. 
+
+The most common being big-O notation. The asymptotic analysis of algorithms is often used because time taken to execute an algorithm varies with the input ‘n’ and other factors which may differ from computer to computer and from run to run. 
+The essences of these asymptotic notations are to bind the growth function of time complexity with a function for sufficiently large input.
+
+
+Big-O procedure
+---------------------------
+The complexity of algorithms using big-O notation can be defined in the following way for a problem of size n:
+
+• Constant-time method is “order 1” : O(1). The time required is constant independent of the input size.
+
+• Linear-time method is “order n”: O(n). The time required is proportional to the input size. If the input size doubles, then, the time to run the algorithm also doubles.
+
+• Quadratic-time method is “order N squared”: O(n2). The time required is proportional to the square of the input size. If the input size doubles, then, the time required will increase by four times.
+
+
+	O(n2) means that if the size of the problem (n) doubles then the working storage (memory) requirement will become four times.
+
+
+O(1) < O(log(n)) < O(n log(n)) < O(n2) < O(n3), ... , O(2n).
+
+
+
+
+
+
+
+
