@@ -1,0 +1,67 @@
+Terminal settings
+======================
+To switch user 
+------------------------------
+NiteshNshansAir:~ niteshnidarshan$ su - oracle
+password:
+
+NiteshNshansAir:~ oracle$ 
+
+
+
+To create a file 
+------------------------------
+$touch <file_name>
+
+
+To open a file in editor
+------------------------------
+open -t <file_name>
+
+
+To add MySQL to $PATH variable:
+----------------------------------
+$ls - al  //search .bash_profile file
+cd to your home folder
+$ open -t .bash_profile
+Try adding the following line to your .bash_profile file.
+export PATH=${PATH}:/usr/local/mysql/bin/
+
+Setting the MySQL root user password on OS X
+$ mysql -u root -p 
+
+
+To change password
+----------------------------------
+mysql$ ALTER USER '<user>'@'<machine_id>' IDENTIFIED BY '<password>'; 
+
+$mysql$ ALTER USER 'root'@'localhost' IDENTIFIED BY 'abc@031391743'; 
+
+
+To Open MySql terminal
+============================
+$ mysql -u root -p 
+password:abc@031391743
+
+
+To see databases:
+---------------------
+mysql>show databases;
+
+
+To open the database
+---------------------
+use <database_name>
+
+mysql>use sys
+
+
+
+
+
+
+
+
+
+
+ 
