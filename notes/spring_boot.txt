@@ -1,0 +1,114 @@
+Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can "just run".
+
+Spring Boot is a tool to create spring based application.
+
+[ Spring is now much more than dependency injection. 
+It is a huge Application framework and it has programming & configuration model.
+It provides solutions for common development problems like database connection, running queries, transactions etc. ]
+
+Spring Boot is Opinionated. 
+
+It's feature is Convention over configuration. [Only a few configuration required].
+It provides a Stand alone application capability to just run the application. So it provides production ready solution for the application development.
+
+
+$ java -version [java 1.8]
+$ echo $JAVA_HOME [To check environment classpath setup]
+
+IDE : Spring Tool Suit
+
+--------------
+Spring Boot is designed to get you up and running as quickly as possible, with minimal upfront configuration of Spring. Spring Boot takes an opinionated view of building production-ready applications.
+
+Spring Boot is the starting point for building all Spring-based applications. Spring Boot is designed to get you up and running as quickly as possible, with minimal upfront configuration of Spring.
+--------------
+
+Maven is a build & dependency management tool.
+
+groupId = package
+artifactId = project name
+
+Step_1) pom.xml configuration 
+==================================
+Add parent as boot and dependencies
+
+	<project>
+	---
+	---
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.4.2.RELEASE</version>
+	</parent>
+	---
+	---
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+	</dependencies>
+	---
+	---
+	<properties>
+		<java.version>1.8</java.version>
+	</properties>
+	---
+	---
+	</project>
+
+
+Then, Maven - update project
+
+
+Step_2) Create a class with public static void main()
+
+	with class annotation @SpringBootApplication
+
+	@SpringBootApplication
+	public class InitialClass {
+
+		public static void main(String[] args) {
+			SpringApplication.run(InitialClass.class, args);
+
+		}
+
+	}
+
+
+Step_3) Create controllers
+
+	@RestController
+	public class HelloController {
+		@RequestMapping("/hello")
+		public String sayHi()
+		{
+			return "Hello World!";
+		}
+
+	}
+
+
+Rest API is usually deal with entity or resources.
+
+Consumer can access the resource.
+
+topic(1) - course(1+) - lesson(1+)
+
+Method	URL		Description
+------	-------------	---------------------
+GET	/topics		gets all the topic
+GET	/topics/id	gets the topic
+POST	/topics		create new topic
+PUT	/topics/id	updates the topic
+DELETE	/topics/id	deletes the topic
+
+----------
+
+
+
+
+
+ 
+  
+

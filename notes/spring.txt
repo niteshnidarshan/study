@@ -1,0 +1,288 @@
+A Framework is defined as an abstraction layer on top of existing technologies & concepts of java.
+
+	1) Invasive framework : It forces a developer to extend a framework class/ interface while creating projects like Struts.
+	2) Non-invasive : It does not force a developer to extend a framework class/ interface while creating projects like Spring/ Hibernate. 
+
+Spring framework is a lightweight, non-invasive & loosely coupled modular framework for java projects. 
+We can develop either all module or some of the module or a single module.
+It has following features -
+	1) Lightweight
+	2) Loosely-coupled 
+	3) Reduced boiler plate(repetitive) code with the help of Template classes
+	4) Easily testable
+
+Modules of Spring
+==================
+Spring Framework Runtime
+-------------------------
+	1) Data Access/Integration
+		1.1) JDBC
+		1.2) ORM
+		1.3) OXM
+		1.4) JMS
+		1.5) Transactions
+	2) Web(MVC/ Remoting)
+		2.1) Web
+		2.2) Servlet
+		2.3) Portlet
+		2.4) Struts
+	3) AOP
+	4) Aspects
+	5) Instrumentation
+	6) Core Container
+		6.1) Beans
+		6.2) Core
+		6.3) Context
+		6.4) Expression Language
+	7) Test
+
+Core Module
+---------------
+	It is the fundamental module of Spring.
+	It tells about, how to configure Spring Beans & their dependencies in XML.
+
+AOP Module
+---------------
+	By implementing business logics in a project we attach some services to the business 
+	like Authentication or Transaction services etc.
+
+	If the same services are added to multiple business methods then we will get redundancy of code.
+
+	To make cross-cutting concerns(services) as reusable for multiple business methods, 
+	we separate the services from business.
+
+	So, AOP(Aspect Orientation Programming) is a mechanism which adds services to business at runtime.
+
+Data Access & Integration Module
+-----------------------------------
+	It is an abstraction layer on top of JDBC technology & ORM tools.
+	This module provides some template classes to reduce boiler plate code as well as memory leak problems.
+
+Web & Remoting Module
+-----------------------------------
+	This module is for distributed application development using Spring MVC.
+	Spring Remoting tells about, how to invoke the services of other beans which are running at some other JVM across network.
+
+Test Module
+--------------
+	This test module prepares mock objects needed to develop test cases.
+
+
+
+Spring Core
+================================
+
+POJO(Plain Old Java Object)
+----------------------------
+	It is a kind of ordinary java class which is not going beyond the java API.
+	A POJO class will not be binded to any technology or a framework.
+
+Java Bean Class
+-------------------
+	Reusable classes in java are termed as beans.
+	
+	Java beans must have the following properties :
+		
+		1) Class must be public
+		2) Class must contains default constructor
+		3) Each private property should contain a setter/ a getter/ both
+		4) Class should implement Serializable interface.
+
+	Every java bean is a POJO class but every POJO class is not a java bean.
+
+	public class MyClass implements Serializable
+	{
+		---
+		public MyClass(){}
+		---
+	}
+
+	Here, MyClass is a Java bean as well as a POJO class also.
+
+	
+	class MyClass implements Serializable
+	{	
+		---
+		public MyClass();
+		---
+	}
+
+	Here, MyClass is not a Java bean because it is not a public class, while it is a POJO class.
+
+
+	* Crossing the boundary of Java API - NOT A POJO
+	* Java Bean must not implements other than Serialzable interface.
+
+
+Beans Collaboration/ Beans Dependency
+==================================================
+
+Tight coupling & loose coupling between objects
+--------------------------------------------------
+	While developing application, it contains many classes & one class calls another class 
+	to provide some services to the client.
+	
+	In Spring, if one class calls another class then is is called Bean collaboration/ bean dependency.
+
+	If class A calls services of B & C then we call B & C are dependencies of A.
+
+	In Java, a class can get its dependency object by using one of the following four ways :
+
+		1) A class can directly create its dependency object with 'new' keyword as HAS-A.
+
+		2) A class can get its dependency by calling a factory method.
+
+		3) A class can collect its dependency object from external memory like a registry.
+	
+		4) Some external entity/ person can inject class-2 object into class-1.
+
+	When one object depends on another and if modification done on dependency object, 
+	is demanding the modification in a caller object also.
+	Then it is said a "Tight Coupling" between objects.
+
+	Consider following
+
+	Class Travel
+	{
+		private Car car = new Car();
+		
+		void startJourney()
+		{
+			car.move();
+		}
+	} 
+
+	Class Car
+	{
+		void move()
+		{
+			---
+		}
+	}
+
+	In this example, if a method in Car class changed from move() to go(),
+	then in Travel class also we need to change.
+
+	It means, if dependency object i.e. Car is changed then caller i.e. Travel also need changes.
+	
+	This is a tight coupling between objects.
+
+	In the above example, suppose Travel class want another class like "Bike",
+	then we need to modify the Travel class by replacing Car with Bike. This is also tight coupling.
+
+
+	In order to avoid tight coupling situation between objects, 
+	we should follow the below two principles :
+
+		1) Use POJI/POJO model for creating dependencies.
+		2) Apply dependency mechanism. 
+
+
+	Now create an interface "Vehicle" & define implementation class like "Car", "Bike", "Flight".
+
+	The importance of this model is, method names in multiple classes will be same and a class can not change method name.
+
+	In Travel class take a reference of type Vehicle interface, so that it can store any implementation class object of that interface.
+
+
+	public interface Vehicle
+	{
+		void move();
+	}
+
+	class Car implements Vehicle
+	{
+		public void move()
+		{
+			---
+		}
+	}
+
+	class Bike implements Vehicle
+	{
+		public void move()
+		{
+			---
+		}
+	}
+
+	class Flight implements Vehicle
+	{
+		public void move()
+		{
+			---
+		}
+	}
+
+	
+	class Travel
+	{
+		private Vehicle vehicle;
+
+		//Setter
+		public void setVehicle(Vehicle vehicle)
+		{
+			this.vehicle = vehicle;
+		}
+
+		void startJourney()
+		{
+			vehicle.move();
+		}
+	}
+
+
+	A container injects one Vehicle object needed for Travel class, 
+	so there is no need to make any changes in Travel class.
+
+
+	* If container injects the dependencies required for a class, then it is called Dependency Injection.
+
+
+	* Through interfaces, we can achieve loose coupling.
+
+
+	Every servlet object needs two dependencies - "Request" & "Response".
+
+	A servlet container injects the dependencies to the servlet object. So it is called dependency injection.
+
+
+Dependency Injection
+=======================
+1) Setter injection
+2) Constructor injection
+3) Interface injection
+
+Spring container supports Setter & Construction injection only.
+
+ 
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
