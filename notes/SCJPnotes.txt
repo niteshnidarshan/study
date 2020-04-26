@@ -1,0 +1,299 @@
+Identifier:	All the Java components like classes, variables, and methods—
+	    	need names. In Java these names are called identifiers.
+
+
+Class:		A template that describes the kinds of state and behavior that objects
+		of its type support.
+
+Object:		At runtime, when the Java Virtual Machine (JVM) encounters the
+		new keyword, it will use the appropriate class to make an object which is an
+		instance of that class. That object will have its own state, and access to all of
+		the behaviors defined by its class.
+
+State (instance variables):	Each object (instance of a class) will have its
+				own unique set of instance variables as defined in the class. Collectively, the
+				values assigned to an object's instance variables make up the object's state.
+
+Behavior (methods)
+------------------
+	When a programmer creates a class, she creates meth-
+	ods for that class. Methods are where the class' logic is stored. Methods are
+	where the real work gets done. They are where algorithms get executed, and
+	data gets manipulated.
+
+Inheritance
+-----------
+	Inheritance allows code defined in one class to be reused in other classes.
+
+Access modifiers: public , protected , private .
+------------------------------------------------	 
+
+Non-access modifiers: (including strictfp , final , and abstract ).
+-------------------------------------------------------------------
+
+you must never, ever mark a class as both final and abstract .
+---------------------------------------------------------------
+	You can't mark a class as both abstract and final . They have nearly opposite
+	meanings. An abstract class must be subclassed, whereas a final class must not be
+	subclassed. If you see this combination of abstract and final modifiers, used for a
+	class or method declaration, the code will not compile.
+
+strict floating point
+---------------------
+	strictfp is a keyword and can be used to modify a class or a method, but never a
+	variable. Marking a class as strictfp means that any method code in the class will
+	conform to the IEEE 754 standard rules for floating points. Without that modifier,
+	floating points used in the methods might behave in a platform-dependent way. If
+	you don't declare a class as strictfp , you can still get strictfp behavior on a
+	method-by-method basis, by declaring a method as strictfp .
+
+Final Classes
+-------------
+	When used in a class declaration, the final keyword means
+	the class can't be subclassed. In other words, no other class can ever extend (inherit
+	from) a final class, and any attempts to do so will give you a compiler error.
+	So why would you ever mark a class final ? After all, doesn't that violate the
+	whole object-oriented (OO) notion of inheritance? You should make a final class
+	only if you need an absolute guarantee that none of the methods in that class will
+	ever be overridden. If you're deeply dependent on the implementations of certain
+	methods, then using final gives you the security that nobody can change the
+	implementation out from under you.
+	You'll notice many classes in the Java core libraries are final . For example, the
+	String class cannot be subclassed.
+
+Abstract class
+--------------
+	An abstract class is something which is incomplete and you can not create instance of abstract class.
+	If you want to use it you need to make it complete or concrete by extending it. 
+	A class is called concrete if it does not contain any abstract method and implements all abstract
+	method inherited from abstract class or interface it has implemented or extended. 
+	By the way Java has concept of abstract classes, abstract method but a variable can not be abstract in Java.
+
+Interface
+---------
+	A powerful companion to inheritance is the use of interfaces. Interfaces are like a
+	100-percent abstract superclass that defines the methods a subclass must support, but
+	not how they must be supported. In other words, an Animal interface might declare
+	that all Animal implementation classes have an eat() method, but the Animal
+	interface doesn't supply any logic for the eat() method. That means it's up to the
+	classes that implement the Animal interface to define the actual code for how that
+	particular Animal type behaves when its eat() method is invoked.
+
+	Thus, An interface describes a contract that the implementing class must follow.
+
+Interface declaration
+---------------------
+	When you create an interface, you're defining a contract for what a class can do,
+	without saying anything about how the class will do it. An interface is a contract.
+
+	All interface methods must be implemented, and must be marked public in implemented class.
+
+Diffrence between interface and abstract class
+----------------------------------------------
+	Think of an interface as a 100-percent abstract class.
+	But while an abstract class can define both abstract and non- abstract
+	`methods, an interface can have only abstract methods. Another way interfaces
+	differ from abstract classes is that interfaces have very little flexibility in how the
+	methods and variables defined in the interface are declared. 
+
+	These rules are strict:
+		■ All interface methods are implicitly public and abstract . In other words,
+		you do not need to actually type the public or abstract modifiers in the
+		method declaration, but the method is still always public and abstract .
+		■ All variables defined in an interface must be public , static , and final —
+		in other words, interfaces can declare only constants, not instance variables.
+		■ Interface methods must not be static .
+		■ Because interface methods are abstract, they cannot be marked final,
+		strictfp , or native .
+		■ An interface can extend one or more other interfaces.
+		■ An interface cannot extend anything but another interface.
+		■ An interface cannot implement another interface or class.
+		■ An interface must be declared with the keyword interface .
+		■ Interface types can be used polymorphically (see Chapter 2 for more details).
+		The following is a legal interface declaration:
+			public abstract interface Rollable { }
+
+	Typing in the abstract modifier is considered redundant; interfaces are
+	implicitly abstract whether you type abstract or not. You just need to know that
+	both of these declarations are legal, and functionally identical:
+		public abstract interface Rollable { }
+		public interface Rollable { }
+
+	The public modifier is required if you want the interface to have public rather
+	than default access.
+
+	We've looked at the interface declaration but now we'll look closely at the
+	methods within an interface:
+
+		public interface Bounceable {
+			public abstract void bounce();
+			public abstract void setBounceFactor(int bf);
+		}
+
+	Typing in the public and abstract modifiers on the methods is redundant,
+	though, since all interface methods are implicitly public and abstract . Given
+	that rule, you can see that the following code is exactly equivalent to the
+	preceding interface:
+		public interface Bounceable {
+			void bounce();	// No modifiers
+			void setBounceFactor(int bf); // No modifiers
+		}
+		
+	You must remember that all interface methods are public and abstract regardless
+	of what you see in the interface definition.
+	Look for interface methods declared with any combination of public , abstract ,
+	or no modifiers. For example, the following five method declarations, if declared
+	within their own interfaces, are legal and identical!
+		void bounce();
+		public void bounce();
+		abstract void bounce();
+		public abstract void bounce();
+		abstract public void bounce();
+
+	The following interface method declarations won't compile:
+		final void bounce();	//final and abstract can never be used
+					//together, and abstract is implied.
+
+		static void bounce();	//interfaces define instance methods
+		private void bounce();	//interface methods are always public
+		protected void bounce();//interface methods are always public
+
+Declaring Interface Constants:
+------------------------------
+	You're allowed to put constants in an interface. By doing so, you guarantee that any
+	class implementing the interface will have access to the same constant.
+	By placing the constants right in the interface, any class that implements the
+	interface has direct access to the constants, just as if the class had inherited them.
+	You need to remember one key rule for interface constants. They must always be
+		public static final
+
+	Look for interface definitions that define constants, but without
+	explicitly using the required modifiers. For example, the following are all identical:
+		public int x = 1;	//Looks non-static and non-final, but isn't!
+		int x = 1;	//Looks default, non-final, non-static, but isn't!
+		static int x = 1;//Doesn't show final or public
+		final int x = 1;//Doesn't show static or public		
+		public static int x = 1;// Doesn't show final
+		public final int x = 1;// Doesn't show static
+		static final int x = 1;// Doesn't show public
+		public static final int x = 1; // what you get implicitly
+
+	Any combination of the required (but implicit) modifiers is legal, as is
+	using no modifiers at all! 
+
+Constructors:
+------------------
+		if you don't provide a constructor for your class, the compiler will insert one. The compiler-generated constructor is
+	called the default constructor, and it is always a no-arg constructor with a no-arg call to super().
+	The default constructor will never be generated if there is even a single constructor in your class (regardless of the arguments of that 		constructor), so if you	need more than one constructor in your class and you want a no-arg constructor,
+	you'll have to write it yourself.
+		Constructors are not inherited, and that you can be confused by a method that has the same name as the class (which
+	is legal). The return type is the giveaway that a method is not a constructor, since constructors do not have return types.
+		all of the constructors in an object's inheritance tree will always be
+	invoked when the object is instantiated using new .
+		Constructors can be overloaded, which means defining constructors with different argument lists.
+		
+		A constructor can invoke another constructor of the same class using the keyword this() , as though the constructor were a method 		named this() .Every constructor must have either this() or super() as the first statement(although the compiler can insert it for you).
+
+main() as static in java why? 
+------------------------------
+	Making the method called by the JVM ( main() ) a static method means the JVM doesn't have to create an instance
+	of your class just to start running code.
+
+static :
+---------
+	Variables and methods marked static belong to the class, rather
+	than to any particular instance. In fact, you can use a static method or variable
+	without having any instances of that class at all. You need only have the class
+	available to be able to invoke a static method or access a static variable. static
+	variables, too, can be accessed without having an instance of a class. But if there are
+	instances, a static variable of a class will be shared by all instances of that class;
+	there is only one copy.
+
+	A static method of a class can’t access a nonstatic (instance) method or variable of its own class.
+	But, Java language also allows you to use an object reference variable to access a static member.
+
+	Finally, remember that static methods can't be overridden! This doesn't mean they
+	can't be redefined in a subclass, but redefining and overriding aren't the same thing.
+	Let's take a look at an example of a redefined (remember, not overridden), static
+	method:
+
+class Animal {
+	static void doStuff() {
+		System.out.print("a ");
+	}
+}
+
+class Dog extends Animal {
+	static void doStuff() {
+		// it's a redefinition,
+		// not an override
+		System.out.print("d ");
+	}
+	public static void main(String [] args) {
+		Animal [] a = {new Animal(), new Dog(), new Animal()};
+		for(int x = 0; x < a.length; x++)
+		a[x].doStuff();
+		// invoke the static method
+	}
+}
+
+Running this code produces the output:
+a a a
+
+		Thus, Static members are tied to the class, not an instance, so there is only one copy of any static member. A common
+	mistake is to attempt to reference an instance variable from a static method. Use the class name with the dot operator
+	to access static members.
+
+
+Coupling and Cohesion:
+------------------------
+	In general a good Object Orientation design calls for tight encapsulation, loose coupling and high cohesion.
+	These give the benifit to an application as :
+
+	# Ease of creation
+	# Ease of maintainance
+	# Ease of enhancement
+
+	While coupling has to do with how classes interact with each other, cohesion is all
+	about how a single class is designed i.e to design a class for specific purpose to reuse.
+
+Exception
+==========
+	An Exception can be anything which interrupts the normal flow of the program. 
+	When an exception occurs program processing gets terminated and doesn’t continue further. 
+	In such cases we get a system generated error message.
+
+	Checked exceptions
+	-------------------
+		All exceptions other than Runtime Exceptions are known as Checked exceptions as the compiler 
+		checks them during compilation to see whether the programmer has handled them or not. 
+		If these exceptions are not handled/declared in the program, it will give compilation error.
+
+		for e.g:
+		-------- 
+			ClassNotFoundException
+			IllegalAccessException
+			NoSuchFieldException
+			EOFException etc.
+
+	Unchecked Exceptions
+	---------------------
+		Runtime Exceptions are also known as Unchecked Exceptions as the compiler do not check whether 
+		the programmer has handled them or not but it’s the duty of the programmer to handle these 
+		exceptions and provide a safe exit. These exceptions need not be included in any method’s 
+		throws list because compiler does not check to see if a method handles or throws these exceptions.
+
+		for e.g:
+		--------
+			ArithmeticException
+			ArrayIndexOutOfBoundsException
+			NullPointerException
+			NegativeArraySizeException etc.
+
+'throws' and 'throw'
+---------------------
+	**Throws clause in used to declare an exception and thow keyword is used to throw an exception explicitly.
+	**If we see syntax wise than throw is followed by an instance variable and throws is followed by exception class names.
+	**The keyword throw is used inside method body to invoke an exception and throws clause is used in method declaration (signature).
+	**By using Throw keyword in java you cannot throw more than one exception but using throws you can declare multiple exceptions.

@@ -1,0 +1,125 @@
+JavaScript is the programming language of the Web. All modern HTML pages are using JavaScript.
+JavaScript was invented by Brendan Eich in 1995, and became an ECMA standard in 1997. We are using javascript ver. 1.8.5 from july 2010.
+
+HTML to define the content of web pages
+
+CSS to specify the layout of web pages
+
+JavaScript to program the behavior of web pages 
+
+Javascript can do:
+================
+1.) javascript can change HTML content.
+2.) javascript can change HTML attribute.
+3.) javascript can change HTML styles(css).
+4.) javascript can validate data
+
+
+JavaScript can "display" data in different ways:
+
+   # Writing into an alert box, using window.alert().
+   # Writing into the HTML output using document.write().
+   # Writing into an HTML element, using innerHTML.
+   # Writing into the browser console, using console.log(). // To open console: press F12 key- click on console.
+
+All JavaScript identifiers are case sensitive.
+
+JavaScript uses the Unicode character set.
+
+JavaScript keywords:
+===================
+Keyword 		Description
+-------------		-----------------------
+1) break			Terminates a switch or a loop
+2) continue		Jumps out of a loop and starts at the top
+3) debugger 		Stops the execution of JavaScript, and calls (if available) the debugging function
+4) do ... while 		Executes a block of statements, and repeats the block, while a condition is true
+5) for 			Marks a block of statements to be executed, as long as a condition is true
+6) function 		Declares a function
+7) if ... else 		Marks a block of statements to be executed, depending on a condition
+8) return 			Exits a function
+9) switch 		Marks a block of statements to be executed, depending on different cases
+10) try ... catch 	Implements error handling to a block of statements
+11) var 			Declares a variable
+
+some facts about variables:
+======================
+If you not define any value to the variable it will be considered as undefined.
+for e.g.:
+	var carName;
+	alert(carName);
+	//It will print 'undefined'.
+-------------------------------------
+var carName = "Volvo";
+var carName;
+alert(carName); //above code will print 'Volvo'.
+-------------------------------------
+var x = "5" + 2 + 3; //It will print '523'.
+
+If you add a number to a string, the number will be treated as string, and concatenated.
+------------------------------------
+var x = 5;
+var y = 2;
+var z = x / y;	//It will print 2.5 (Division).
+var z=x%y;	//It will print 1 (Reminder).
+
+JavaScript Assignment Operators
+=============================
+Assignment operators are used to assign values to JavaScript variables.
+
+Operator 	Example 	Same As
+------------		------------		--------------
+	= 		x = y 		x = y
+	+= 		x += y 		x = x + y
+	-= 		x -= y 		x = x - y
+	*=	 	x *= y 		x = x * y
+	/=	 	x /= y 		x = x / y
+	%=		x %= y 		x = x % y
+
+The = assignment operator assigns a value to a variable.
+
+The += operator can also be used to concatenate strings:
+	txt1 = "What a very ";
+	txt1 += "nice day";
+	alert(txt1);	//'It will print What a very nice day'.
+--------------------------------------
+Extra large or extra small numbers can be written with scientific (exponential) notation:
+var y = 123e5;      // 12300000
+var z = 123e-5;     // 0.00123
+
+JavaScript Data Types
+=====================
+JavaScript variables can hold many data types: numbers, strings, arrays, objects and more:
+	var length = 16;                               // Number
+	var lastName = "Johnson";                      // String
+	var cars = ["Saab", "Volvo", "BMW"];           // Array(zero based array).
+	var x = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};    // Object
+	var boolea=true;				//Boolean
+
+typeof operator
+=================
+It finds the type of javascript variables.
+
+typeof "John"                // Returns string
+typeof 3.14                  // Returns number
+typeof false                 // Returns boolean
+typeof [1,2,3,4]             // Returns object
+typeof {name:'John', age:34} // Returns object 
+
+In JavaScript, an array is a special type of object. Therefore typeof [1,2,3,4] returns object.
+In JavaScript, a variable without a value, has the value undefined. The typeof is also undefined.
+
+ var person;                  // The alue is undefined, the typeof is undefined 
+
+=========================
+ 	A Function is much the same as a Procedure or a Subroutine, in other programming languages.
+
+function toCelsius(fahrenheit) {
+    return (5/9) * (fahrenheit-32);
+}
+document.getElementById("demo").innerHTML = toCelsius;
+
+
+
+
+XXXXXXXXXXXXXXXXXXXXXXtill jsfunctionXXXXXXXXXXXXXXXXXXXXXX

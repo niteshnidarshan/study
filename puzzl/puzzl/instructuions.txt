@@ -1,0 +1,14 @@
+Hi,
+Thank you for downloading the Brain Remedy game.
+follow these steps to run this app:
+step1:click on Puzzle.jar
+step2:register yorself
+step3:login
+you can change administrator panel(manage) also with the following information:
+user:administrator
+password:administrator
+==========================================================
+If it is not working, It means in your computer java is not there.
+If java is not installed in your computer, please visit the following link to install java. 
+	https://java.com/en/download/index.jsp
+==========================================================

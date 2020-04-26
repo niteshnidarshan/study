@@ -1,0 +1,306 @@
+1.Load or register the JDBC Driver in DriverManager service.
+2.Obtain the connection from database s/w by using driver manager service.
+3.Create an object of Statement by using connection.
+4.Use an object of statement for sending the query from java program to the databse s/w.
+5.Obtain the results from the database software and process it.
+6.Close the connection.
+
+Class/Interface related to JDBC:
+-----------------------------------
+1. [class] java.lang.Class-->public static Class forName("String")throws ClassNotFoundException.
+2. [class] java.sql.DriverManager-->public static Connection getConnection("URL","USER","Password").
+3. [interface] java.sql.Connection-->public abstract Statement createStatement().
+4. [interface] java.sql.Statement--> Three important methods:
+	a)public abstract int executeUpdate(query)-- [for non-select query]
+	b)public abstract ResultSet executeQuery(query)-- [for select query]
+	c)public abstract boolean execute(query)-- [for both select and non-select query]
+5. [interface] java.sql.ResultSet--> Five important methods
+	a)public abstract boolean next()
+	b)public abstract xxx getXxx(int column no.)
+	c)public abstract xxx getXxx(String clumnName)
+	d)public abstract String getString(int columnNumber)
+	e)public abstract String getString(String columnName)
+
+Driver-I
+-------------
+Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+Connection con=DriverManager.getConnection("jdbc:odbc:DNS","USER","PWD");
+Statement stmt=con.createStatement();
+int result=stmt.executeUpdate(QUERY);
+
+Driver-II
+-------------
+Class.forName("oracle.jdbc.driver.OracleDriver");
+Connection con=DriverManager.getConnection("jdbc:oracle:OCI:@ORAC","USER","PWD");
+
+Driver-III
+-------------
+Connection pooling
+-------------------
+	A connection pooling is a factory in which readly available Connection objects are available.
+	It is one of the middleware service provided by the application servers.
+	In Connection Pooling connections are created by server, managed by server, collected and destroyed by server.
+	
+	Steps to obtain connetion object from connection pooling:
+	-------------------------------------------------------------
+	1. A program has to interact with JNDI(Java Naming Directory Interface) which is one of the registry service
+	   which is pointiong to the DataSource.
+	2. DataSource obtains the Connection object and gives to the JNDI.
+	3. JNDI gives that connection object to the program for obtaining the connection from the database.
+	4. program use the Connection object and release after use and that is collected by DataSource.
+
+	program of DataSource
+	--------------------------
+	
+	Connection con=null;
+	InitialContext ict=new InitialContext();
+	DataSource ds=(DataSource)ict.lookup("JNDIName");
+	con=ds.getConnection();
+	Statement stmt=con.createStatement();
+	int result=stmt.executeUpdate(QUERY);
+
+Driver-IV
+-------------
+Class.forName("oracle.jdbc.driver.OracleDriver");
+Connection con=DriverManager.getConnection("jdbc:oracle:thin:@[ip/DNS]:1521:ORAC","USER","PWD");
+
+To obtain database global name:
+---------------------------------
+select * from global_name;
+
+To get database Port Number:
+---------------------------------
+search on "tnsnames.ora" file.
+
+DNS=Domain Naming Service.
+
+Pre compiled/ Dynamic/PreparedStatement
+-----------------------------------------
+PreparedStatement is a sub interface of Statement so all the methods of Statement inherited to it.
+
+[interface] java.sql.Connection--> public abstract PreparedStatement prepareStatement(String query);
+[interface] java.sql.PreparedStatement--> 
+	1.public abstract void setXxx(int Position, xxx positional value).
+	2.public abstract void setString(int Position, String positional value).
+	3)public abstract int executeUpdate(query)-- [for non-select query]
+	4)public abstract ResultSet executeQuery(query)-- [for select query]
+	5)public abstract boolean execute(query)-- [for both select and non-select query]
+-----------PreparedStatement code-------------
+Class.forName("oracle.jdbc.driver.OracleDriver");
+Connection con=DriverManager.getConnection("jdbc:oracle:thin:@[ip/DNS]:1521:ORAC","USER","PWD");
+String Query="QUERY";
+PreparedStatement pstmt=con.prepareStatement(Query);
+ResultSet rs=pstmt.executeQuery();
+
+MetaData:
+-------------
+1. Database metadata--To get information about database.
+	DatabaseMetaData dbmd=connection.getMetaData();
+2. ResultSet metadata--To get information about tables.
+	ResultSetMetaData rsmd=resultSet.getMetaData();
+3. Parameter metadata
+
+CollableStatement:
+=========================
+Functions:
+----------
+	create or replace function <function_name>(List of parameters)return <return_type> as/is
+		local variables;
+	begin
+		block of statements;
+	end;
+	/
+
+for e.g:
+----------
+	create or replace function OSum(x number, y number)
+		return number is z number;
+	begin
+		z:=x+y;
+		return(z);
+	end;
+	/
+
+Procedure:
+----------
+	create or replace procedure <procedure_name>(List of parameters, return types)
+		as/is
+		local variables;
+	begin
+		block of statements;
+	end;
+	/
+
+for e.g:
+----------
+	create or replace procedure sms(x in number, y in number, a out number, b out number, c out number)
+		is
+	begin
+		a:=x+y;
+		b:=x*y;
+		c:=x-y;
+	end;
+	/
+[in, out, io]
+java.lang.CollableStatement is the sub interface of PreparedStatement.
+	Statement-->PreparedStatement-->CollableStatement	
+java.lang.Statement--> public CallableStatement prepareCall(String);
+
+CollableStatement cs= connection.prepareCall(String);
+
+function call:
+----------------
+	String fCall="{?=call<function name>(?,?...?)}";
+	
+	for e.g:
+	-------
+	String fCall="{?=call oSum(?,?)}";
+
+Procedure call:
+------------------
+	String pCall="{call<procedure name>(?,?,?,?,?,?...?)}";
+	
+	for e.g:
+	-----------
+	String pCall="{call sms(?,?,?,?,?)}";[first two for input, and last three for output].
+
+Setting to the positional parameters:
+-------------------------------------------
+	for input parameters we use PreparedStatement method-- public void setXxx(int position, xxx);
+	for output parameters we use CallableStatement method-- public void registerOutParameter(int position, int TypesDataType);
+	
+	for e.g:-to use pCall procedure.
+	---------------------------------
+	cs.setInt(1, 2);
+	cs.setInt(2, 3);
+	cs.registerOutParameter(3,Types.INTEGER);
+	cs.registerOutParameter(4,Types.INTEGER);
+	cs.registerOutParameter(5,Types.INTEGER);
+
+Obtaining the result:
+----------------------
+	To obtain the result we use CallableStatement method--public Xxx getXxx(int);
+	
+	for e.g:
+	---------
+	int sum=cs.getInt(3);
+	int multi=cs.getInt(4);
+	int sub=cs.getInt(5);
+
+Example of a procedure call:
+----------------------------
+	create or replace procedure sres(stno number, name varchar2, m1 number, m2 number, m3 number, tot out number, grade out varchar2)
+		is
+	begin
+		tot:=m1+m2+m3;
+		if((m1<40)or(m2<40)or(m3<40))
+		then 
+			grade='FAIL'
+		else
+			grade='PASS'
+		end if;
+		
+		insert into result values(stno, sname, m1, m2, m3, tot, grade);
+	end;
+	/
+ 
+Class.forName("oracle.jdbc.driver.OracleDriver");
+Connection con=DriverManager.getConnection("jdbc:oracle:thin:@[ip/DNS]:1521:ORAC","USER","PWD");
+String pCall="{call sres(?,?,?,?,?,?,?)}";
+CallableStatement cs=con.prepareCall(pCall);
+cs.setInt(1,101);
+cs.setString(2,"Name");
+cs.setInt(3,44);
+cs.setInt(4,46);
+cs.setInt(5,66);
+cs.registerOutParameter(6, Types.FLOAT);
+cs.registerOutParameter(7, Types.VARCHAR);
+cs.execute();
+SOP(cs.getFloat(6));
+SOP(cs.getString(7));
+cs.close();
+con.close();
+
+Types class data types:
+---------------------------
+	Types.INTEGER--[for int]
+	Types.FLOAT--[for float]
+	Types.DOUBLE--[for double]
+	Types.VARCHAR--[for String]
+	Types.TINYINT--[for short]
+	Types.BIT--[for byte]
+	Types.DATE--[for java.util.Date]
+
+Types of ResultSet:
+---------------------
+	1. NonScrollable ResultSet
+	2. Scrolable ResultSet
+	3. ReadOnly ResultSet
+	4. Updatable ResultSet
+
+Multiplication of matrics:
+---------------------------------
+	void main(){
+		int l,m,n;
+		int i,j,k;
+		int a[5][5], b[5][5], c[5][5];
+		print("order of matrix");
+		scanf("%d%d%d",&l,&m,&n);
+		print("enter first matrix:");
+		for(i=1;i<=l;i++)
+		{
+			for(j=1;j<=m;j++){
+				scanf("%d", &a[i][j]);
+			}	
+		}
+		print("enter second matrix:");
+		for(i=1;i<=m;i++)
+		{
+			for(j=1;j<=n;j++){
+				scanf("%d", &b[i][j]);
+			}	
+		}
+		for(i=1;i<=l;i++){
+			for(j=1;j<=n;j++){
+				c[i][j]=0;
+				for(k=1;k<=m;k++){
+					c[i][j]=c[i][j]+a[i][k]*b[k][j];
+				}
+			}	
+		}
+		
+	}
+
+leap year:
+--------------
+if(year%100==0){
+	if(year%400==0){
+		print leap year;
+	}
+	else
+		print not;
+}
+else{
+	if(year%4==0)
+		print leap year;
+	else
+		print not;
+}
+
+assending:
+----------------
+void main()
+{
+
+	int i,n,a[10],t,j;
+
+	for(i=1;i<n;i++){
+		for(j=i+1;j<=n;j++){
+			if(a[i]>a[j]){
+				t=a[i];
+				a[i]=a[j];
+				a[j]=t;
+			}
+		}
+	}
+}

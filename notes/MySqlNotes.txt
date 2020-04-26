@@ -1,0 +1,136 @@
+To connect with mysql:
+----------------------
+	shell> mysql -h <host> -u <user> -p
+		enter password...
+		
+	$>mysql -h 127.0.0.1 -u root -p
+		031391743
+
+To Quit:
+--------
+	mysql> \q
+	mysql> quit
+
+To get version:
+---------------
+	mysql> select version();
+
+To get current date:
+--------------------
+	mysql> select current_date;
+
+To get both query once:
+-----------------------
+	mysql> select version(), current_date;
+
+Simple Calculator Query:
+------------------------
+	mysql> select sin(pi()/4);
+	mysql> select pi();
+	mysql> select 2*3+4;
+	mysql> select sin(pi()/4), 2.4*3;
+
+Two seperated queries in a single query:
+----------------------------------------
+	mysql> select version(); select now();
+
+To know current user:
+---------------------
+	mysql> select user();
+
+To find out what databases currently available on the server:
+-------------------------------------------------------------
+	mysql> show databases;
+
+To access the database:
+-----------------------
+	mysql> use <database name>
+
+To create a database:
+---------------------
+	mysql> create database <databse name>;
+	mysql> create database databse1;
+
+login directly to the database:
+-------------------------------
+	shell> mysql -h 127.0.0.1 -u root -p database1
+
+To show current databse using:
+------------------------------
+	mysql> select database();
+
+To show tables:
+---------------
+	mysql> show tables;
+
+To create a table:
+------------------										      (yyyy-mm-dd)
+	mysql> create table pet(name varchar(22), owner varchar(22), species varchar(22), sex char(1), birth date, death date);
+
+To describe table:
+------------------
+	mysql> describe <table name>;
+	mysql> describe pet;
+
+To insert data into the table:
+------------------------------
+	mysql> insert into pet values("Cow", 'Nitesh', "Animal", 'F', '1999-09-31', null);
+
+	It can be load data from file into the table like:
+	==================================================
+	mysql> load data local infile './path/pet.txt' into table pet;
+
+Select operations:
+------------------
+	mysql> select * from pet where date >= '1955-01-15' and sex = 'f';
+
+distinct:
+---------
+	distinct eliminates redundent value at the time of retrieval;
+	mysql> select distinct name from pet;
+
+Sorting rows:
+-------------
+	mysql> select name, species, birth from pet order by birth;
+	mysql> select name, birth, species from pet order by species, name desc;
+
+Updating value:
+---------------
+	mysql> update pet set birth='1999-10-15' where sex='f';
+
+Date calculation(finding age by date of birth):					    
+-----------------------------------------------															
+	mysql> select name, owner, birth, curdate() as 'Current date', timestampdiff(year, birth, curdate()) as Age from pet;
+	Here, age will be calculated according to the year.
+	If we want month difference then use [timestampdiff(month, birth, curdate())].
+	If we want days difference then use [timestampdiff(day, birth, curdate())].
+		 
+Selecting month of the date:
+----------------------------
+	mysql> select name, birth, month(birth) as 'Month' from pet;
+
+	mysql> select name, owner from pet where month(birth)=5;
+
+Pattern matching:
+-----------------
+	LIKE
+	NOT LIKE
+	_(underscore): single character
+	%(percentage): any number of characters
+	
+	mysql> select * from pet where name like 'b%';
+
+	REGEXP:
+	mysql> select * from pet where name regexp 'w';
+		(It will show all the records whose name contains w).
+
+Counting row:
+-------------
+	mysql> select count(*) from pet;  [will return total no. of rows.]
+
+	mysql> select species, count(*) from pet group by species;  [shows the species and their repeatation in no. in count(*).]
+
+
+
+
+Using Mysql in Batch Mode;

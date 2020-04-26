@@ -1,0 +1,224 @@
+Servlet : 
+----------
+	A serlet is one of the server independent, platform independent, dynamic, multithreaded, java program runs in the context of server by extending the functionality of the web/application  server.
+	servlet=single instance+ multiple thread technology.
+
+javax.servlet.Servlet---[interface]
+	|
+javax.servlet.GenericServlet---[abstract subclass]
+	|
+javax.servlet.http.HttpServlet---[abstract concrete subclass] 
+
+life cycle methods of Servlet
+---------------------------------
+	1. public abstract void init(ServletConfig)
+	2. public abstract void service(ServletRequest, ServletResponse)
+	3. public abstract void destroy()
+	4. public abstract ServletConfig getServletConfig()
+	5. public abstract String getServletString()
+
+Phases of Servlet
+-------------------
+	1. Loading and instantiation phase
+	2. Initialization phase
+	3. Request processing phase
+	4. Destruction phase
+	5. Un-available phase
+
+HTTP protocol methods
+------------------------
+ 	1. GET
+	2. POST
+	3. HEAD
+	4. PUT
+	5. DELETE
+	6. TRACE
+	7. OPTIONS
+
+javax.servlet.http.HttpServlet class methods
+-----------------------------------------------
+	1. public void service(ServletRequest, ServletResponse) throws ServletExcepion, IOException
+	2. protected void service(HttpServletRequest,HttpServletResponse) throws ServletException, IOException
+	3. protected void doXxx(HttpServletRequest,HttpServletResponse) throws ServletException, IOException
+
+ServletConfig :
+----------------
+	It is an interface and the argument of init(-).
+	Its value is sharable within the servlet object.
+
+	<web-app>
+		<servlet>
+			<servlet-name>sathya</servlet-name>		
+			<servlet-class>sp.ps.InitServe</servlet-class>
+			<init-param>
+				<param-name>Driver</param-name>
+				<param-value>Oracle.jdbc.driver.OracleDriver</param-value>
+			</init-param>
+			<init-param>
+				<param-name>URL</param-name>
+				<param-value>jdbc:oracle:thin@localhost:1521:ORAC</param-value>
+			</init-param>
+		</servlet>
+	</web-app>
+
+web.xml is also called "Deployment Descriptor".
+
+	---------------To get ServletConfig value----------
+	String driver=config.getInitParameter("Driver");
+	String url=config.getInitParameter("URL");
+
+ServletContext:
+-------------------
+	It is an interface and it is referenced by the container automaticaly at the time of deplyment of web application.
+	Its reference is shared by all the servlets in the web application.
+	ie. ServletContext object exists one per web-application while
+	ServletConfig object exists one per servlet.
+
+	<web-app>
+		<context-param>
+			<param-name>Driver</param-name>
+			<param-value>Oracle.jdbc.driver.OracleDriver</param-value>
+		</context-param>
+		<context-param>
+			<param-name>URL</param-name>
+			<param-value>jdbc:oracle:thin@localhost:1521:ORAC</param-value>
+		</context-param>
+		<servlet>
+			<servlet-name>sathya</servlet-name>		
+			<servlet-class>sp.ps.InitServe</servlet-class>
+		</servlet>
+		<servlet-mapping>
+			<servlet-name>sathya</servlet-name>
+			<url-pattern>/callme</url-pattern>
+		</servlet-mapping>
+	</web-app>
+
+	------------------To get ServletContext value--------------
+	public void doGet(HttpServletRequest request, HttpServletResponse response){
+		ServletConfig config=getServletConfig();
+		ServletContext context=config.getServletContext();
+	}
+
+Connection Pooling
+-------------------
+	A connection pooling is a factory in which readly available Connection objects are available.
+	It is one of the middleware service provided by the application servers.
+	In Connection Pooling connections are created by server, managed by server, collected and destroyed by server.
+	
+	Steps to obtain connetion object from connection pooling:
+	-------------------------------------------------------------
+	1. A program has to interact with JNDI(Java Naming Directory Interface) which is one of the registry service
+	   which is pointiong to the DataSource.
+	2. DataSource obtains the Connection object and gives to the JNDI.
+	3. JNDI gives that connection object to the program for obtaining the connection from the database.
+	4. program use the Connection object and release after use and that is collected by DataSource.
+
+	program of DataSource
+	--------------------------
+	
+	Connection con=null;
+	InitialContext ict=new InitialContext();
+	DataSource ds=(DataSource)ict.lookup("JNDIName");
+	con=ds.getConnection();
+
+RequestDispatcher:
+--------------------
+ 	To establish the communication between multiple servelt or resource.
+	1. Request based RequestDispatcher
+	2. Context based RequestDispatcher
+	3. Context based NamedRequestDispatcher
+
+	--------------code---------------
+	RequestDispatcher rd=request.getRequestDispatcher("usl-pattern");
+	rd.forward(request,response);
+	---------------------------------
+	RequestDispatcher rd=request.getRequestDispatcher("usl-pattern");
+	rd.include(request,response);
+
+Session tracking:
+-------------------
+	1. Cookies
+	2. hidden field
+	3. HttpSession
+	4. URLRewriting
+
+	Cookies:
+	-----------
+	Cookie cookie=new Cookie("Key", "Value");
+	response.addCookie(cookie);
+	-----------------------------
+	Cookie[] cookies= request.getCookies();
+
+	HttpSession:
+	---------------
+	HttpSession session=request.getSession();
+	session.setAttribute("key", Object);
+
+Filters:
+------------
+	A filter is a java interface by which we can define pre and post services to the business logic of a servlet.
+	
+	----------------creating a filter----------------
+	public class MyFilter implements Filter{
+		public void init(FilterConfig config){}
+		public void destroy(){}
+		public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)throws ServletException, IOException
+		{
+			----
+			pre logic
+			----
+			chain.doFilter(request, response);
+			----
+			post logic
+			----
+		}
+	}
+
+	---------------web.xml----------------
+	<web-app>
+		<filter>
+			<filter-name>sathya</filter-name>		
+			<filter-class>MyFilter</filter-class>
+		</filter>
+		<filter-mapping>
+			<filter-name>sathya</filter-name>
+			<url-pattern>/callme</url-pattern>
+		</filter-mapping>
+		<servlet>
+			<servlet-name>sathya</servlet-name>		
+			<servlet-class>sp.ps.InitServe</servlet-class>
+		</servlet>
+		<servlet-mapping>
+			<servlet-name>sathya</servlet-name>
+			<url-pattern>/callme</url-pattern>
+		</servlet-mapping>
+	</web-app>
+
+	Note: url-pattern of filter and associated filter both must be same.
+
+Thread Safty in servlet:
+----------------------------
+	By default a servlet object is not thread-safe object.
+	There are three approach to make a Servlet Thread-safe:
+		1. Avoid instance global variable and use local variable in service().
+		2. By implements "javax.servlet.SingleThreadModel" marker interface.
+		3. By inserting synchronized block in a service().
+
+Servlet annotations:
+--------------------------
+	1. @WebServlet
+	2. @WebListener
+	3. @WebFilter
+	4. @WebInitParam
+
+	--------------------code------------------
+	@WebServlet(name="Demo", urlPatterns={"/serv1"}, loadOnStartup=1, 
+		initParams={@WebInitParam(name="p1", value="Sathya"), @WebInitParam(name="p2", value="Tech")})
+	public class DemoServlet extends HttpServlet{----}
+
+-==================-
+while(a>0){
+	b=a%10;
+	c=c*10+b;
+	a=a/10;
+}

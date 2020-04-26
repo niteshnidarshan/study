@@ -1,0 +1,331 @@
+
+A process is a mechanism in an operating system that can run a series of steps. Some operating systems use the terms job, task, or thread.
+
+Procedural Language discribes- how thing should be done.
+Non-Procedural Language discribes- what shoud be done.
+
+SQL is a Non-procedural language to communicate with the database.
+
+DBMS : A database management system (DBMS) is software that controls the storage, organization, and retrieval of data.
+
+RDBMS : A relational database is a database that conforms to the relational model.
+	A relational database stores data in a set of simple relations. A relation is a set of tuples. 
+	A tuple is an unordered set of attribute values.
+	A table is a two-dimensional representation of a relation in the form of rows (tuples) and columns (attributes). 
+	Each row in a table has the same set of columns. A relational database is a database that stores data in relations (tables). 
+	For example, a relational database could store information about company employees in an employee table, a department table, and a salary table.
+
+Entities(table) are described in a database by a set of attributes.
+
+Integrity Constraints : Integrity constraints are named rules that restrict the values for one or more columns in a table. These rules prevent invalid data entry into tables. 
+			Also, constraints can prevent the deletion of a table when certain dependencies exist.
+
+Key : A key is the column or set of columns included in the definition of certain types of integrity constraints. Keys describe the relationships between the tables and columns of a relational database. 
+	Individual values in a key are called key values.
+
+Constraint types :
+	1. NOT NULL
+	2. Unique Key
+	3. Primary Key
+	4. Foriegn Key
+	5. Check
+	6. REF
+
+NOT NULL : A NOT NULL constraint requires that a column of a table contain no null values. A null is the absence of a value. 
+		By default, all columns in a table allow nulls.
+
+Unique Key : Unique key constraints are appropriate for any column where duplicate values are not allowed. Unique constraints differ from primary key constraints, 
+		whose purpose is to identify each table row uniquely, and typically contain values that have no significance other than being unique.
+
+Primary Key : In a primary key constraint, the values in the group of one or more columns subject to the constraint uniquely identify the row. 
+		Each table can have one primary key, which in effect names the row and ensures that no duplicate rows exist.
+
+Forign Key : A foreign key column refers to a primary or unique key in the same table or a different table.
+
+Check : A check constraint on a column or set of columns requires that a specified condition be true or unknown for every row.
+
+Scheema concept : A database schema is a logical container for data structures, called schema objects. Examples of schema objects are tables and indexes. 
+		  Schema objects are created and manipulated with SQL.
+			A database user has a password and various database privileges. Each user owns a single schema, which has the same name as the user.
+		  The schema contains the data for the user owning the schema.
+		  For example, the hr user owns the hr schema, which contains schema objects such as the employees table. 
+			In a production database, the schema owner usually represents a database application rather than a person. 
+
+		  Within a schema, each schema object of a particular type has a unique name. For example, hr.employees refers to the table employees in the hr schema.
+
+Normalization:
+===================
+	It is a process or technique, which is used to decompose or reduce the redundancy within the database.
+
+	Dependencies:
+	--------------
+	1)Full function dependency : In this dependency, all the non-key attributes fully and functionally depend on key attribute column.
+	2)Partial function dependency : In this dependency, some of the non-key attributes depending on one key-attribute and
+					some other non-key attributes depending on another key attribute column.
+	3)Trnsitive function dependency : Here, one non-key attribute functionally dependent on another non-key attribute.
+
+	1st Normal Form:
+	-----------------
+		Remove multivalue attributes from the table.
+		Each column should be unique.
+	2nd Normal Form:
+	--------------------
+		Remove the partial function dependency.
+	3rd Normal Form:
+	----------------------
+		Remove transitive function dependency.
+		Remove columns that are not dependent upon the primary key.
+		Make separate table for transitive dependent Field.
+	Boyce-code Normal Form:
+	------------------------
+    		Remove the non trival functional dependency.
+    		Make separate table for the determinants.
+		All tables in a database should be only one primary key.
+
+Scheema Object Types:
+=======================
+1. INDEX : An index is an optional data structure that you can create on one or more columns of a table. Indexes can increase the performance of data retrieval.
+	When processing a request, the database can use available indexes to locate the requested rows efficiently.
+	Indexes are useful when applications often query a specific row or range of rows.
+	Indexes are logically and physically independent of the data. Thus, you can drop and create indexes with no effect on the tables or other indexes. 
+	All applications continue to function after you drop an index.
+	Indexes are one of many means of reducing disk I/O.
+
+2. Partuions : Partitions are pieces of large tables and indexes. Each partition has its own name and may optionally have its own storage characteristics.
+
+3. Views : Views are customized presentations of data in one or more tables or other views. You can think of them as stored queries. Views do not actually contain data.
+
+4. Sequences : A sequence is a user-created object that can be shared by multiple users to generate integers. Typically, sequences are used to generate primary key values.
+
+5. Synonyms : A synonym is an alias for another schema object. Because a synonym is simply an alias, it requires no storage other than its definition in the data dictionary.
+
+6. Dimensions : A dimension defines a parent-child relationship between pairs of column sets, where all the columns of a column set must come from the same table. 
+	     Dimensions are commonly used to categorize data such as customers, products, and time.
+
+7. PL/SQL : PL/SQL is a procedural extension to Oracle SQL.
+	 PL/SQL is integrated with Oracle Database, enabling you to use all of the Oracle Database SQL statements, functions, and data types. 
+	 It can be used PL/SQL to control the flow of a SQL program, use variables, and write error-handling procedures.
+	
+         Benifits of PP/SQL :
+		A primary benefit of PL/SQL is the ability to store application logic in the database itself. 
+		A PL/SQL procedure or function is a schema object that consists of a set of SQL statements and other PL/SQL constructs, grouped together,
+		 stored in the database, and run as a unit to solve a specific problem or to perform a set of related tasks. 
+		The principal benefit of server-side programming is that built-in functionality can be deployed anywhere.
+
+		Oracle Database can also store program units written in Java. 
+		A Java stored procedure is a Java method published to SQL and stored in the database for general use. 
+		It can be called existing PL/SQL programs from Java and Java programs from PL/SQL.
+
+
+Joins : A join is a query that combines rows from two or more tables, views, or materialized views.
+
+	Join is a machanism which is used to combine one or more than one table at a time.
+		Sometime we can not get the complete and the whole information related to the particular point of view from one table
+	So, at this particular stage we need to retrieve the data from more than one table to generate the desired report.
+
+	Following are the types oof joining:
+	1. Equi Join/ Inner Join/ Simple Join
+	2. Natural Join
+	3. Non-equi Join
+	4. Outer Join
+		4.1 Left Outer Join
+		4.2 Right Outer Join 
+		4.3 Full Outer Join
+	5. Self Join
+	6. Cross Join/ Cross Product/ Cartisan Product
+
+	Join is performed in two styles:
+		1. Non-Ansi style / Theeta style
+		2. Ansi Style[In this style query, some structure is used.]
+
+	Equi Join
+	=====================
+		In this join whereever the rows are matching or values are matching only those records are shown in the output.
+		Here, '=' operator and 'where' clause is used with select operation.
+		Note: One common column must be there in tables to perform join operation.
+		Here, whereever the rows are not matching, those records will not be displayed.
+
+	consider the following table fields:
+	-------------------------------------
+		Employee[EMP_ID, EMP_NAME, SAL, DEPT_NO, MGR]
+		Department[DEPT_NO, DEPT_NAME, LOCATION]
+
+		Syntax for Equi Join:
+		-------------------------
+			SELECT * FROM TABLE1, TABLE2,...TABLE_N WHERE <CONDITIONS>;
+
+		for e.g.
+		---------
+			SQL> select * from Employee, Department where Employee.DEPT_NO = Department.DEPT_NO;
+
+			Here, in the result we get ambiguity in column_names like the column DEPT_NO would repeat two times
+			To, remove this ambiguity we can use the following query:
+			
+			SQL> select EMP_ID, EMP_NAME, SAL, emp.DEPT_NO, DEPT_NAME, LOCATION from Employee emp, Department dept where emp.DEPT_NO = dept.DEPT_NO;
+				or
+			SQL> select Employee.*, DEPT_NAME, LOCATION from Employee, Department where Employee.DEPT_NO = Department.DEPT_NO;
+
+		ANSI style query:
+		------------------
+			SQL> select Employee.*, DEPT_NAME, LOCATION from Employee INNER JOIN Department on Employee.DEPT_NO = Department.DEPT_NO;
+
+
+
+		USING clause use:
+		-------------------
+			When column name(Field name) matches then we can use USING clause. It is also used to remove the 
+			ambiguity of field names from the result. 
+
+			SQL> select * from Employee INNER JOIN Department using (DEPT_NO);
+
+	Natural Join:
+	=============================
+		Natural join and Equi join both are same as output is concerned. But it somehow differ from Equi Join like
+		-Here, no need to mention or check where clouse.
+		-Here, no need to mention table name before column name
+		-Here, common column would be displayed at the starting position in the result.
+
+		for e.g.
+		----------
+			SQL> select * from Employee NATURAL JOIN Department;
+
+	 
+	Non-Equi Join:
+	=============================
+		In this joining, we use any relational operator except equal to(=) operator.
+		The main advantage of Non-Equi join is, even though there is no common column between the tables, we can perform join operation. 
+		
+		For e.g.
+		------------
+			SQL> select * from Employee, Department where Employee.DEPT_NO <= Department.DEPT_NO; 			
+
+	Outer Join:
+	=============================
+		In Equi Join, there might be the chance to lose some information from the tables, to recover the lost information we use outer join.
+		It is divided in three sub catagories:
+		1. Left Outer Join
+		2. Right Outer Join
+		3. Full Outer Join
+
+	Left Outer Join: 			
+	=============================
+		This join is the cobination of Equi Join operation and all the information from the right hand side table.
+		It means we don't lose left hand side table information or it can be said that we can get all the records from left hand side tables and 
+		conditional records from right hand side tables.
+			[Lose of information: Suppose, in Employee table some of the new employee do not get deprtment number yet. So, if we use Equi Join operation on DEPT_NO
+			then in result we do not get all the employees record. It is lose of information from Employee table. So, to get all the records of employee
+			we, can use here Left Outer Join by putting Employee table in left hand side.]
+		for e.g.
+		------------
+			SQL> select * from Employee LEFT OUTER JOIN Department on Employee.DEPT_NO = Department.DEPT_NO;
+
+			Note: Here, "LEFT OUTER JOIN" is the center point.
+				
+		Non_ANSI style query:
+		-----------------------
+			SQL> select * from Employee, Department where Employee.DEPT_NO = Department.DEPT_NO(+);
+
+			Note: Here, '+' symbol reperesents dificiency.
+				In this query '+' indicates dificiency i.e. loss of some information. If '+'
+				on right hand side table of the = operator, then it will display all the values from Left hand side table.
+
+	Right Outer Join:
+	==============================
+		This join is the combination of Equi Join and the lost information from the right hand side table.
+	
+		for e.g.
+		-----------
+			SQL> select * from Employee RIGHT OUTER JOIN Department on Employee.DEPT_NO = Department.DEPT_NO;
+
+		Non-ANSI style query:
+		-----------------------
+			SQL> select * from Employee, Department where Employee.DEPT_NO(+) = Department.DEPT_NO; 
+
+	Full Outer Join:
+	==============================
+		It is a combination of Equi Join and lost information from the left hand side table and lost information from the right hand side table.
+
+		for e.g.
+		-------------
+			SQL> select * from Employee FULL OUTER JOIN Department on Employee.DEPT_NO = Department.DEPT_NO;
+		
+		Non- ANSI style query:
+		-----------------------
+			To retrieve the lost record only from left hand side table:
+			SQL> select * from Employee, Department where Employee.DEPT_NO = Department.DEPT_NO(+)
+				MINUS
+			     select * from Employee, Department where Employee.DEPT_NO(+) = Department.DEPT_NO;
+
+			
+			To retrieve the lost records from right hand side table:
+			SQL> select * from Employee, Department where Employee.DEPT_NO(+) = Department.DEPT_NO
+				MINUS
+			     select * from Employee, Department where Employee.DEPT_NO = Department.DEPT_NO(+);
+
+	
+			To retrieve the lost information from both the sides:
+			SQL> select * from Employee, Department where Employee.DEPT_NO(+) = Department.DEPT_NO
+				UNION
+			     select * from Employee, Department where Employee.DEPT_NO = Department.DEPT_NO(+); 		
+
+
+
+	Self Join:
+	================================
+		Joining the table by itself is known as Self Join.
+		Whenever we have some relationship between any two columns in the same table then we use alias names to retrieve records.
+
+		for e.g.
+		----------
+			SQL> select e.EMP_ID, e.EMP_NAME as MANAGER, m.EMP_NAME from Employee e, Employee m where e.EMP_ID = m.MGR;
+				
+				Here, EMP_ID and MGR has a relationship.
+	 
+	
+	Cross Join:
+	=================================
+		This join is the combination/ product of two or more than two tables i.e. m-number of rows in one table and n-number of rows in 
+		another table, then we get the combination of m*n records.
+
+		for e.g.:
+		------------
+			In ANSI Style:
+			-----------------
+			SQL> select * from Employee CROSS JOIN Department;
+	
+			In Non-ANSI style:
+			---------------------
+			SQL> select * from Employee, Department;
+
+
+Table Copy
+=======================
+	1. Copy the table structure without data:
+		
+		SQL> create table <target table name> as select * from <source table name> where <false condition>;
+
+		for e.g:
+		-------------
+		SQL> create table STUDENT1 as select * from STUDENT where 1=2;
+
+	2. Copy the table structure with data:
+		
+		SQL> create table <target table name> as select * from <source table name> where <true condition>;
+
+		for e.g:
+		-------------
+		SQL> create table STUDENT1 as select * from STUDENT where 1=1;
+
+	3. Copy the table structure with only some of the fields without data:
+		
+		SQL> create table <target table name> as select FIELD_1, FIELD_2, FIELD_3 from <source table name> where <false condition>;
+
+		for e.g:
+		-------------
+		SQL> create table STUDENT1 as select * from STUDENT where 1=2;
+
+
+
+
+********************************Chepter-8 : till Server-side Prgramming : PL/SQL and Java page:157*********************************************
+		
