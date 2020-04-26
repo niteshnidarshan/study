@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            #userTable {
+                background-color: gray;
+                color: white;
+            }
+            th {
+                background-color: orange;
+                color: white;
+            }
+        </style>
+        <meta charset="utf-8">
+        <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src='script.js'></script>
+        <title>Row swapping</title>
+    </head>
+    <body> 
+        <table id = "userTable" width=70% align="center" border = 1> 
+            <tbody>
+                <tr>
+                    <th>Serial#</th>
+                    <th>Record#</th>
+                    <th>Name</th>
+                    <th>City</th>
+                </tr>
+                <tr id="x1"><td id = "1">1</td><td>1st_record</td><td>Nitesh Nidarshan</td><td>Bihar</td></tr>
+                <tr id="x2" ><td id = "2">2</td><td>2nd_record</td><td>Ashok Kumar KD</td><td>Palavakkam</td></tr>
+                <tr id="x3"><td id = "3">3</td><td>3rd_record</td><td>Sukanya</td><td>Chennai</td></tr>
+                <tr id="x4"><td id = "4">4</td><td>4th_record</td><td>Ankit</td><td>Ranchi</td></tr>
+                <tr id="x5" ><td id = "5">5</td><td>5th_record</td><td>Trishna</td><td>Himachal Pradesh</td></tr>
+                <tr id="x6"><td id = "6">6</td><td>6th_record</td><td>Rekha</td><td>Arunachal Pradesh</td></tr>
+                <tr id="x7"><td id = "7">7</td><td>7th_record</td><td>Rukkmini</td><td>Mumbai</td></tr>
+                <tr id="x8" ><td id = "8">8</td><td>8th_record</td><td>Sneha</td><td>Bombay</td></tr>
+                <tr id="x9"><td id = "9">9</td><td>9th_record</td><td>Sheela</td><td>Kashmir</td></tr>
+            </tbody>
+        </table>    
+        <br> 
+        <table align="center" width="7%">
+            <tr>
+                <td><input type="button" value="Up" onclick="javascript:setUp();" style="width: 100px; background-color: orange;"></td>
+                <td><input type="button" value="Down" onclick="javascript:setDown();" style="width: 100px; background-color: orange;"></td>
+            </tr>
+        </table>
+    </body>
+</html>
