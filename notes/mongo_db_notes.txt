@@ -364,9 +364,42 @@ $ load("loadMovieDetailsDataset.js")
 
 true
 
-$ show dbs
+$ show dbs 
 
 $ use video
+
+
+$ mongo "mongodb+srv://cluster0.zdcig.mongodb.net" --username m220j
+
+$ password : m220j
+
+$PRIMARY> show dbs [To show all databases]
+$PRIMARY> use sample_mflix [To set current database]
+$PRIMARY> show collections [To show all collections(tables) in current database]
+$PRIMARY> show users       [show users in current database]
+$PRIMARY> show profile     [show most recent system.profile entries with time >= 1ms]
+$PRIMARY> db.help() [list all db related commands]
+$PRIMARY> db.getName() [To know which db are you in]
+
+To find keys structure of a collection
+----------------------------------------
+$PRIMARY> var desc = db.movies.findOne();
+$PRIMARY> for(var key in desc){print(key);}
+
+
+$PRIMARY> db.movies.find().pretty()
+$PRIMARY> db.movies.find({"directors":"Charles Swickard"}).pretty()
+$PRIMARY> db.movies.find({"year":1992}).pretty()
+$PRIMARY> db.movies.find({"year":1991}).sort({"title":1}).pretty()
+$PRIMARY> db.movies.find({cast: "Salma Hayek"}).limit(3).pretty() [will show first 3 records]
+
+$PRIMARY> db.movies.find({cast: { $all: ["Salma Hayek", "Johnny Depp"] }}).limit(1).pretty()
+
+$PRIMARY> db.movies.find({
+         cast: "Tom Hanks",
+         year: { $gte: 1990, $lt: 2005 },
+         metacritic: { $gte: 80 }
+     }).pretty()
 
 
 
