@@ -1,0 +1,2475 @@
+Deployment
+------------
+1) $ ng build --watch
+	[copy 'docs' content to deployment directory]
+2) $ cd deplyment_directory [/Users/niteshnidarshan/git_repository/deployment]
+3) $ git add --all
+4) $ git commit -m "commit message"
+5) $ git push -u origin master
+
+Note: If deployment directory is not cloned - $ git clone https://github.com/username/username.github.io
+
+
+---------------------------------
+Angular is a Typescript framework which is used to develop dynamic single page web applications.
+Typescript is a Microsoft's programming language which is used to simplify javascript code.
+
+To compile typescript programs 
+---------------------------------
+1) save it with .ts
+2) to compile - Use node.js terminal
+	$ tsc xyz.ts.   [To compile]
+	$ node xyz      [To execute]
+
+	After compiling .ts file - .js will be generated.
+
+Transpling - It is a process of converting typescript code into javascript code.
+
+node.js - It is a Runtime Environment which is used to run javascript on any environment.
+	It is responsible to convert typescript code into javascript.
+
+	node.js is required only at the time of development. After development of angular application - bulding & minfication is applied & total angular application is converted into a zip file which internally consists of .html, .js & .css files. This zip file needs to upload in web server.
+	Once zip is ready node.js is not required.
+
+	In order to run angular project - use thid command
+	-------------------------------------------------------
+	$ ng serve -o
+
+	- Whenever we run the above command, node.js will run .ts file & transpling happens to convert it into .js
+
+	- Building & Minification : 
+		Building - to group some set of files into a single file like .zip
+		Minification - To reduce the file size.
+
+	npm [Node package Manager]
+	-----------------------------
+	It is a largest library which provides services to angular & other frameworks.
+	By installing node.js npm enables.
+
+To install softwares for Angular development 
+------------------------------------------------
+1) install node.js
+	- download current version
+	- install 
+	- node command prompt & npm services will be enabled
+
+2) Check node.js & npm
+	- open Terminal 
+	- $ node -v
+	- $ npm -v
+
+3) install typescript
+	- $ npm install -g TypeScript         [g = global]
+		
+4) Check TypeScript
+	- $ tsc -v
+
+5) install angular CLI
+	- $ npm install -g @angular/cli
+
+6) check angular CLI
+	- $ ng v.     [No - in between ng & v]
+
+7) Visual Studio Code
+
+Typescript
+-------------------
+Typescript is used to develop functional programming & object oriented programming.
+
+Variables - can be modified
+	var variable_name:data_type = value;		[var/let is optional keyword to declare a variable]
+	
+Array declaration - var array_name: datatype[] = [];
+	var Ar: string[] = ["ab","cd","ef"];
+
+Constatnt - It is a literal which can not be modified
+
+	const pi:number = 3.14;		[const - keyword | number - data type]
+
+document.write() - It is used to print in browser.
+console.log() - It is used to print in console & used for debugging.
+
+
+
+
+
+
+Function types 
+-------------------
+1) Named function : function with name
+	
+	function fun(){}
+
+2) Anonymous function : function without name 
+	
+	var sum:number = function(x:number, y:number)
+		{
+			let sum:number = x+y;
+			console.log(x+y);
+		};
+
+
+	sum(6,3);
+
+3) Arrow function(Lambda expression) : short form of anonymous function.
+
+	()=> logic;
+
+	lambda operator/ goes to
+
+	- Left side we ave to declare parameters & right side logic.
+	
+	for e.g
+	-----------
+	1) var x: number = ()=> console.log("I am with no parameter");
+
+	x();
+
+	
+	2) var sum = (x,y)=>console.log(x+y);
+	
+	sum(6,3) 
+
+	3) var sum = (x,y)=> x+y;
+	
+	var s = sum(4,5);
+	console.log(s);
+
+Parameter types
+------------------------
+Typescript supports 3 types of function parameters
+1) Optional Parameter
+2) Default Parameter
+3) Rest Parameter
+
+Optional parameter : During function declaration, if it is provided optional parameter(?) then at the time of call passing the value to the function is optional.
+	** Only the last parameter(s) can be an optional parameter. more than one optional parameter can be defined but only after actual parameter.
+
+	for e.g.
+	----------------
+	function showDetails(id: number, name: string, email?:string, class?:string)
+	{
+		console.log(id, number);
+	
+		//email is optional
+		if(email != undefined)
+		{
+			console.log("Email : ", email)
+		}
+
+		//class is optional
+		if(class != undefined)
+		{
+			console.log("Class : ", class)
+		}
+	}
+
+	showDetails(101, "XY");
+	showDetails(102, "AB", "abc@xyz.com");
+	showDetails(103, "ABC", "abc@xyz.com", "T");
+
+Default parameter : It is used to set default value for the parameter.
+	
+	for e.g
+	---------------
+	function displayName(name: string, greeting: string = "Hello"):string
+	{
+		return greeting + ' ' + name + '!'; 
+	}
+
+	console.log(displayName('Sathya'));  // Hello Sathya!
+	console.log(displayName('Sathya', 'Hi')); // Hi Stahya!
+
+Rest Parameters : It is used to pass zero or more values to a function. we can declare it by prefixing the three 'dot' characters ('...') before the parameter. It allows the function to have a different number of arguments without using the arguments object. The Typescript compiler will create an array of arguments with the rest parameter so that all array methods can work with the rest parameter. It is used when we have an undetermined number of parameters.
+
+	- We can use only one rest parameter in a function.
+	- It must be an array type
+	- must be the last parameter 
+
+	for e.g.
+	----------------
+	function sum(a: number, ...b: number[]): number
+	{
+		let result a;
+		for(var i=0; i<b.length; i++)
+		{
+			result=result+b[i];
+		}
+		return result;
+	}
+
+	console.log(sum(1,2,2,211,90,0))
+
+
+method overloading
+------------------------
+- In typescript for method overloading, only the common method should have definition and inside that definition rest of the overloaded method can be achieved by logic like :
+ 
+class A
+{
+	public add(x:number, y:number):number;
+	public add(x:string, y:string):string;
+	public add(x:any, y:any):any
+	{
+		if(typeof x == 'number')
+		{
+			return x+y;
+		}
+		else if(typeof x == 'string')
+		{
+			return x+y;
+		}
+	}
+	
+}
+
+class declaration
+------------------------
+	class Student
+	{
+		static school:string = "Jay Ram G Ki Gurukul ..."
+		sNumber: number;
+		sName: string;
+		age: number;
+
+		constructor()
+		{
+			//To initialise the instance variable value
+		}
+
+		setStudent():void{}
+		getStudent():void{}
+		
+		add(x:number, y:number):number
+		{
+			return x+y;
+		}
+
+		static show()
+		{
+			console.log("This is a static method & accessible with class name")
+		}
+
+	}
+
+	Student.show();
+	var s_1: Student = new Student();
+		s_1.add(3,6);
+
+static variable - must declare with static keyword & can be accessible by using class name.
+
+
+this - It is a reference variable, used to access instance variables inside the constructor/ functions.
+
+constructor - To initialise values.
+	In typescript constructor is declared with 'constructor()' only.
+
+	constructor() will be the first default method to execute while creating an object.
+
+parameterised constructor - with parameters
+	In typescript, parameterised constructor is defined as 
+	constructor(a:number, b:number)
+
+	Either constructor(-,-,...) or constructor is used once at a time in a class. Can not be used both in a class simultaneous.
+
+	Typescript does not support multiple constructor/ constructor overloading.
+
+
+
+Inheritance 
+------------------
+class B extends A
+
+	Types of inheritance supports typescript :
+
+	1) Single level - class B extends A
+	2) Multilevel - class B extends A
+	3) Hierarchical - class B extends A
+	4) Multiple - Type script does not support it by classes but can be achieved by interfaces.
+	5) Hybrid - for multiple inheritance need interfaces.
+
+
+	- In inheritance always create an object for derived class.
+
+
+class Employee
+{
+	static companyName: string = "Sathya_Tech";
+	eno: number;
+	ename: string;
+	bsal: number;
+	da: number;
+	hra: number;
+	tsal: number;
+
+	constructor(no: number, name: string, sal: number)
+	{
+		this.eno = no;
+		this.ename = name;
+		this.bsal = sal;
+	}
+
+	calDa()
+	{
+		this.da = 0.2*this.bsal;
+	}
+
+	calHra()
+	{
+		this.hra = 0.4*this.bsal;
+	}
+
+	calTotalSal()
+	{
+		this.tsal = this.bsal+this.da+this.hra;
+	}
+
+	displayEmp()
+	{
+		console.log("Eno : "+this.eno);
+		console.log("Ename : "+this.ename);
+		console.log("Basic : "+this.bsal);
+		console.log("Total Salary : "+this.tsal);
+	}
+}
+	
+var e1: Employee = new Employee(101, "anil", 20000);
+var e2: Employee = new Employee(102, "sunil", 30000);
+
+e1.calDa();
+e1.calHra();
+e1.calTsal();
+e1.displayEmp();
+
+e2.calDa();
+e2.calHra();
+e2.calTsal();
+e2.displayEmp();
+
+$ tsc Employee.ts
+$ node Employee
+
+Interfaces
+-----------------
+	- Interface is a type which consist of public abstract members. By default interface members are public & abstract interface is a contract or an agreement between itself & its implemented class i.e. interface will provide some set of specifications & these specifications must implement in the derived class.
+
+	- Interface members must implement in derived class.
+	
+	- interface does not have any implementations.
+
+	- Interface implementations must define in derived class.
+
+	- We can not create object for interface or abstract class but we can create reference for interface.
+
+	for e.g.
+	-------------
+	interface interface_name
+	{
+		---
+	}
+
+	class class_name implements interface_name
+	{
+
+	}
+
+
+	for e.g.
+	------------
+	interface A
+	{
+		show():void;
+	}
+
+	class B implements A
+	{
+		show(): void
+		{
+			console.log("I am here!");
+		}
+	}
+
+	var b1:B = new B();
+	b1.show();
+
+
+	var a1:A = new B();
+	a1.show();
+
+	**Typescript does not support multiple inheritance with classes but supports with interfaces.
+	Due to ambiguity of method names, It is not supported by classes.
+
+	** A class can extends only one class while a class can implements multiple interfaces.
+
+	class C implements A,B
+	{}
+
+
+============================
+class A
+{
+
+}
+
+class B extends A
+{
+
+}
+
+=============================
+
+=============================
+abstract class A
+{
+
+}
+
+class B extends A
+{
+
+}
+ 
+=============================
+
+=============================
+
+interface A
+{
+
+}
+
+class B implements A
+{
+
+}
+
+=============================
+
+=============================
+
+interface A
+{
+
+}
+
+interface B extends A
+{
+
+}
+=============================
+
+
+Tightly coupling : Creating object for one class inside another class by using new keyword then we can say that both the classes are tightly coupled with each other. Here classes & objects are dependent on each other. If modification occurs in USES-A class, will force to  using class for modify. 
+
+	for e.g.
+	-------------
+	class A
+	{
+
+	}
+
+	class B
+	{
+		A a1 = new A();
+		get(): void
+		{
+			A a2 = new A();
+		}
+	} 
+
+Loosely coupling : To decrease the degree of dependencies between the classes. We can achieve it by using interfaces.
+
+
+	for e.g.
+	----------------
+	interface Ishape
+	{
+   		Draw():void;
+	}
+	class Square implemets IShape	   			
+	{				   			
+		 Draw():void			     				
+		 {    console.log("Draw a square");   }	     		
+	}				       					  
+	class Rectangle  implemets IShape	      					       
+	{				       
+  		Draw():void			      					
+		{    console.log("Draw a Rectangle");   }	         		
+	}
+				       
+	class Triangle implemets IShape
+	{				      
+ 		 Draw():void			   
+  		{    console.log("Draw a Triangle");   }
+	}
+
+
+
+	class Shape
+	{
+		GetShape(IShape is):void
+		{
+			is.Draw();
+		}
+	}
+	var s1:Shape=new Shape();
+	s1.GetShape(new Square());
+
+Data Binding 
+------------------
+	- Binding the HTML elements with typescript variable.
+	In angular it is done by directives like ngModels at the time of designing HTML elements.
+
+
+	Data binding types
+	------------------------
+	1) two-way data binging [used by mg model] [also called property data binding]
+		
+	2) string interpolation (one-way data binding)
+
+	3) event databinding
+ 
+
+	for e.g.
+	--------------
+	<input type ="text" [(ngModel)] = "firstName">  ---- two-way data binding
+	<input type ="text" [(ngModel)] = "lastName">	---- two-way data binding
+
+	<button [(ngclick)] = "getFullName()"></button> ---- event data bindig
+
+	<span>{{fullName}}</span> ------ one-way data binding
+
+
+
+
+	class AppComponent
+	{
+		firstName:string;
+		lastName:string;
+		fullName:string;
+
+		getFullName()
+		{
+			this.fullName = this.firstName+this.lastName;
+		}
+	}
+
+
+Components & modules
+----------------------------
+** Angular 2/4/5/6/7/8/9 - follows component based architecture.
+
+	- A project is divided into some modules & further module contains components. and every components will have three file viz. .ts, .html & .css.
+
+	For e.g.
+	------------------
+	+ Application
+		+ Student module
+			- addStudentComponent
+			- updateStudentComponent
+			- searchStudentComponent
+		+ Emp module
+		+ Course module
+		+ Department
+
+Building blocks of Angular
+---------------------------------------
+1) Modules
+2) Components - It is type of typescript class
+3) Templates - Template is as HTML
+4) Decorators - like annotation 
+5) Data Binding
+6) Directives
+7) Services
+8) Dependency Injection
+9) Pipes - like filters
+
+	- Total Angular application is divided into multiple modules & modules consist of components, templates, directives, services, pipes etc.
+
+Module 
+------------------
+	- Module in Angular refers to a place where you can group the components, directives, pipe & services which are related to the application.
+	- Every Angular application has at least one module which is Root Module & by convention it is 'AppModule' & it resides inside app module.
+
+	- To establish communication between one component to another among all the modules, need to export & import.
+
+	- Angular modules are used to group components, directives, pipes, services that are related to a particular group of angular application.
+
+	- Angular apps are modular & to maintain modularity, we have Angular modules or it can be said 'ngModules'.
+	
+	- Every Angular app contains at least one Angular module, i.e. the root module. Generally, it is named as AppModule & it is generated automatically once the project is created.
+
+	- The root module can be the only module in a small application.
+
+	- In some applications we have multiple modules. Any angular module is a class  with "@NgModule" decorator.
+
+
+Types of Module
+=======================
+1) Root Module 	- AppModule (It is mandatory & responsible to launch application)
+
+2) Featured Module - Application becomes large then we create multiple featured modules and we import all featured modules in Root Module.
+
+3) Core Module 	- Angular given predefined module for ease. Include providers of HttpServices services in angular are singleton objects. Core module must imported in RootModule only.
+
+4) Shared Module 	- Reusable components, pipes & directives that we want to use across our entire application are common modules, like FormsModule.
+
+5) Routing module 	- app.routing.module.ts [All application routes/ navigations are available under routing module.]
+
+
+Advantages of Module
+========================
+1) Better code organisation
+2) Code reusability
+3) Code maintainability
+4) Improved performance
+
+
+Templates
+========================
+A component need to have a view. To define a view template is required. A template is a form of HTML that tells Angular how to render the component.
+
+Decorators
+========================
+Decorators are basically used for attaching metadata to classes so that it knows the configuration of those classes & how they should work. 'NgModule' is a decorator function that takes metadata objects whose properties describe the module.
+
+Object creation is done automatically by the Angular & used IOC. So it is mandatory to make Angular understand that what type of class is this like Components/ Services/ Pipes etc. So for this purpose decorators are used.
+
+	for e.g.
+	-------------
+	@Component({
+		selector : 'app-root',
+		templateUrl : './app.component.html',
+		styleUrls : ['./app.component.css']
+	})
+	class AppComponent
+	{
+
+	}
+
+
+
+	+AppComponent
+	------------
+		-app.component.ts
+		-app.component.html
+		-app.component.css
+
+
+Export - The classes that should be accessible to the components of other module.
+
+	export class Users{
+
+	}
+
+Import - Module whose classes are needed by the component of this module. Without export import is not possible.
+
+	import {Users} from './users'
+
+
+Providers - Services present in one of the modules which are to be used in other modules or components. Once a service is included in the providers it becomes accessible in all parts of that application.
+
+bootstrap - The root component which is the main view of the application. This root module only has this property and it indicates the component that is to be bootstrapped. 
+
+
+
+Angular Project Development 
+=====================================
+1) create a project folder like AngularProject_1
+2) open terminal/ node terminal
+3) go to the project directory - AngularProject_1
+4) $ ng new project_name
+	
+	$ng new AngularProject_1
+
+5) would u like to add Angular Routing y/n? - provide y
+
+6) open visual studio code IDE - open project directory & select the npm created directory.
+7) visual studio - terminal - new terminal 
+
+8) #ng serve -o [to compile total project]
+	- by default angular will run on localhost:4200
+	- test in browser
+
+9) got project navigator 
+	src - app - app.component.html
+	- modify some html code to show on browser
+	- save - it will auto compile 
+	- refresh browser
+
+10) success
+
+
+types of resources class in Angular
+===========================================
+Module		Component	Service
+class		class		class
+{} 		{}		{}
+
+
+- With the help decorators, Angular understands what type of resource(s) class is this.
+	** Module must be decorated with @NgModule
+
+	for e.g. - [@NgModule consist of four sections as - declarations, imports, providers, Bootstrap] 
+	--------------------------------------------------------------
+	import {BrowserModule} from '@angular/platform-browser';
+	import {NgModule} from '@angular/core';
+	import {FormsModule} from '@angular/forms';
+	@NgModule({
+		declarations: [AppComponent, HomeComponent, AboutUSComponent, LoginComponent],
+		imports: [BrowserModule, NgModule, FormsModule],
+		providers: [LoginService],
+		Bootstrap: [AppComponent]
+	})
+	export class AppModule
+	{
+		---
+	}
+	
+
+	declarations: declarations are the collections of components which are used in that module like - AppComponent, HomeComponent, AboutUSComponent, LoginComponent etc.
+
+	Bootstrap: Among the components of the module, which one is the first executable default, should be mentioned in Bootstrap section.	
+
+	providers: All the services belong to this module should be mentioned in the providers section if they are required. 
+
+	imports: Need to mention all the modules which are imported in the top import like BrowserModule, FormsModule
+
+	** All the sections parameters are not mandatory if not use
+	** These details are required for Inversion Of Control (IOC) functionality.
+
+
+
+
+Service
+==================================
+Service class must be decorated with @Injectable
+
+	for e.g.
+	--------------
+
+	import { Injectable } from '@angular/core';
+	import { HttpClient } from '@angular/common/http';
+
+	@Injectable({
+		providedIn: 'root'
+	})
+	export class LoginService
+	{
+
+	}
+
+Component
+==================================
+Component class must be decorated with @Component & it consist of three sections as selector, templateUrl & styleUrls. 
+
+	for e.g.
+	----------------------
+	@Component({
+		selector: 'app-root',
+		templateUrl: './app.component.html',
+		styleUrls: ['./app.component.css']
+	})
+	export class AppComponent
+	{
+
+	}
+
+Angular commands to create project
+=========================================
+$ node -v
+$ npm -v
+$ tsc -v
+$ ng -v
+$ ng new ProjectName
+
+In order to generate modules, components, services in angular we have some commands 
+
+cli 	- comand line interface
+g 	- generate
+m 	- module
+c 	- component
+s 	- service
+ng 	- angular
+o 	- open
+v 	- version
+
+create a module in app 		- $ ng g m Student
+create a component in module 	- $ ng g c AddStudent
+create a service in module 	- $ ng g s StudentLoginService
+
+to run angular project - $ ng serve -o
+
+When we run ng serve -o, then node.js runs the angular project
+
+
+template = view 
+
+interpolation 		- {{}}
+property binding 	- []
+event binding 		- ()
+two way binding 	- [()]
+
+
+app.component.ts 
+------------------------
+
+import { Component } from '@angular/core'
+@Component({
+	selector: 'app-root',
+	templateUrl: './app.component.html',
+	styleUrls: ['./app.component.css']
+})
+export class AppComponent 
+{
+	title = 'Student Information';
+	firstName: string;
+	lastName: string;
+	fullName: string;
+
+	getFullName()
+	{
+		this.fullName = this.firstName+this.lastName;
+	}
+}
+
+
+app.component.html
+--------------------------
+<div>
+	Enter First Name  <input type = "text" [(ngModel)] = "firstName">
+	Enter Lirst Name  <input type = "text" [(ngModel)] = "lastName">
+
+	<br>
+
+	<input type = "button" (click) = "getFullName()" value = "display">
+
+	<br>
+
+	Full Name is <input type = "text" [(ngModel)] = "fullName">
+
+		or
+
+	Full Name is {{fullName}}>
+</div>
+	
+<router-outlet></router-outlet>
+
+** router-outlet tag is mandatory to maintain child components.
+
+
+app.module.ts
+--------------------------
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {FormsModule} from '@angular/forms';
+import {AppRoutingModule} from '@angular/app-routing.module';
+import {AppComponent} from '@angular/app.component';
+
+@NgModule({
+	declarations: [AppComponent],
+	imports: [BrowserModule, NgModule, FormsModule, AppRoutingModule, AppComponent],
+	providers: [],
+	bootstrap: [AppComponent]
+})
+
+export class AppModule
+{
+	
+}
+
+** Once the component is created in the module, it is updated automatically in "app.modules.ts" file.
+
+go to Visual Studio Code Terminal
+	$ ng serve -o
+
+Flow 
+=============
+1) $ ng serve -o
+2) control goes to "main.ts" and search for root module name like AppModule in bootstrapmodule element. 
+3) then control goes to respective AppModule class & search for "bootstrap" element value in @NgModule decorator
+4) then control goes to bootstrap defined Component class like AppComponent & check their decorator - @Component. inside @Component it checks "templateUrl" defined html file & "selector" element. Suppose, in selector it is defined 'app-root' then control goes to index.html of app-root.
+
+	In "index.html" the tag is mentioned like - <app-root></app-root>
+	So, templateUrl defined html file will run in index.html body.
+	
+Decorators
+===============
+1) Module class with 
+	@NgModule({
+		declarations: [],
+		imports: [],
+		providers: [],
+		bootstrap: []
+	})
+
+2) Component class with
+	@Component({
+		selector: '',
+		templateUrl: '',
+		styleUrls: []
+
+	})
+
+3) Service class with 
+	@Injectable({providedIn: 'root'})
+
+
+Routing
+=========================
+** If multiple components are existing in the project, it is mandatory to write a separate module for routing. So, at the time of creating project select the option 'y' to include routing module. 
+
+** Routing module is used to mention navigation information like hyperlinks.
+
+app-routing.module.ts
+-------------------------
+	This class is used to manage the routes/ hyperlinks/ navigations.
+
+	const routes: Routes = [
+		{path: 'home', component: HomeComponent},
+		{path: 'about', component: AboutComponent},
+		{path: 'contact', component: ConnectComponent},
+		{path: "", component: HomeComponent}   // Default - if anything else then Home will be loaded.
+		];
+
+
+	Whatever the route path is configured, same need to map with anchor tag in main component html as - 
+	
+	<a routerLink='home' routerLinkActive = 'active'>Home</a>
+	<a routerLink='about' routerLinkActive = 'active'>About Us</a>
+	<a routerLink='contact' routerLinkActive = 'active'>Contacts</a>
+
+Adding image in home page
+================================
+assets directory
+-----------------
+	This directory is used to maintain static resources of application like  images, icons etc..
+
+	step_1) right click on "assets" in IDE's project navigator - copy path
+	step_2) go to that path - put the image manually
+	step_3) index.html
+		<img src="./assets/image_file.jpeg" width="70%" height="30%">
+
+
+index.html
+------------
+This file contains whole angular application. Here it can not be find any reference to css/ js files. All other pages or resources are dynamically integrated here at run time.
+
+main.ts
+-----------
+This file is a Typescript file. It is the starting point of angular application. Here, we can bootstrap (the process of initialising/ loading) main module using bootstrapModule method like -
+
+	platformBrowserDynamic().bootstrapModule(AppModule);
+
+
+
+Folder structure
+========================
++ projectname
+	+e2e //end to end - to maintain settings/ test case related files
+	+node_modules //pre defined modules/ third party api configurations
+	+src
+		+app //User defined modules along with default files contains module/ components/ services
+			+about // user defined module
+				- about.component.ts
+				- about.component.html
+				- about.component.css
+				- about.component.spec.ts //Used for testing
+			-app-routing.module.ts //To maintain routing or navigation 
+			-app.component.css
+			-app.component.html
+			-app.component.ts
+			-app.module.ts
+		+assets // To maintain images/ icons
+		+environments // To maintain server information 
+			- environment.prod.ts // for production environment
+			- environment.ts // for development environment
+		-index.html //main html which loads all the modules
+		-style.css //global css
+		-main.ts //Starting point of the application - control first comes here to search default module to load
+		-package.json //contains all the information related to the project
+		-tsconfig.json //related to compiler settings
+		-angular-cli.json //standard configuration file of the application.
+		+pollyfiles //for browser compatibility settings
+		+karma.config.js //used for unit test cases
+		
+
+
+Directive
+=======================
+	Directives are one of the feature of Angular to manipulate HTML DOM layout.
+	
+	Attribute directives
+	------------------------
+	ngStyle, ngClass, etc.
+
+
+	Structural directives
+	------------------------
+		- Structural directive allows us to add or remove elements from the DOM as per the expression provided 
+		
+		for e.g.
+		----------
+		*ngif, *ngSwitch, *ngFor, etc.
+
+	*ngFor
+	------------
+		This directive is used to iterate the collection like Array/ JSON etc.
+
+		for e.g.
+		-----------
+		<ol type = "1">
+			<li *ngFor = "let x of users">
+				{{x}}
+			</li>
+		</ol>
+	
+
+App development
+=======================
+Create an application LoginApp & add components as - about, home, login
+1) $ ng new LoginApp
+
+	Add components
+	-----------------------
+	$ ng g c about
+	$ ng g c home
+	$ ng g c login
+
+	It will automatically updates in "app.module.ts"
+
+2) app-routing.module.ts
+	
+	const routs: Routes = [
+		{path: 'home', component: HomeComponent},
+		{path: 'about', component: AboutComponent},
+		{path: 'login', component: LoginComponent}
+	]
+	
+3) app.component.html
+	
+	<div>
+		<a routerLink="home" routerLinkActive="active"> Home </a>
+		<a routerLink="about" routerLinkActive="active"> About </a>
+		<a routerLink="login" routerLinkActive="active"> Login </a>
+	</div>
+	<router-outlet></router-outlet>
+
+4) compile
+
+	$ ng serve -o
+
+5) run in browser
+	
+	localhost:4200
+
+6) Design all the html forms
+
+	login.component.html
+	----------------------------
+	Enter User Name : <input type = "text" [(ngModel)] = "UserName">
+	Enter Password : <input type = "text" [(ngModel)] = "Password">
+
+	<input type = "button" [(click)] = "checkUser()" value = "Login">
+	
+	<span *ngIf="isValid">Success</span>
+
+	
+	login.component.ts
+	----------------------
+	export class LoginComponent implements OnInit
+	{
+		userName: string;
+		password: string;
+		isValid: boolean;
+	
+		constructor() {}
+
+		ngOnInit() {}
+
+		checkUser()
+		{
+			if(this.userName == "Admin" && this.password == "Admin")
+			{
+				this.isValid = true;
+			}
+		}
+	}
+
+
+	home.component.html
+	---------------------------
+	Enter a number : <input type="number" [(ngModel)] = "X">
+
+	<br>
+
+	<input type = "button" value = "Add" (click) = "checkEvenOdd()">
+
+	<div *ngIf="isEven; then Even else Odd"></div>
+
+	<ng-template #Even>Even number</ng-template>
+	<ng-template #Odd>Odd number</ng-template>
+
+
+
+	home.component.ts
+	-----------------------
+	X:number;
+	isEven: boolean = false;
+	checkEvenOdd()
+	{
+		this.isEven = this.X % 2 == 0;
+	}
+
+Note : By default 'ngModel' directive does not work in html & throws error because in 'app.module.ts' 'FormsModule' does not available
+	To bring it need to import FormsModule in 'app.module.ts' as
+
+	"import { FormsModule } from '@angular/forms';"
+	
+	And also need to map this in 'imports' attribute of 'NgModule' decorative
+
+	
+	*ngFor example
+	-------------------------------
+		app.component.js
+		-----------------------
+		export class AppComponent {
+			users: any[] = [
+				{eno: 101, ename: "Anil", salary: 20000},
+				{eno: 102, ename: "Sunil", salary: 210000},
+				{eno: 103, ename: "Mohan", salary: 220000},
+				{eno: 104, ename: "Mohini", salary: 200000}
+			];
+		}
+
+		
+		app.component.html
+		-----------------------
+		<table>
+			<tr>
+				<th> Eno. </th>
+				<th> EName </th>
+				<th> Salary </th>
+			</tr>
+			<tr *ngFor="let user of users">
+				<td> {{user.eno}} </td>
+				<td> {{user.ename}} </td>
+				<td> {{user.salary}} </td>
+			</tr>
+		</table>
+ 		<router-outlet></router-outlet>
+
+
+	Data traversal between multiple components
+	---------------------------------------------------------
+		parent/child component relation
+		-------------------------------- 
+		
+		1) app.component.html
+		------------------------
+		<div>
+			<h1> Parent Component </h1>
+		</div>
+
+		<router-outlet></router-outlet>
+
+
+		2) create a new component as 'child'
+			child.component.ts
+			-----------------------
+			2.1) copy selector value from @Component decorator - 'app-child'
+
+		3) paste it in parent component html file as a tag.
+			app.component.html
+			------------------------
+			<div>
+				<h1> Parent Component </h1>
+				<app-child></app-child>
+			</div>
+
+			Now child component will show under parent component in the browser.
+
+	
+Data transfer between components
+=========================================================================
+@input / @output decorator for data passing between two components
+-------------------------------------------------------------------------
+	# How to pass parent component data to child component
+	--------------------------------------------------------------
+		Use "@input" decorator 
+				 
+	# How to pass child component data to parent component
+	--------------------------------------------------------------
+		Use "@output" decorator 
+				 
+
+Services
+==================
+To reduce redundancy, we keep a common code in services so that, it will have a single object around the application & it can used by all the modules/ commponents.
+Services are singleton object.	
+	for e.g. login service, payment service, etc.	
+
+Service is a centralizedlocation in angular application where you can keep your data which you want to share acreoss components.
+Any modification done in service will automatocally reflect back to all the components who  are injecting this service because services are singleton (Single instance of that service will get created). 
+To create service use ng generate comand as : ng g s services/userService.
+
+Generally AJAX call is done by pre defined services like HttpServices.	
+
+
+	1) Create a service class 
+		
+		$ ng g s loginservice
+		
+		Create a service in a directory 
+		$ ng g s services/loginservice
+
+	2) register the service in app.module.ts inside providers[] 
+
+		@NgModule({
+			
+			providers: [LoginService],
+			bootstrap: [AppComponent]   // Service will be injected to this bootstrap class 
+			
+		})
+
+		And import the namespace with ctrl+.
+
+		import { LoginService } from './services/loginservice.service';
+
+	3) pass this service class object in constructor of app.component.ts because this class is bootstrap of app.module.ts
+
+		export class AppComponent {
+			
+			constructor(private login: LoginService)
+			{
+
+			}
+
+		}
+
+		And import the namespace with ctrl+.
+
+		Once this class initialised, constructor will load the service object.
+
+	4) provide the logic for login in loginservice.service.ts
+
+		export class LoginService{
+			
+			constructor(){}
+
+			getValidateUser(): boolean
+			{
+				if(user=="x" && password == "y")
+				{
+					return true;
+				}
+				else
+				{
+					return false;
+				}
+			}
+		}
+
+	5) go to app.component.ts & implements "OnInit" predefined interface.
+
+	"OnInit" predefined interface is having ngOnInit(), so need to override to get the service object. 
+
+		export class AppComponent implements OnInit{
+
+			isValidUser:boolean;
+
+			constructor(private ls: LoginService)
+			{
+			
+			}
+		
+			ngOnInit()
+			{
+				this.isValidUser = this.ls. getValidateUser();
+			}
+		}	
+
+
+JSON server - search google
+-----------------------------
+1) install JSON server $ npm install -g json-server
+
+2) Create a db.json file with some data
+	{"name":"nitesh", "home":"Bihar"}	
+
+3) start JSON server $ json-server --watch db.json
+
+
+AJAX call
+================
+1) import & register in imports[] -  HttpClientModule in app.module.ts
+
+	import { HttpClientModule} from'@angular/common/http';
+
+2) users.service.ts
+
+import {injectable} from'@angular/core'; 
+import { HttpClientModule, HttpClient} from'@angular/common/http';
+
+@Injectable({provideIn: 'root'})
+
+export class UserService
+{
+	constructor(private httpservice: HttpClient){}
+
+	getAllUsers()
+	{
+		return this.httpservice.get("http://jsonplaceholder.typicode.com/users");
+	}
+}
+
+3) app.component.ts
+
+export class AppComponent implements OnInit{
+
+users: any;
+
+constructor(private userservice: UserService)
+{}
+ngOnInit()
+{
+	this.userservice.getAllUsers().subscribe((data)=>{
+		this.users = data;
+	});
+}
+
+}
+
+
+To open other component by click/ link event
+=====================================================
+this.router.navigateByUrl('/home');
+
+
+To set auto rout on load 
+----------------------------
+In app-routing.module.ts
+
+const routes: Routes = [
+  {path: "home", component: HomeComponent},
+  {path: "countries", component: CountriesComponent},
+  {path: "about", component: AboutComponent},
+  {path: "register", component: RegisterComponent},
+  {path: '', redirectTo: '/home', pathMatch: 'full' } //To set auto route
+];
+
+
+CRUD with API - Register service - A json db call for insert, update, read data with API 
+===============================================================================
+1) install json server [It runs in ur local]
+	
+	$ npm install -g json-server
+
+2) Start json server
+	$ json-server --watch db.json
+
+	The directory where you have installed the server one db.json is created.
+
+	Manually data can be modified.
+
+	{
+  		"emp": [
+    		{
+      			"id": 101,
+      			"ename": "anil",
+      			"salary": "2000"
+    		}]
+  	}
+
+3) Create a service angular like RegisterService to insert records.
+
+	Register this RegisterService to app.module.ts
+
+4) regiter.service.ts
+
+export class RegisterService {
+
+  constructor(private http: HttpClient) { }
+
+  getUser(empId:number)
+  {
+    //service to read data from json server
+    if(empId==0)
+    {
+      return this.http.get("http://localhost:3000/emp"); 
+    }
+    else
+    {
+      return this.http.get("http://localhost:3000/emp/"+empId); 
+      
+    }
+  }
+  insertEmployeeService(empformdata: any)
+  {
+    //Service to post data to json server
+    return this.http.post("http://localhost:3000/emp",empformdata);
+    
+  }
+  updateEmployee(empdata: any)
+  {
+    //service to update specific data in json server by id
+    return this.http.put("http://localhost:3000/emp/"+empdata.id, empdata); 
+  }
+  getEmpById(userId:any)
+  {
+    //service to read specific data from json server 
+    return this.http.get("http://localhost:3000/emp/"+userId); 
+  }
+  deleteEmpById(userId: number)
+  {
+    return this.http.delete("http://localhost:3000/emp/"+userId);
+  }
+}
+
+
+5) register.component.ts [Use register service operations here]
+	
+export class RegisterComponent implements OnInit {
+  formdata: any;
+  emplist: any;
+  updateemp: any;
+  id: any;
+  ename: string;
+  salary: any;
+  register_update_btn: string = "Register";
+
+  constructor(private reg: RegisterService) { }
+
+  ngOnInit(): void {
+      this.getEmployee(0); //To show data grid onload
+  }
+  clearFields()
+  {
+    this.register_update_btn  = "Register";
+    this.id = '';
+    this.ename= '';
+    this.salary='';
+    this.getEmployee(0);
+  }
+  getEmployee(empID: number)
+  {
+    // service call to get db data
+    // if empID == 0, means all record else a particular record
+    this.reg.getUser(empID).subscribe(res=>{
+      this.emplist=res;
+      if(empID!=0)
+      {
+        this.id = this.emplist.id;
+        this.ename = this.emplist.ename;
+        this.salary = this.emplist.salary;
+        this.updateRow(this.id);
+      }
+    });
+  }
+  insertEmployee()
+  {
+    if(this.id==undefined || this.id < 1)
+    {
+      alert("enter valid ID");
+      return;
+    }
+    if(this.register_update_btn == "Update")
+    { 
+      // Update the existing selected record
+      // If user selects 'Register' button after 'update' from data grid, Register will acts like an 'Update'
+      this.register_update_btn = "Register";
+
+      this.updateemp = {id:this.id, ename:this.ename, salary:this.salary};
+      this.reg.updateEmployee(this.updateemp).subscribe(result=>{
+        this.getEmployee(0); //To reload updated data grid
+      });
+      success => alert("Done!");
+    }
+    else
+    {
+      //Register a new record
+      this.formdata = {id:this.id, ename:this.ename, salary:this.salary};
+      this.reg.insertEmployeeService(this.formdata).subscribe(res=>{
+        this.getEmployee(0); //To reload updated data grid
+      });
+    }
+  } 
+  updateRow(userId:number)
+  {
+    //selected record value population
+    this.register_update_btn = "Update";
+    this.id=userId;
+    this.getEmployeeById(this.id);
+  }
+  deleteRow(userId:number)
+  { 
+    //To delete the selected record.
+    this.reg.deleteEmpById(userId).subscribe(res=>{
+      this.getEmployee(0); //To reload updated data grid
+    });
+  }
+  searchEmployee()
+  {
+    // To search a particular id record
+    this.getEmployee(this.id);
+  }
+  getEmployeeById(userId:number)
+  {
+      this.reg.getEmpById(userId).subscribe(res=>{
+        this.emplist  = res;
+        this.id       = this.emplist.id;
+        this.ename    = this.emplist.ename;
+        this.salary   = this.emplist.salary;
+      });
+  }
+}
+
+Pipes
+============================
+- Used to format output value in template.
+- Similar is called Filter in AngularJS. 
+
+Pipes allows us to change the data before display to the user.
+Normally a pipe takes the data & transforms this input to the desired output. 
+
+Two types Of pipes 
+--------------------
+1) Built in Pipes
+2) Custom Pipes
+
+Built in Pipes are already created in Angular, we just need to call that if we want to use it.
+If built in pipes are not sufficient then need to develop custom pipes.
+
+Following are the built in Pipes
+------------------------------------
+1) Uppercase
+2) Lowercase
+3) Titlecase
+4) date
+5) Currency
+6) Number
+7) slice
+8) json
+9) async
+
+Syntax
+--------
+{{expression | pipename: arguments}}
+
+	Whenever you want to use pipe just use pipe name followed by '|'. 
+	Pipes are methods behind the scene, so methods can take arguments in same manner pipe can also take argument which you pass after colon ':'.
+	
+	{{ename | lowercase: arguments}}
+
+Chaining of pipes
+---------------------
+Sometime we want to use more than one pipe on same expression, so this is called chaining of pipe.
+Suppose we need to apply date & uppercase together on DOB display.
+{{dob | date | uppercase}}
+
+	In this case 'output of date pipe' will act like an input for uppercase pipe.
+
+So, Pipes in angular are used to transform the data before displaying it in a browser.
+
+String related Pipes
+---------------------
+Uppercase,
+Lowercase,
+Slice - To get substring - takes start & end index of String to return substring.
+{{collegeName | UPPERCASE | slice: 6: 10}}
+
+Titlecase - To capitalise string
+
+Number related Pipes
+---------------------  
+Number - To convert the number to a different format.
+Currency - To show currency symbol
+{{user.salary|currency:'INR' : 'symbol' : '3.3'}}
+
+Date Pipe
+--------------------
+{{districtData.date | date:'dd-MMM-yyyy'}}
+{{DOB | date: 'shortDate'}} [longDate, mediumDate]
+
+json Pipe - To show in JSON
+--------------------
+{{users | json}}
+
+
+Custom Pipes
+=============================
+Custom Pipes is developed by the programmer as per the requirement.
+
+To create Pipe 
+---------------
+	$ ng g p pipes/pipe_name
+	
+	$ ng g p pipes/age
+
+	It will generate a class as AgePipe.
+
+	age.pipe.ts
+	---------------------------------------------------------
+	@Pipe({
+		name: 'age'
+	})
+	export class AgePipe implements PipeTransform
+	{
+		transform(value: any, args?: any): any
+		{
+			let currentyear: any = new Date().getFullYear();
+			let uy: any = new Date(value).getFullYear();
+			let userage = currentyear - uy; 
+			return userage;
+		}
+	}
+
+
+
+Angular Forms
+=============================
+1) Template driven forms [Most of the code is written in component template.]
+
+2) Reactive forms (Model Driven Approach) [Most of the code is written in component class.]
+
+
+
+Form tags - redirection, validation, submission, reset, clear etc.
+
+Angular Forms
+---------------
+Step_1) The component template contains the HTML to collect.
+
+Step_2) The component class handles data binding to the collected data.
+
+step_3) The collected data is sent to the server through a service.
+
+	Template --> Class --> Service --> Server
+
+
+Template Driven Forms
+---------------------------
+	- Easy to use & similar to AngularJs forms
+	- Two way data binding with ngModel
+	- Bulky Html & minimal component code
+	- Automatically tracks the form & form elements state & validity.
+	- Unit testing is a challenging task here
+	- Readability decreases with complex forms & validations
+	- Suitable for simple scenarios
+
+
+ngForm 
+------------
+	- It is a predefined class to store the form control values.
+
+	<form #myFormRef="ngForm" (ngSubmit)="saveData(myFormRef)">
+		<div ngModelGroup="StudentDetails">
+			<div class="row">
+				<label for = "name"> Name: </label>
+				<input type = "text" name= "Name" [(ngModel)] = "name">
+			</div>
+			<div class="row">
+				<label for = "email"> Email: </label>
+				<input type = "text" name= "Email" [(ngModel)] = "email">
+			</div>
+			<button type="submit"></button>
+		</div>
+	</form>
+
+
+	- ngModelGroup is used to combine all related ngModels in one group.
+	- ngModelGroup is treated as an object of elements which consist ngModels.
+	
+	** FormGroup - Grouping form elements
+	** FormControl - It refers to individual form element 
+
+
+
+
+app.module.ts
+-----------------
+- Add FormsModule
+
+	import { FormsModule } from '@angular/forms'
+
+app.component.ts
+-----------------
+- implement saveData() to collect form data
+
+	name: string;
+	email: string;
+	saveData(data)
+	{
+		console.log(data); // It will show in browser's console - (F12-console) with consolidated ngModelGroup objects.
+
+
+	}
+
+Reactive Forms
+=============================
+FormGroup class - Grouping form elements [collection of formControls]
+FormControl class - It refers to individual form element 
+
+In reactive form we handle controls in .ts file while in template driven forms, control handle is on html file only.
+
+For every element, need to initialize formControl class for that element, then only it be applied validations.
+
+
+
+1) app.module.ts
+--------------------------
+	- Register 
+	import { ReactiveFormsModule } from '@angular/forms';
+
+
+
+2)FormGroup creation
+--------------------------
+* app.component.ts
+-------------------
+
+export class AppComponent
+{
+	myform = new FormGroup({
+		name: FormControl("", [Validators.required]), //first parameter will appear in control by default if provide
+
+		age: FormControl("", [Validators.required]),
+
+		email: FormControl("", [Validators.required, Validators.email])
+	});
+
+	saveData()
+	{
+		if(this.myform.invalid)
+		{
+			return false;		//If form object is found invalid due to its element validation, need not proceed for save
+		}
+		
+		console.log(this.myform.value); // Will print whole formGroup controls value
+		console.log(this.myform.value["name"]); //Only particular control
+	}
+}
+ 
+
+app.component.html
+------------------------------
+<form [formGroup] = "myform" (ngSubmit)="saveData()">
+	<div claas = "row">
+		
+		<label for="name">Name</label>		
+		<input type = "text" name = "name" id = "name" formControlName = "name">
+		<span *ngIf="myform.controls.name.invalid && myform.controls.name.touched">Name is mandatory</span> 
+
+		<!= span tag is written to show validation message according to control validations applied =>
+
+	</div>
+	<div claas = "row">
+		
+		<label for="age">Age</label>		
+		<input type = "text" name = "age" id = "age" formControlName = "age">
+
+	</div>
+	<div claas = "row">
+		
+		<label for="email">Email</label>		
+		<input type = "text" name = "email" id = "email" formControlName = "email">
+		<span *ngIf="myform.controls.email.invalid && myform.controls.email.touched && myform.controls.email.required">Email is mandatory</span> 		
+
+		<span *ngIf="myform.controls.email.invalid && myform.controls.email.errors.email">Invalid Email</span>		
+
+	</div>
+	
+	<br>
+
+	<button type = "submit">Display</button>
+
+</form>
+
+
+Custom reactive form control
+====================================
+1) Create a class
+
+	$ ng g cl Agerange
+
+2) agerange.ts
+
+	import { AbstractControl } from '@angular/forms';
+	
+	export function Agerange(control: AbstractControl)
+	{
+		if(control.value >= 18 && control.value <= 25)
+		{
+			return null;
+		}
+		else
+		{
+			return {range: true}  
+		}
+		
+	}
+
+3) app.component.ts
+
+	3.1) Import Agerange
+
+	import { Agerange } from './agerange';
+
+	
+	3.2) provide validation to age FormControl parameter
+
+	myForm = new FormGroup({
+		---
+		age: new FormControl("", [Agerange]),
+		---
+	});
+	
+4) app.component.ts
+
+	For custom validation need to use get() - *ngIf="myform.get('age').invalid && myform.get('age').touched"
+
+	<div claas = "row">
+		
+		<label for="age">Age</label>		
+		<input type = "text" name = "age" id = "age" formControlName = "age">
+		<span *ngIf="myform.get('age').invalid && myform.get('age').touched">Age must be b/n 18 and 25</span>
+
+	</div>
+
+
+Form with bootstrap
+=====================================
+1)install bootstrap in the project 
+
+	$ npm install bootstrap --save
+
+2) angular.json
+
+	- add following style code 
+
+	---
+	style: [
+		---
+		"src/styles.css",
+		"node_modules/bootstrap/dist/css/bootstrap.css"
+	],
+	---
+
+3) app.component.ts
+
+export class AppComponent implements OnInit 
+{
+	registerForm: FormGroup;
+	submitted = false;
+
+	constructor(private formBuilder: FormBuilder){}
+
+	ngOnInit()
+	{
+		this.registerForm = this.formBuilder.group({
+			firstName: ['', Validators.required],
+			lastName: ['', Validators.required],
+			email: ['', [Validators.required, Validators.email]],
+			password: ['', [Validators.required, Validators.minLength(6)]],
+		});
+	}
+
+	//convenience getter for easy access to form field like a property with . operator
+	get f() {return this.registerForm.controls;}
+
+	onSubmit()
+	{
+		this.submitted = true;
+
+		//stop here if form is invalid
+		if(this.registerForm.invalid)
+		{
+			return;	
+		}
+		alert("Success! \n\n"+JSON.stringify(this.registerForm.value));
+	}
+	
+	
+}
+
+app.module.ts
+----------------------------
+import ReactiveFormsModule
+
+import { ReactiveFormsModule } from '@angular/forms';
+
+
+app.component.html
+----------------------------
+<div class="jumbotron">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-6 offset-md-3">
+              <h3>Angular 6 Reactive Form Validation</h3>
+              <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                  <div class="form-group">
+                      <label>First Name</label>
+                      <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+                      <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                          <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label>Last Name</label>
+                      <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+                      <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                          <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label>Email</label>
+                      <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                      <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                          <div *ngIf="f.email.errors.required">Email is required</div>
+                          <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label>Password</label>
+                      <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                      <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                          <div *ngIf="f.password.errors.required">Password is required</div>
+                          <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <button class="btn btn-primary">Register</button>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
+
+
+Parent-Child relation
+==============================
+Decorators
+-------------
+1) To pass data from parent to child - @input
+2) To pass data from child to parent - @output
+
+
+@input - To pass data from parent to child
+--------------------------------------------------
+app.component.ts
+---------------------
+@Component({
+	selector: 'app-root',
+	templateUrl: './app.component.html',
+	styleUrls: ['./app.component.css']
+})
+export class AppComponent
+{
+	UserName: string = "Kannababu"; //Parent variable [More data can be passed with array]
+}
+
+app.component.html
+---------------------
+<div>
+	Parent component
+	
+	<app-child [uname]="UserName"></app-child>
+</div>
+
+
+child.component.ts
+----------------------
+@Component({
+	selector: 'app-child',
+	templateUrl: './child.component.html',
+	styleUrls: ['./child.component.css']
+})
+export class ChildComponent implements OnInit
+{
+	@Input()
+	uname: string; //Child variable - assigned by parent
+
+	constructor(){}
+
+	---
+}
+
+child.component.html
+-------------------------
+<p>Child works! {{uname}}</p> Here uname will show from parent variable
+
+
+
+
+@output - To pass data from child to parent/ callback
+--------------------------------------------------------
+This process of communication works like a subscribe() of service or like a callback function. 
+Here, parent method first invokes the child then the result of child will be the input for parent calling method.
+
+These all handled by 'EventEmitter' pre defined class.
+
+@Output binds a property of the type of angular EventEmitter class.
+This property name becomes custom event name for calling component. @Output decorator can also alias the property name as @Output(alias) and now this alias name will be used in custom event binding in calling component.
+
+Child component to parent component communication is Event based communication.
+
+child.component.html
+--------------------
+<div>
+	<button type="button" id = "btn" (click)="passData()">Click</button>
+</div>
+
+
+child.component.ts
+----------------------
+@Component({
+	selector: 'app-child',
+	templateUrl: './child.component.html',
+	styleUrls: ['./child.component.css']
+})
+export class ChildComponent implements OnInit
+{
+	
+	constructor(){}
+
+	ngOnInit(){}
+
+	@Output
+	notify: EventEmitter<string> = new EventEmitter<string>(); //It behaves like a subscribe 
+	passData()
+	{
+		this.notify.emit("I am from child"); //It will be the response for parent
+	}
+
+
+	
+}
+
+
+app.component.ts
+---------------------
+@Component({
+	selector: 'app-root',
+	templateUrl: './app.component.html',
+	styleUrls: ['./app.component.css']
+})
+export class AppComponent
+{
+	
+	childdata: string;
+	parentMethod(data)
+	{
+		this.childdata = data;	
+	}
+}
+
+
+app.component.html
+---------------------
+<div>
+	Parent component
+	<p>{{childdata}}</p>
+	<app-child (notify)="parentMethod($event)"></app-child>
+</div>
+
+
+Whenever user clicks on Button, 
+child method will get executed passData(){} then,
+emit() will invoke parent method & pass the result of childmethod as input for parent method,
+then we are storing the result in variable & bind in app.component.html
+
+
+
+Dependency Injection
+=============================
+Dependency Injection is a coding pattern in which a class receives its dependencies from external sources rather than creating them itself.
+
+For example we only declare a service but not creating its object. Its object is created by Angular as singleton object & can be utilised in any component by just initialising its reference in the constructor.
+
+For e.g.
+-----------
+class Car
+{
+	constructor(e: Engine, t: Tyre){}
+} 
+
+
+HTTP, Observables and RxJS library
+===========================================
+1) HTTP Get request from EmpService
+2) Receive the observable & cast it into an employee array
+3) Subscribe to observable from EmpList & EmpDetail
+4) Assign the employee array to a local variable.
+
+As we know, multiple components like EmpList, EmpDetail can call a service like EmpService. Then further service communicates with server via HTTP request like Get. Then further after getting response from server, Http system returns Observable object to the requested Service. Then after the Service delivers the result to the subscribed components.
+
+Components  -->  Service  <----Get/Observable---->  Http  <---Request/Response--->  Server
+
+
+RxJS
+-------
+It is a Reactive Extensions from javascript.
+It is an external library to work with Observables.
+RxJs performs operation on Observables & can be used exception handling also.
+It needs to be installed in the project.
+
+Observables
+-------------
+A sequence of items that arrives asynchronously(returns result simultaneously to subscribers) overtime.
+
+HTTP call - single item
+Single item - HTTP response
+
+ 
+** Angular application consist of 
+1) Presentation Layer(as HTML, CSS, Validation)
+2) Business Layer (as Typescript components)
+3) Service layer (as Typescript services - here need to write AJAX calls to communicate with server)
+
+
+Steps to work with Observables
+-----------------------------------
+1) install JSON server
+	
+	$ npm install -g json-server
+
+2) start JSON server
+
+	$ json-server --watch db.json
+
+3) modify db.json
+
+	{
+		"employees":[
+			{"id":1, "name":"Anil", "age":30},
+			{"id":2, "name":"Sunil", "age":33},
+			{"id":3, "name":"Ajay", "age":32},
+			{"id":4, "name":"Vijay", "age":20},
+			{"id":5, "name":"Vijaya", "age":18},
+		]
+	}
+
+
+4) Create a user service
+
+	$ ng g s services/users
+
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { IEmployee } from '../employee';
+import { Observable } from 'rxjs';
+
+@Injectable({
+	providedIn: 'root'
+})
+export class UsersService{
+	
+	private _url: string = "http://localhost:3000/employees";
+
+	constructor(private http:HttpClient){}
+
+	getUser(): Observable<IEmployee[]>
+	{
+		return this.http.get<IEmployee[]>(this._url);
+	}
+}
+
+
+5) Create an interface "employee.ts" with DB table fields. 
+
+export interface IEmployee
+{
+	id: number;
+	name: string;
+	age: number;
+}
+
+6) app.component.ts
+
+import { Component, OnInit } from '@angular/core';
+import { UserService } from './services/user.service';
+
+@Component({
+	selector: 'app-root',
+	templateUrl: './app.componet.html',
+	styleUrls: ['./app.component.css']
+})
+export class AppComponent implements OnInit {
+	users: any[];
+	
+	constructor(private us: UserService){}
+
+	ngOnInit()
+	{
+		this.us.getUser().subscribe(data => this.users = data);
+	}
+}
+
+
+7) app.component.html
+<table>
+	<tr>
+		<th>Id</th>
+		<th>Name</th>
+		<th>Age</th>
+	</tr>
+
+	
+	<tr *ngFor="let user of users">
+		<td>{{user.id}}</td>
+		<td>{{user.name}}</td>
+		<td>{{user.age}}</td>
+	</tr>
+</table>
+{{errorMsg}}
+
+<router-outlet></router-outlet>
+
+8) Register UserService to app.module.ts
+
+
+9) HttpErrorHandling
+---------------------------------
+	$ npm install rxjs
+	
+	$ npm install rxjs-compat
+
+10) users.service.ts
+
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { IEmployee } from '../employee';
+import { Observable, observable } from 'rxjs';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
+
+@Injectable({
+	providedIn: 'root'
+})
+export class UsersService{
+	
+	private _url: string = "http://localhost:3000/employees";
+
+	constructor(private http:HttpClient){}
+
+	getUser(): Observable<IEmployee[]>
+	{
+		return this.http.get<IEmployee[]>(this._url).catch(this.errorHandler);
+	}
+
+	errorHandler(error: HttpErrorResponse)
+	{
+		return Observable.throw(error.message || "server error");
+	}
+}
+
+11) app.component.ts
+
+import { Component, OnInit } from '@angular/core';
+import { UserService } from './services/user.service';
+
+@Component({
+	selector: 'app-root',
+	templateUrl: './app.componet.html',
+	styleUrls: ['./app.component.css']
+})
+export class AppComponent implements OnInit {
+	users: any[];
+	public errorMsg;
+	constructor(private us: UserService){}
+
+	ngOnInit()
+	{
+		this.us.getUser().subscribe(
+
+			data => this.users = data,
+			error => this.errorMsg = error
+		);
+	}
+}
+
+
+Custom Directive
+========================
+Pre-defined decorators as we know are 
+-----------------------------------------
+1) 	@ngModule({})
+	class AppModule{}
+
+2) 	@Component({})
+	class AppComponent{}
+
+3)	@Injectable({})
+	class MyService{}
+
+4) 	@Pipe({})
+	class MyPipe{}
+
+5) 	@Directive({})
+	class MyDirective{}
+
+Structural Directives
+-----------------------------
+	ngIf, ngFor, ngSwitch etc.
+
+Custom Directives 
+-----------------------------
+	Creating the directives depending on the user requirement.
+
+	
+
+# Define a directive to restrict a text box only 10 characters
+
+1) Use below command
+	
+	$ ng g d allowtendigit
+
+2) allowtendigit.directive.ts
+
+	import { Directive, ElementRef, OnInit, HostListener } from '@angular/core'
+
+	@Directive({
+		selector: '[appAllowtendigit]'
+	})
+	export class AllowtendigitDirective implements OnInit
+	{
+		constructor(private eleref: ElementRef){}
+		//ElementRef class is used to catch the complete information of the control on which control we are applying the custom directive 
+
+		ngOnInit()
+		{
+			debugger //To debug on browser - F12 - control will wait here - F10 to next line
+			this.eleref.nativeElement.style.color = "red";
+			
+			// If to apply any style, it can applied within ngOnInit()
+			// But if need to invoke any event then use @HostListner as keypress() implements here
+		}
+
+		@HostListner('keypress') // HostListener observes the element event
+		keypress()
+		{
+			//to invoke any event then use @HostListner
+			//console.log(this.eleref.nativeElement.value);
+			//Whenever user press any key in the textbox then keypress event will be invoked. 
+			if(this.eleref.nativeElement.value.length+1>10)	
+			{
+				return false;
+			}
+			else
+			{
+				return true;
+			}
+		}
+
+		
+	}
+
+3) Use the custom directive class selector in HTML text box to restrict the character size  with only 10 characters.
+
+app.component.html
+
+<div>
+	<input appAllowtendigit type = "text">
+</div>
+<router-outlet></router-outlet>
+
+
+
+Communication between Components [To manipulate DOM at runtime]
+----------------------------------------------------------------
+@ViewChild - If a parent component wants to show child component & component can be changed or manipulated also.
+
+app.component.ts
+-------------------
+import { Component, ViewChild, ElementRef} from '@angular'
+@Component({
+	selector: 'app-root',
+	templateUrl: './app.component.html',
+	styleUrls: ['./app.component.css']
+})
+export class AppComponent{
+	@ViewChild("btn", {static:true})myvariable: ElementRef;
+	@ViewChild(SecondComponent) mycomponet: SecondComponent
+	ngAfterViewInit()
+	{
+		//Here the component properties can be manipulated
+		//console.log(this.myvariable.nativeElement);
+		this.myvariable.nativeElement.style.color = "red";
+	}
+
+	changeName()
+	{
+		this.mycomponent.name = "Hello Sathya!";
+		this.mycomponent.test(); //Calling child method 
+	}
+}
+
+app.component.html
+-------------------
+<div>
+	<button type = "button" #btn>Click me</butto>
+</div>
+
+
+second.component.ts
+------------------------
+export class SecondComponent implements OnInit {
+	
+	constructor(){}
+	
+	name: string = "Hello Kannababu!";
+
+	ngOnInit()
+	{
+
+	}
+	
+	test()
+	{
+		alert("Jai Ram G ki");
+	}
+}
+
+secons.component.html
+-------------------------
+{{name}}
+
+
+app.component.html
+-------------------
+<div>
+	<button type = "button" #btn (click)="changeName()">Click me</butto>
+</div>
+<app-second></app-second>
+
+
+Serialization - It is a proccess of converting Object into stream of bytes.
+
+Deserialzation - It is a process of converting stream of bytes into Object.
+
+Types of Serialization 
+-------------------------
+1) Binary Serialzation - It is a process of converting object into stream of bytes & store the stream of bytes in a file in binary format.
+
+2) SOAP Searializtion - It is a process of converting object into stream of bytes & store the stream of byte into a SOAP format.
+
+3) XML Serialization - It is a process of converting object into stream of bytes & store the stream of byte into a XML format.
+
+
+SOAP - Simple Object Access Protocol & is a Message Transfer Protocol & used to send messages via network based on XML.
+SOAP provides a way to communicate between application that are running on different O/S with different technologies & languages.
+
+ 
+
+
+
+
+
+
+
+
+
+
+
