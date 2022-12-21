@@ -1,3 +1,322 @@
+1) What other protocols can be used with REST apart from HTTP?
+
+	REST APIs add no new capability to HTTP APIs. But it is an architectural style that was created in tandem with HTTP and most typically employs HTTP as its application layer protocol. However, REST isn't always linked to HTTP. You can use other transfer protocols, such as FTP, SMTP, etc.
+	
+	REST stands for Representational State Transfer. It is an ideal software architecture for the World Wide Web. REST is not a standard or a specification. Instead, it is an architectural style for distributed hypermedia systems. 
+	The core building blocks of RESTful systems are resources. A resource can be a web page, a video stream, or an image, for example. A resource can even be an abstract concept, such as the list of all users in a database or the weather forecast for a particular location. The only real constraint is that every resource in a system is uniquely identifiable.
+	Additionally, resources may be available in multiple representations. In a client-server model, the server is responsible for managing the state of the resource, but a client can choose which representation they prefer to interact with.
+	All operations in a RESTful system should be stateless. This means each call from the client to the server must not rely on any shared state. It also implies that every request to the server must include all required data for the server to fulfill the request.
+
+The stateless requirement in REST gives way to several key properties:
+	Visibility: Each request can be analyzed in isolation to monitor system health and responsiveness
+	Reliability: System failures are easier to recover from
+	Scalability: It’s simple to add more server resources to handle more requests
+
+	Unlike REST, the HyperText Transfer Protocol (HTTP) is a standard with well-defined constraints. HTTP is the communication protocol that powers most of our everyday interactions on the internet:
+
+Web browsers loading web pages
+Streaming a video
+Using a mobile device to turn off the lights in a home
+So, is REST the same thing as HTTP? The short answer is no.
+
+HTTP is a protocol that is maintained by the Internet Engineering Task Force. While it is not the same as REST, it exhibits many features of a RESTful system. 
+
+	It’s important to remember that the use of HTTP is not required for a RESTful system. It just so happens that HTTP is a good starting because it exhibits many RESTful qualities.
+
+	Another way in which HTTP adheres to the principles of REST is that it provides the same set of methods for every resource. While there are nearly a dozen available HTTP methods, most services deal primarily with the 4 that map to CRUD operations: POST, GET, PUT, and DELETE.
+
+	REST is not a communications protocol, while HTTP is.
+
+
+2) Is REST stateful or stateless - stateless
+
+3) Spring boot architecture
+	
+	Spring Boot is an automated version of the traditional spring framework, simplifying and automating the process. Spring Boot is built on top of the Spring framework and is a layered structure in which every layer communicates with each other layer(from top to bottom in hierarchical order).
+
+	Spring Boot is a specialised part of the Spring Framework. It is utilised to create high-quality, production-grade Spring Based Applications with minimal effort. Spring Framework code is used to create Spring Boot.
+
+	Spring Boot uses a hierarchical architecture in which each layer communicates with the layer immediately below or above it ( hierarchical structure).
+
+	The four layers in Spring Boot are as follows:
+
+	Presentation Layer : Authentication, JSON Translation
+	Business Layer : Business validation, Authorization
+	Persistence Layer : Storage Logic
+	Database Layer : Actual Database
+
+	The annotation @SpringBootApplication is the combination of three annotations: 
+		@ComponentScan, 
+		@EnableAutoConfiguration, and 
+		@Configuration.
+
+4) Spring bean lifecycle 
+	
+	Container Started -> Bean instantiated -> Dependencies injected -> custom init() -> custom utility() -> custom destroy()
+
+	To provide the facility to the created bean to invoke custom init() method on the startup of a spring container and to invoke the custom destroy() method on closing the container, we need annotate init() method by @PostConstruct annotation and destroy() method by @PreDestroy annotation.
+Note: To invoke the destroy() method we have to call the close() method of ConfigurableApplicationContext.
+
+
+5) IOC & DI
+
+	The IoC pattern is a way of reversing the traditional approach to create and initialize Java objects. Rather than create objects directly within their code, developers ask a third party, such as the Spring container or the Java EE context, to provide instances instead. It allows objects to be centrally managed, easily configured and integrated into testing cycles.
+
+	Spring dependency injection and the inversion of control principle are distinct and separate, though they are often combined. 
+
+	Dependency Injection is a fundamental aspect of the Spring framework, through which the Spring container “injects” objects into other objects or “dependencies”. Simply put, this allows for loose coupling of components and moves the responsibility of managing components onto the container.
+
+6) API Gateway & Service Registry 
+
+	The API gateway operates at the application level, while the service mesh operates at the infrastructure level. An API gateway stands between the user and internal applications logic, while the service mesh stands between the internal microservices.
+
+7) microservices - Service Registry, Service Discovery and Load Balancing
+
+	In this era of containerization and cloud computing, it provides a long list of benefits that will make the life of every developer easy.
+
+	Microservices is an architectural style that structures an application as a collection of services that are easily maintainable and testable, loosely coupled, independently deployable and could be maintained by entirely different teams. Each service could be developed and deployed on a different platform using different programming languages and developer tools.
+
+	Certain tools like Eureka, Ribbon and Zuul which are created and developed by Team Netflix. Eureka and Ribbon are tools which will take care of service discovery and load balancing. Zuul is another such tool used for implementing API gateway in a microservice based application. 
+
+	There are many other better solutions provided by various cloud vendors to implement these concepts.
+
+	The Concept:
+	---------------
+	Let’s say you are working on a microservice architecture and you have multiple services which communicate with each other. In order to make a request to a service, the network location must be identified. You might wonder why we can’t make the request using the hardcoded network location of the service instance. Yes, that is possible in a traditional way of running applications on a physical hardware, where the network locations of the services would be static. But in a modern cloud-based microservices application, this method won’t suffice. There could be multiple instances of the same service in different network locations. The service instances would have dynamically allocated network locations and also, the set of service instances could also change because of auto-scaling, failures, upgrades etc. So the client needs to have a more reliable or more elaborate service discovery mechanism. Service Discovery is nothing but a way of locating a service and Load Balancing is about deciding which service instance to be invoked in case of multiple instances.
+
+	We will go step by step to understand these concepts completely . First, I will introduce the Service Registry mechanism.
+	Service registry is nothing but another microservice where all the independent services of the application will have to be registered. During the startup, all other services will get registered in the registry using an alias. Each service could be identified using the respective alias registered. Suppose a microservice named MicroserviceA is registered in the registry with an alias as ‘microserviceA’. Now this service could be identified using the specified alias. i.e http://microserviceA instead of http://[HOST]:[PORT]/. Which means the client making the request need not know the ip address and port number of the service instance. For this to work there should be someone in there who translates the alias into specific actual URLs. The mapping in the registry would do this job. This would be explained in detail later. Doesn’t this mechanism look familiar to you? Yes, it is pretty similar to dynamic DNS: we assign an alias to a service so it can move around locations without us needing to care about the particular IP in which it is deployed.
+This is how a Service Registry works.
+
+	You might be thinking what if we have multiple instances for the same service? Which instance would be selected if a service is accessed with its alias? For this we need the Load Balancing mechanism. It could be done either from the client side or from the server side. Suppose we have two instances for the MicroserviceA which are accessible at ports 8081 and 8082 respectively. Both these instances will be registered in the service registry during the start up and will be mapped to the same alias ‘microserviceA’. So when a request comes with this alias, both the instances will be returned by the registry. A Load Balancer comes into action here. It will decide on which instance to be chosen. So a service registry along with a Load Balancer will do the service discovery process. This would allow us to scale up our services without any tight coupling with the infrastructure.
+
+	Now API Gateway, Our web client will be running on a browser. It won’t be able to take care of the service discovery or load balancing. Also we have tasks like authentication or request filtering which have to be implemented in our application for which we need a central point of control for our APIs. For this purpose we will implement an API Gateway which would act as a common entry point for all the requests. Any authentication logic or request filtering could be introduced here. The API Gateway will be another microservice running in our application that contains a routing table which points to the microservice aliases registered in the service registry. The API gateway would accept all the requests and would use the service discovery and load balancing to redirect the request to the respective service instance.
+
+	Tools, Now I will introduce various tools that could be used for these purposes. 
+
+	Netflix Zuul could be used as an API Gateway which would act as a front door for all requests in our application. Any client that wants to access our microservices has to access or will be directed to the API gateway first.
+
+	For the service registry and discovery we will use another tool from Netflix — Eureka. All services running in the architecture need to register in the Eureka server.
+
+	And finally for the load balancing purpose, we will be using another Netflix product named Ribbon. It takes care of the client side load balancing.
+
+	How do they integrate?
+	--------------------------
+	The API gateway microservice implemented using Zuul will contain a routing table that points to microservice aliases registered in Eureka instead of the physical addresses. This is where all the above mentioned tools integrate and combine together to give us a full solution based on an API Gateway, service discovery and load balancing. When Zuul receives a request from any of the web clients, it decomposes the request URL and locates the pattern in the routing table. Every pattern in the table is mapped to a microservice alias. Now, Zuul gets help from Eureka to go to the registry and find the available instances corresponding to the alias. It is here where Ribbon comes into action and picks one of the instances returned by Eureka based on the load balancing strategy defined. We could add a custom load balancing strategy if required. And finally Zuul redirects the original request to the corresponding microservice instance.
+
+	Time for some hands-on experience
+	------------------------------------
+	Finally! Now that you understand the basic concepts, we can apply these patterns by including Zuul, Eureka and Ribbon in an existing spring boot microservices based application. We won’t be creating a microservice application from scratch. Instead we will be just integrating these tools to an existing application.
+
+	Implementing the API Gateway with Zuul
+	-----------------------------------------
+	Zuul will be introduced as a new spring boot application and will run as an independent service. Provide the name as gateway. Provide the package name as per your project structure. Select Zuul as a dependency.
+
+	To make any spring boot application behave as a Zuul API gateway, we just need to add an annotation to the main class. In our case the main method would be in a class named GatewayApplication.java. Add the annotation @EnableZuulProxy
+
+	@EnableZuulProxy
+	-------------------
+	This annotation is used to make a spring boot application act as a Zuul server. Add the annotation in the GatewayApplication.java file as below.
+
+@EnableZuulProxy
+@SpringBootApplication
+public class GatewayApplication {
+   public static void main(String[] args) {
+      SpringApplication.run(GatewayApplication.class, args);
+   }
+}
+
+	In Zuul we could configure the routing directly in the yml file. Your application.yml file should be like below:
+
+server:
+  port: 8000
+zuul:
+  prefix: /api
+  routes:
+    route1:
+      path: /route1/**
+      url: http://localhost:8080/route1
+    
+    route2:
+      path: /route2/**
+      url: http://localhost:8080/route2
+    route3:
+      path: /route3/**
+      url: http://localhost:8081/route3
+endpoints:
+  trace:
+    sensitive: false
+ribbon:
+  eureka:
+    enabled: false
+
+
+	If you look at the configuration above, you would notice that we have set ribbon.eureka.enabled property to false value. We will change this later. The /trace endpoint is also set as not sensitive since we are not using any authentication in this case. The server port of the API gateway is set to 8000 which will be the entry point for all REST API requests. We have set a prefix for all our requests. So all requests coming in need to have ‘/api’ in the URL which in turn will be removed by Zuul when redirecting the request.
+	For example: if the expected URL is http://localhost:8000/api/route1, it will be redirected to http://localhost:8080/route1.
+	As of now we have introduced a central place to which all requests to our application could be made. The API consumers do not know anything about the microservices, they just know about the gateway address.
+	We might need to include a WebConfiguration class to enable CORS (Cross Origin Resource Sharing). CORS is included because the request from the API consumers would be from a different domain. Even the microservices could be in a different domain. So to accommodate that we need to configure CORS. Create a class named WebConfiguration.java and add the following code to it.
+
+@Configuration
+@EnableWebMvc
+public class WebConfiguration implements WebMvcConfigurer {
+   @Override
+   public void addCorsMappings(final CorsRegistry registry) {
+      registry.addMapping(“/**”);
+   }
+}
+
+	This would allow requests from all domains. You could make changes in the mappings to restrict requests from certain domains.
+	Once these changes are made, we need to start the gateway microservice together with the rest of your existing microservices. After making some requests from the UI, you could verify the working of Zuul by navigating to the URL http://localhost:8000/trace. You could see all requests being handled by Zuul and their corresponding responses.
+
+	We have just introduced an API gateway and you could see that we have hardcoded microservice urls in application.yml routes. We will change it now. It’s time to implement Service Discovery.
+
+	Implementing Service Discovery
+	----------------------------------
+	In this section we will be adding service discovery and load balancing to all our microservices. First, we will create the service registry. You could use Spring Initializr (http://start.spring.io) to create the new spring boot microservice. Select Eureka Server as dependency, name the project service-registry and provide your package name. Download and extract the zip file, and import the contents to your IDE. It is just an empty project. We will now configure our service registry. To convert a service into a Eureka Registry server, we need to use @EnableEurekaServer annotation in the main method in the ServiceRegistryApplication.java file as shown below:
+
+@EnableEurekaServer
+@SpringBootApplication
+public class ServiceRegistryApplication {
+   public static void main(String[ ] args) {
+      SpringApplication.run(ServiceRegistryApplication.class, args);
+   }
+}
+
+
+	In the application.properties file, change the server.port to 8761. This is usually the default port expected by the Eureka clients.
+	A point to be noted here is that since service registry here is a microservice, Eureka registry will try to register itself. To prevent that we need to add another property in the application.properties file
+
+	eureka.client.register-with-eureka=false.
+		
+	Now you need to configure the rest of the services (all of your microservices) so that they can include the Eureka client and send their information to the new Eureka server for registering. For this you need to add the following dependencies to each service’s pom.xml.
+
+<dependencyManagement>
+  <dependencies>
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-dependencies</artifactId>
+      <version>${spring-cloud.version}</version>
+      <type>pom</type>
+      <scope>import</scope>
+    </dependency>
+  </dependencies>
+</dependencyManagement>
+<dependencies> 
+  <dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-eureka</artifactId>
+  </dependency>
+  <dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-actuator</artifactId>.        <dependency>
+<dependencies>
+
+
+	You would notice that we have added a dependency named Actuator. Once this dependency is added to our spring boot application, it would automatically make available some endpoints that are very useful for monitoring health, logs, metrics etc. Our service discovery and load balancer would use the /health endpoint exposed by the actuator to check if a service is up or not.
+
+
+	We need to make some more changes in each of the microservices to make it register into the service registry during the start up.
+	1) Add @EnableEurekaClient annotation in the main application class of each microservice.
+	2) Add the property eureka.client.service-url.default-zone=http://localhost:8761/eureka. This is added in the application.properties file to tell Eureka where to find the service registry.
+	3) Create a file named bootstrap.properties in the same folder as that of the application.properties file. In this file add a property spring.application.name=<Your-application-name>
+
+	The last step is done to make our application name configurable and not automatically created. This is added in the bootstrap.properties file because the service registration happens during application boot and during that phase the application.properties files wouldn’t have been loaded yet.
+	Make the above changes for all the microservices including the API gateway microservice. These small code changes and including the above mentioned dependencies would make your existing microservice application work with a service discovery tool. Now that we are ready with our service discovery tool, we could make the required changes in the application.yml file of the Zuul microservice that was created earlier. The hardcoded links which were given earlier could be changed now. Your application.yml file should be like below:
+
+
+server:
+  port: 8000
+zuul:
+  ignoredServices: ‘*’
+  prefix: /api
+  routes:
+    route1:
+      path: /route1/**
+      serviceId: <service-id-given-in-bootstrap>
+      strip-prefix: false
+    
+    route2:
+      path: /route2/**
+      serviceId: <service-id-given-in-bootstrap>
+      strip-prefix: false
+    route3:
+      path: /route3/**
+      serviceId: <service-id-given-in-bootstrap>
+      strip-prefix: false
+endpoints:
+  trace:
+    sensitive: false
+eureka:
+  client:
+    service-url:
+       default-zone: http://localhost:8761/eureka/
+
+
+
+	The Zuul can now communicate with the Eureka server to identify the service instances. The major difference you could see here from what we had configured earlier is that instead of url we are setting the serviceId property. i.e a service will be identified using the serviceId given during startup instead of their locations. This gives the flexibility of having services that can change their location dynamically and can scale up with multiple instances. This property value should be the same as the service name we configured in the bootstrap.properties file.
+	We are setting the strip-prefix property to false since we will be using explicit routes and we don’t need to remove anything from the specified path.
+	We are also setting ignoredServices property to tell Zuul not to dynamically register services which are already registered with Eureka. We have also removed the property that was used to disable Ribbon.	
+
+
+	Ready to Scale
+	------------------
+	We have configured Zuul and Eureka now. Every request that comes to Zuul will be redirected to the respective service based on the routes we have just set. Now it’s time to scale up our application.
+	Before we go into the configuration part, there are a couple of things that we have to keep in mind before scaling up. It is always better to design stateless microservices, meaning they shouldn’t keep any data or state in memory. Otherwise we will have to make sure that all requests from the same user end up in the same microservice instance because of the context or state information it keeps.
+
+	Another point to be noted is that every instance of a service shouldn’t have its own database instance because that would result in retrieving different data per request. All instances should have a shared database server. As a result of this strategy even though the microservice logic could scale nicely, we can’t say the same for the database because it will be only one shared instance. To solve this problem, in a production environment we would need to choose a database engine that scales and creates a cluster at our database tier. We are not going into such details here.
+	Now we will verify how load balancing is done by Spring Cloud Netflix Ribbon. Ribbon basically comes with Eureka and both combine well with Zuul. No additional steps are required to configure the ribbon. To test this you could just start a second instance of one of your microservices on a different port. This will register the instance with Eureka and when a request reaches the Gateway, Eureka and Ribbon would combine together to redirect the request to the appropriate service instance.
+
+	Ribbon will not be responsible for the status check process. It just picks an instance based on the load balancing strategy. (By default it is round robin). It is the Eureka that takes care of registering and deregistering the instances and deregistering happens when an instance is down.
+
+
+8) list of components and directives in angular
+
+	Types of directive in angular:
+	1) Component Directive : Directive with template
+		for e.g.
+			errorMessage.directive.tsimport {Directive, ElementRef} from '@angular/core';
+
+			@Directive({
+    				selector:'[error-message]'
+			})
+
+			export class ErrorMessageDirective{
+    				constructor(elr:ElementRef){
+        				elr.nativeElement.style.background='red';
+    				}
+			}
+
+		In app.component.html
+			<p error-message>
+			   Hi , my color was changed by angular directive
+			</p>
+
+
+
+	2) Attribute directive : Change layout by Elements's Appearance & behaviours.
+		NgStyle, NgClass
+	3) Structural directives : Change layout by adding or removing elements.
+		ngIf, ngFor, ngSwitch, ngIf-else
+	
+
+	Angular directive is one of core building blocks of angular which provides additional behavior to elements in your application. we can attach additional attributes to the HTML elements which can helps you manipulate the appearance of web page HTML elements.
+
+
+	Components are the most basic UI building block of an Angular app. An Angular app contains a tree of Angular components. Angular components are a subset of directives, always associated with a template. Unlike other directives, only one component can be instantiated for a given element in a template.
+	Default Angular Components
+		app.component.css.
+		app.component.html.
+		app.component.spec.ts.
+		app.component.ts.
+		app.module.ts.
+
+9) Hibernate JPA & relationship annotations with example
+	https://www.techferry.com/articles/hibernate-jpa-annotations.html
+
+	cascade : http://javainsimpleway.com/cascades-in-hibernate-overview/
+
+
+
 
 Streams in Java
 - Stream API is used to process collections of objects.
