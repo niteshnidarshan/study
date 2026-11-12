@@ -5,7 +5,7 @@ Software : Collection of programs meant for developing some type of operations.
 
 System software : A system software is a program which is running in 
 		the background and provides effective services to 
-		the programe which is written by the programmer.
+		the program which is written by the programmer..
 
 Application software : The basic aim of application software is to develope the software 
 		for organisations like financial, healthcare, transportation, educational etc...
