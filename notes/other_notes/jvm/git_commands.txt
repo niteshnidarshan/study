@@ -1,0 +1,239 @@
+Jai Ram G Ki
+
+git --version
+
++ To know git user name
+	git config user.name
+	
++ To know git email
+	git config user.email
+	
++ To set git user name
+	git config --global user.name "Ram G"
+
++ To set git email
+	git config --global user.email "niteshfromkatihar@gmail.com"
+	
+	Git uses email address to associate commits with user accounts on hosting plateforms like GitHub, GitLab, & Bitbucket. This association enables communication tools, such as commets and notifications, to link back to the appropriate user.
+	
++ git status
+	frequently used command.
+	uses to know all current info about the repo in which this command executed.
+	
++ git log
+	return all commit history in detail
+	
++ git log --oneline
+	return all commit history in summary	
+	
++ git init
+	1) Create a directory an go inside it
+	2) git init
+		$ It will create a .git directory. 
+		$ .git directory contains/ maintains all about the git info.
+		$ If .git directory dileted - the directory will be unlinked from git repo and no git 			command/ operation will work on it.
+		
+		
++ git add file_1 file_n
+	$ Once you create a new file inside repo, the file status would be untracked.
+	$ Once you run 'git add' command, all new files are the part of stage
+	$ Once you run commit command, all files will be commited to the repo and
+	$ Once files/ changes committed, then push command will update the remote or actual repo with 	changes. 
+	
+	untracked -> stage -> commit -> push
+		
++ git add .
+	$ This command will add all the untracked files/ changes to repo.
+	 
++ git commit -m "commit message"
+	$ This command will commit the added files/ changes to repo.
+	
++ git commit -am "commit message"
+	$ This command will add the untracked files/ changes as well as commits to repo.
+	
+	
+	
+	
++ git branch
+	This command will show all the branch along with current branch.
+	
++ git branch <new_branch_name>
+	To create a new branch
+	
++ git swith <branch_name>
+	To switch branches
+	
+	git switch master
+	
++ git switch -c <new_branch_name>
+	It will create a new branch and switch to it.
+	
++ git switch -
+	This command will move HEAD to master from anywhere.
+	
++ git checkout <branch_name>
+	Same as switch.
+	
++ git checkout -b <branch_name>
+	to checkout new or existing branch
+
+	git checkout master	
+			
++ git branch -d <branch_name>
+	To delete a git branch.
+	
+Note: Suppose you create a file/ done some changes in file then swithced/ checkout other branch without add, then all changes will be discarded and never come back!
+Means, if changes are untracked then checkout command will discard those changes.
+
++ git commit --amend
+	If you want to change or edit or amend in previous commit.
+	
+	Usually, we create a feature and frequently commit our changes - It makes diffuclties while tracking changes and this is not a good practice. Instead we should maintain a single commit for a module/ feature/ file.
+	
+	To add changes in previous commit, below amend commands can be used.
+	
+	1) git commit --amend
+		To update content in previous commit without any message
+		
+	2) git commit --amend -m "message text"
+		To update content in previous commit with some message
+		
++ .gitignore
+	If you do not want to commit some sensetive file or want to ignore some files or directory to be committed, then you need to create a file '.gitignore' and mention those directories or file with file path then those will not commited.
+	
+	1) create .gitignore
+		> touch .gitignore
+		
+		properties/
+		password.txt 
+		*.log // * denotes all files ending with .log
+		*.json 
+		.gitignore // If you do not want to commit .gitignore itself
+		
+		save it
+
+
+		to see file
+		> cat .gitignore
+		
+		Note: If you create any file start with '.' then that file is considered as hidden files.
+		so .gitigonre is a hidden file.
+
+ 		
+Git branches: switch, delete, rename and merge
+=================================================	
+	In Git, a branch is a lightweight movable pointer to a commit.
+	It represents an independent line of development.
+	When you create a branch, you are essentially creating a copy of your codebase at that point.
+	
+	To see differnce
+	================
+	+ git diff
+	+ git diff <commit_id1> <commit_id2> //commit order matters to see changes.
+	
+	To delete branch
+	================
+	+ git branch -d <branchName>
+	+ git branch -D <branchName> // to force delete
+	
+	merge
+	======
+	1) swith to master
+	2) merge witch branch you want to merge
+		> git merge <branch_name>
+	
+	restore
+	=======
+	> git restore --staged
+		To remove from staging area.
+	> git restore . 
+		To discard all changes
+		
+
+
+stash
+=====
+Suppose, you made some changes in branch1 and now want to switch another branch and also want that the changes which you have done now should not go then you can save this branch to stash and once you come back you can get your changes here.
+
+> git stash
+	+ to save changes locally
+
+> git stash list
+	+ to see work in progress changes stash list.
+	
+> git stash pop
+	+ to get back last stashed changes in that branch where you did stash
+	+ This command will remove the changes from stash list stack.
+
+> git diff	
+	+ to see changes
+	
+> git stash apply
+	+ to get back last stashed changes in that branch from stash list stack.
+	+ This command will not remove the changes from stash list stack. 
+	
+> git stash drop stash@{2}
+	+ It will delete the stash changes from the stash list stack.
+	
+> git stash clear
+	+ to clear all stash from stash list
+	
+> git stash -- <file_name>	
+	Suppose, you chasnged in several files and you want to move some of the files changes to another branch which you are about to switch, then use separator(--) then that file name. It will not stash that file but rest of the files changes will be stashed.
+	
+> git stash -m "any message" -- <files>
+	+ it will save the stash with message and can be shown in stash list.
+	
+> git stash -m "any message"
+	+ it will save the stash with message and can be shown in stash list.	
+	
+> git stash show <stash_id>
+	+ to see changes on particular stash from the stash list.
+	
+	git stash show stash@{0}
+	
+> git stash show -p <stash_id>
+	+ to see exact changes on particular stash from the stash list.
+	
+	git stash show -p stash@{0}	
+	
+stash command stash tracked files(existing files where changes done) as well as the staging area(after add file come in staging area from untrack) changes to and further that staging area content also become untracked.	
+But I want to stash only untracked files not staging area files then use:
+
+> git stash --keep-index
+	+ It will not stash staging area files to stash.
+	
+> git stash --include-untracked
+	+ It will stash all files tracked & untracked also.
+
+	
+		
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

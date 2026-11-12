@@ -1,0 +1,82 @@
+Jai Ram G ki
+---------------
+HTML 5 Organisation - newly introduced tags
+---------------------------------------------------
+<header>
+<nav>
+<section>
+<footer>
+
+<audio>
+<video>
+
+<datalist> - to show autocomplete
+
+	e.g.
+	-------
+	<div>
+		<input name = "country" list="countries" placeholder="Country">
+		<datalist id="countries>
+			<option value="India">
+			<option value="Albania">
+			<option value="Nepal">
+			<option value="France">
+			<option value="UAE">
+			<option value="USA &amp; America">
+		</datalist>
+	</div>
+
+ 
+CSS
+===========
+selectors
+-----------
+
+a, b	- Multiple Element Selector	
+a b	- Descendant Selector
+a>b	- Child Selector
+a+b	- Adjacent Sibling Selector
+[a=b]	- Attribute Selector
+a:b	- Pseudo class Selector
+a::b	- Pseudo element Selector 	
+
+
+Responsive design - to run web page on any device consistently 
+-----------------------------------------------------------------
+viewport
+Media Queries
+Flexbox
+Grid
+
+
+	for e.g.
+	-------------
+	<title> My web</>
+	<meta name = "viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		@media print {
+			.screen-only {
+				display: none;
+			}
+		}
+	
+		@media(min-width: 500px){
+			h1::before {
+				content: "Welcome to my web page!";
+			}
+		}
+		@media(min-width: 499px){
+			h1::before {
+				content: "Welcome!";
+			}
+		}
+	</style>
+
+	<p>Paragraph_1</p>
+	<p>Paragraph_2</p>
+	<p class="screen-only">Paragraph_3 - This paragraph will not appear in print</p>
+
+
+Sass - an extended version of css
+===================================
+	Its like a language of css where it can be used variable & functions then need to compile it if browser does not know the sass.

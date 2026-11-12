@@ -1,0 +1,585 @@
+Spring Jdbc - Jdbc Template
+================================
+- Spring JDBC API has provided a sample class - JdbcTemplate class
+- JdbcTemplate class depends on DataSource object.
+- JdbcTemplate uses a datasource interface implementation for connection management.
+
+	DataSource interface implementation classes
+		- DriverManagerDataSource - By Spring
+		- BasicDataSource - By Apache
+		- HikariDataSource - By Hikari
+
+- To use jdbctemplate in spring, no need to add any dependency in pom.xml 
+	but if want other implementation then need to provide dependencies like - spring-context, spring-jdbc, db driver(ojdbc8) dependency.
+
+
+@Configuration
+@ComponentScan(basePackages="com.sathya")
+public class AppConfig {
+	@Bean
+	public DataSource dataSource(){
+		DriverManagerDataSource dmds = new DriverManagerDataSource();
+		dmds.setUrl();
+		dmds.setUser();
+		dmds.setPassword();
+
+		return dmds;
+	}
+
+	@Bean
+	public JdbcTemplate jdbcTemplate(){
+		return new JdbcTemplate(dataSource());
+	}
+}
+
+public class CustomerDaoImpl implements CustomerDao{
+	@Autowired
+	JdbcTemplate jdbcTemplate;
+
+	public void addCustomerDetails(){
+		jdbcTemplate.update("Insert/update/delete query"); //managed and identified by jdbctemplate
+	}
+
+	public void loadCustomerDetails(){
+		jdbcTemplate.queryForList("Select * from XXX"); //returns multi row
+		jdbcTemplate.queryForMap("Select * from XXX where customer='x'"); //returns single row
+		
+		jdbcTemplate.execute("DROP TABLE CUSTOMER"); //TO execute DDL commands
+	}
+}
+
+1) execute() :
+	jdbcTemplate.execute("DROP TABLE CUSTOMER"); //TO execute DDL commands
+
+2) update()	:
+	int rowEffectCount = jdbcTemplate.update("insert into EMPLOYEES values(101, 'ABC', 3000.0, 20)");  
+
+	int rowEffectCount = jdbcTemplate.update("insert into EMPLOYEES values(?, ?, ?, ?)", eno, ename, sal, dno);  //second parameter is var args(...)
+	
+3) queryForMap() :
+	Map map = jdbcTemplate.queryForMap("select * from EMPLOYEES where empno = ?", eno); //To select a single record
+
+
+4) queryForList() :
+	List list = jdbcTemplate.queryForList("select * from EMPLOYEES where deptno in (101,102)"); //To select multi records - List of Maps(rows)
+
+5) queryForObject() :
+	//Single value query like - count(*), avg(column), particular value of salary etc.
+	jdbcTemplate.queryForObject("Query", Required return type, var args...);
+
+	int empCount = jdbcTemplate.queryForObject("select count(*) from EMPLOYEE where sal>?", Integer.class, salary);
+	Date doj = jdbcTemplate.queryForObject("select hiredate from EMPLOYEE where empno = ?", Date.class, empno);
+
+
+SQL Plus
+----------
+$ connect system/tiger
+
+
+eclipse
+----------
+maven project - spring-web-quickstart
+pom.xml
+	- dependency 
+		org.springframework
+		spring-context
+		5.2.1.RELEASE
+
+		org.springframework
+		spring-jdbc
+		5.2.1.RELEASE
+
+		<groupId>com.oracle.database.jdbc</groupId>
+		<artifactId>ojdbc8</artifactId>
+		<version>19.3.0.0</version>
+
+package com.pack.dao;
+
+public interface planIntf {
+	void createTable();
+	void addRechargePlans();
+	Map findRechargePlanById(String planId);
+	List findAllRechargePlans();
+}
+
+package com.pack.dao.impl;
+@Repository
+public class PlanImpl implements planIntf {
+	
+	@Autowired
+	JdbcTemplate jdbcTemplate;
+
+	@Override
+	public void createTable(){
+		jdbcTemplate.execute(" CREATE TABLE RECHARGE_PLAN(
+			PLANID VARCHAR2(10) PRIMARY KEY, 
+			AMOUNT NUMBER(9,2), 
+			VALIDITY NUMBER(8), 
+			DESCRIPTION VARCHAR2(40))
+			");
+	}
+	@Override
+	public void addRechargePlans(){
+		jdbcTemplate.update(" INSERT INTO RECHARGE_PLAN VALUES('PLN_222', 222.0, 24, 'PER DAY 1GB DATA, 222 SMS')");
+		jdbcTemplate.update(" INSERT INTO RECHARGE_PLAN VALUES('PLN_399', 399.0, 48, 'PER DAY 2GB DATA, 399 SMS')");
+		jdbcTemplate.update(" INSERT INTO RECHARGE_PLAN VALUES('PLN_549', 549.0, 56, 'PER DAY 3GB DATA, 549 SMS')");
+	}
+	@Override
+	public Map findRechargePlanById(String planId){
+		return jdbcTemplate.queryForMap("SELECT * FROM RECHARGE_PLAN WHERE PLANID=?", planId);
+	}
+	@Override
+	public List findAllRechargePlans(){
+		return jdbcTemplate.queryForList("SELECT * FROM RECHARGE_PLAN");
+	}
+}
+
+package com.pack.config;
+@Configuration
+@ComponentScan(basePackages="com.pack")
+public class AppConfig {
+	@Bean
+	public DataSource dataSource(){
+		DriverManagerDataSource dmds = new DriverManagerDataSource();
+		dmds.setDriverClassName("oracle.jdbc.driver.OracleDriver");
+		dmds.setUrl("jdbc:oracle:thin@localhost:152:xe");
+		dmds.setUsername("system");
+		dmds.setPassword("tiger");
+
+		return dmds;
+	}
+
+	@Bean
+	public JdbcTemplate jdbcTemplate() {
+		return new JdbcTemplate(dataSource());
+	}
+}
+
+package com.pack.test;
+public class Test {
+	public static void main(String args[]) {
+		ApplicationContext context = AnnotationConfigApplicationContext(AppConfig.class);
+		PlanIntf pt = context.getBean("planImpl", PlanImpl.class);
+		pt.createTable();
+		pt.addRechargePlans();
+		Map map = pt. findRechargePlanById("PLN_399");
+		System.ot.println(map);
+		List list = pt. findAllRechargePlans();
+		System.ot.println(list);
+	}
+}
+
+Convert records into java object
+---------------------------------------
+RowMapper -interface
+	- mapRow() : converts each record into java object
+
+For e.g - 
+public class RechargePlanRowMapper implements RowMapper<RechargePlan> {
+	public RechargePlan mapRow(ResultSet rs, int rowIndex) throws SQLException {
+		RechargePlan rp = new RechargePlan();
+		rp.setXXX(rs.getXXX(column_index));
+		return rp;
+	}
+}
+	
+List<RechargePlan> list = jdbcTemplate.query("SELECT * FROM RECHARGE_PLAN", new RechargePlanRowMapper());	
+
+package com.sathya.jdbc;
+public class RechargePlan {
+	private String planid;
+	private Double amount;
+	private int validity;
+	private String description;
+	
+	//Getters-Setters
+}
+package com.sathya.jdbc;
+public class RechargePlanRowMapper implements RowMapper<RechargePlan> {
+	@Override
+	public RechargePlan mapRow(ResultSet rs, int rowNum) throws SQLException {
+		RechargePlan rp = new RechargePlan();
+		rp.setPlan(rs.getString(1));
+		rp.setAmount(rs.getDouble(2));
+		rp.setValidity(rs.getInt(3));
+		rp.setDescription(rs.getString(4));
+		return rp;
+	}
+}
+
+package com.sathya.dao;
+public interface PlanDaoIntf {
+	List<RechargePlan> findAllRechargePlans();
+}
+
+package com.sathya.dao.impl;
+@Repository
+public class PlanDaoImpl implements PlanDaoIntf {
+	@Autowired 
+	JdbcTemplate jdbcTemplate;
+
+	@Override
+	public List<RechargePlan> findAllRechargePlans(){
+		return jdbcTemplate.query("SELECT * FROM RECHARGE_PLAN", new RechargePlanRowMapper());
+	}
+}
+
+
+package com.pack.config;
+@Configuration
+@ComponentScan(basePackages="com.sathya")
+public class AppConfig {
+	@Bean
+	public DataSource dataSource(){
+		DriverManagerDataSource dmds = new DriverManagerDataSource();
+		dmds.setDriverClassName("oracle.jdbc.driver.OracleDriver");
+		dmds.setUrl("jdbc:oracle:thin@localhost:152:xe");
+		dmds.setUsername("system");
+		dmds.setPassword("tiger");
+
+		return dmds;
+	}
+
+	@Bean
+	public JdbcTemplate jdbcTemplate() {
+		return new JdbcTemplate(dataSource());
+	}
+}
+
+package com.sathya.test;
+public class Test {
+	public static void main(String[] args){
+		ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+		PlanDaoIntf pt = context.getBean("planDaoImpl", PlanDaoImpl.class);
+		List<RechargePlan> list = pt.findAllRechargePlans();
+		list.forEach( rp -> {
+			sysout("PlanID = "+rp.getPlanId());
+			sysout("amount = "+rp.getAmount());
+			sysout("validity = "+rp.getValidity());
+			sysout("description = "+rp.Description());
+			sysout("====================================");
+		});
+	}	
+}
+
+Working with stored procedure/function
+----------------------------------------
+Single value return - function
+zero or more value return - procedure
+
+JdbcTemplate class - supports DML/DDL operations
+
+SimpleJdbcCall class - supports procedure/ function call
+	- withProcedureName() - to associate a 'procedure' with SimpleJdbcCall.
+	- withFunctionName() - to associate a 'function' with SimpleJdbcCall.
+
+	- execute() - takes input & output(return) as Map - input Map contains IN parameters & output Map contains values to OUT parameters.
+
+Oracle procedure to calculate Bonus
+---------------------------------------
+create or replace procedure_name(<parameter_name> <parameter_mode> <parameter_dataType>) is
+begin
+- - -
+- - -
+end;
+
+--parameter_name should not be same as table's column name
+--parameter_mode = IN/ OUT
+--parameter_dataType = same as SQL DataTypes
+
+SQL> ed file_name.sql
+create or replace calculatebonus(eno in number, empname out varchar2, bonus out number) 
+is
+	salary number(9,2); 
+begin
+	select ename into empname from emp where empno = eno;
+	select sal into salary from emp where empno = eno;
+	if salary <= 5000 then
+		bonus:= salary*0.10;
+	else
+		bonus:= salary*0.20;
+	end if;
+end;
+
+- close editor
+SQL> @file_name.sql // to execute procedure.
+
+- eclipse - maven project - archetype-quickstart 
+- add dependencies - spring-context, spring-jdbc, ojdbc8
+
+package com.sathya.dao;
+public interface EmpDaoIntf {
+	Map<String, Object> findBonusById(int eno);
+}
+
+
+package com.sathya.dao.impl;
+@Repository
+public interface EmpDaoImpl {
+
+	@Autowired
+	SimpleJdbcCall simpleJdbcCall;
+
+	@Override
+	public Map<String, Object> findBonusById(int eno){
+		
+		simpleJdbcCall.withProcedureName("calculatebonus");
+
+		//input
+		Map<String, Integer> input = new HashMap<>();
+		input.put("eno", eno);		
+
+		return simpleJdbcCall.execute(input);
+	}
+}
+	
+package com.sathya.config;
+@Configuration
+@ComponentScan(basePackages="com.sathya")
+public class AppConfig {
+	@Bean
+	public DataSource dataSource(){
+		DriverManagerDataSource dmds = new DriverManagerDataSource();
+		dmds.setDriverClassName("oracle.jdbc.driver.OracleDriver");
+		dmds.setUrl("jdbc:oracle:thin@localhost:152:xe");
+		dmds.setUsername("system");
+		dmds.setPassword("tiger");
+
+		return dmds;
+	}
+
+	@Bean
+	public SimpleJdbcCall jdbcTemplate() {
+		return new SimpleJdbcCall(dataSource());
+	}
+}
+	 
+package com.sathya.test;
+public class Test {
+	public static void main(String[] args){
+		ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+		
+		EmpDaoIntf intf = context.getBean("empDaoImpl", EmpDaoImpl.class);
+		
+		Map<String, Object> output = intf.findBonusById(7654);
+		
+		System.out.println("Emp Name = "+ output.get("EMPNAME"));
+		System.out.println("Bonus = "+ output.get("BONUS"));
+	}	
+}	
+
+NamedParameterJdbcTemplate class
+------------------------------------
+- Makes code Reusable & Easy to read.
+- NamedParameterJdbcTemplate & JdbcTemplate depends on DataSource object.
+
+index parameters - can be used JdbcTemplate
+-----------------------------------------------
+select * from emp where sal>? and deptno=?
+
+
+named parameters - must use NamedParameterJdbcTemplate
+-------------------------------------------------------
+select * from emp where sal>:salary and deptno=:deptno
+
+
+- NamedParameterJdbcTemplate also contains same methods like JdbcTemplate but accepts Map(key must match with parametername) to set the values to named parameters.
+
+	Map input = new HashMap();
+	input.put("salary", 5999.0);
+	input.put("deptno", 20);
+
+	namedParameterJdbcTemplate.update("update emp set sal=:salary where deptno=:deptno", input);
+
+	
+	Map input = new HashMap();
+	input.put("deptno", 10);
+	
+	List list = namedParameterJdbcTemplate.queryForList("select * from emp where deptno=:deptno", input);
+
+
+Spring ORM
+=================
+ORM - Object Relational Mapping
+
+- Relates/Maps database object to java entity class object.
+
+@Entity - class level - indicates that the class is an Entity
+@Table - class level - Specify database table (To map Entity class with custom table name)
+@Id
+@Column
+
+@Entity
+@Table(name = "Customers")
+public class Customer {
+	@Id
+	@Column(name="customer_id")
+	private Integer customerId;
+	
+	@Column(name="customer_name")
+	private String customerName;
+
+	@Column(name="contact_number")
+	private Long contactNumber; 
+
+	---
+
+	//Setters/Getters
+}
+
+
+Transactions - A set of statements - executes all or none of them
+--------------------------------------------------------------------
+1) Local Transaction (By Hibernate) - Can execute on Single DB
+2) Global Transaction (By third party API) - Can execute on Multiple DB
+
+- Spring ORM provides Hibernate Template.
+- Hibernate Template depends on SessionFactory object.
+
+- LocalSessionFactoryBean class - produces a SessionFactory object and injects to Hibernate Template through Constructor/ Setter.
+
+- LocalSessionFactoryBean has three properties
+	1) dataSource property
+	2) annotatedClasses(Entity classes) property
+	3) Hibernate property(like show_sql, dialect)
+
+- insert/ update/ delete must be executed within a Transaction
+- get/load must be executed with/without a Transaction
+
+@Transactional - at method/class level
+-------------------------------------------
+- insert/ update/ delete must be executed within a Transaction
+
+HibernateTransactionManager - also depends on SessionFactory, produced by LocalSessionFactoryBean.
+
+HibernameTemplate provides get()/ load()/ loadAll()/ save()/ update(), delete() etc.
+
+
+dependencies in pom.xml
+-----------------
+spring-context(5.1.7)
+spring-orm(5.1.7) - depends on hibernate-core
+spring-jdbc(5.1.7) - for datasource
+hibernate-core(5.2.17)
+ojdbc8(19.3.0) - oracle driver dependency 
+
+@Entity
+@Table(name = "emp")
+public class Employee {
+
+	@Id 
+	private Integer empno;
+	private String ename;
+	private Double sal;
+	private Integer deptno;
+
+	//constructors/Setter/Getters 
+
+}
+
+public interface IEmployeeDao {
+	void saveEmp(Employee emp);
+	Employee findEmp(Integer empno);
+	List<Employee> findAll();
+	void updateEmp(Employee emp);
+	void deleteEmp(Integer empno);
+}
+
+@Repository
+@Transactional
+public class EmployeeDaoImpl implements IEmployeeDao {
+
+	@Autowired
+	HibernateTemplate hibernateTemplate;
+
+	void saveEmp(Employee emp) {
+		hibernateTemplate.save(emp);
+	}
+	Employee findEmp(Integer empno) {
+		return hibernateTemplate.get(Employee.class, empno);
+	}
+	List<Employee> findAll() {
+		return hibernateTemplate.loadAll(Employee.class);
+	}
+	void updateEmp(Employee emp) {
+		hibernateTemplate.update(emp);
+	}
+	void deleteEmp(Integer empno) {
+		Employee e = hibernateTemplate.get(Employee.class, empno);
+		if(e != null) {
+			hibernateTemplate.delete(e);
+		}
+	}
+}
+
+
+@Configuration
+@ComponentScan(basePackage="com.sathya")
+@EnableTransactionManagement
+public class AppConfig {
+	
+	@Bean
+	public DataSource dataSource() {
+		DriverManagerDataSource dmds = new DriverManagerDataSource();
+		dmds.setDriverClassName("oracle.jdbc.driver.OracleDriver");
+		dmds.setUrl("jdbc:oracle:this:@localhost:5321");
+		dmds.setUsername("system");
+		dmds.setPassword("tiger");
+		return dmds;
+	}
+
+	@Bean
+	public LocalSessionFactoryBean localSessionFactory() {
+		LocalSessionFactoryBean factoryBean = new LocalSessionFactoryBean();
+		factoryBean.setDataSource(dataSource());
+		factoryBean.setAnnotatedClasses(Employee.class);
+
+		Properties properties = new Properties();
+		properties.setProperty("dialect", "org.hibernate.dialect.OrcaleDialect");
+		properties.setProperty("show_sql", "true");
+		properties.setProperty("hbm2ddl.auto", "update");
+
+		factoryBean.setHibernateProperties(properties);
+		return factoryBean;
+
+	}
+
+	@Bean
+	public HibernateTemplate hibernateTemplate() {
+		HibernateTemplate template = new HibernateTemplate();
+		template.setSessionFactory(localSessionFactory().getObject());
+		return template;
+	}
+
+	@Bean(name="transactionManager") // It must be transactionManager in container
+	public HibernateTransactionManager txn() {
+		return new HibernateTransactionManager(localSessionFactory().getObject());
+	}
+
+}
+
+public class Test {
+	public static void main(String args[]) {
+		ApplicationContext ctx = new ApplicationConfigApplicationContext(AppConfig.class);
+		IEmployeeDao dao = (IEmployeeDao) ctx.getBean("employeeDaoImpl");
+
+		Employee emp = new Employee(7900, "KEN", 4000.0, 30);
+		dao.saveEmp(emp);
+
+		Employee e = dao.findEmp(7654);
+		sysout(e);
+
+		List<Employee> empList = dao.findAll();
+		empList.forEach(e->sysout(e));
+
+		Employee emp = new Employee(7782, "CLARK", 26000.0, 20);
+		dao.updateEmp(e);
+
+		dao.deleteEmp(7900);
+
+		
+	}
+}
+
+javashekher@gmail.com - Request for Spring Matarial.
+ 

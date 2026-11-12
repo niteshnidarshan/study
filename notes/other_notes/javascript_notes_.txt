@@ -1,0 +1,73 @@
+javascript
+==================
+
+Visual Studio Code - install live server from its market place
+to run right click on html page & run on live server(cmd+L cmd+O).
+To stop live server(cmd+L cmd+C).
+It will no need to refresh page after change, it automatically refresh once change detected in html/js/css.
+
+let/var/const
+----------------------
+let is block scoped
+var is function scoped 
+const is fixed value, never change further - block scoped
+
+//let
+for(let i=1; i <= 5; i++){
+	console.log(i);
+}
+console.log(i); //Uncaught ReferenceError: i is not defined
+
+//var
+for(var i=1; i <= 5; i++){
+	console.log(i);
+}
+console.log(i); //undefined
+
+//const
+const x='Ram G';
+console.log(x);
+
+x='XXX'; //Uncaught TypeError: Assignment to constant variable.
+console.log(x); 
+
+== & ===
+--------------------
+1=='1' // true - checks equality only
+1==='1' // false - compares type also
+
+DOM - Document Object Model
+------------------------------
+- Document Object represents your web page.
+- Accessing a HTML element starts with document object.
+- The document object contains the content of the page.
+- With the object model, javascript gets all the power it needs to create dynamic HTML.
+
+To find a HTML element
+------------------------------
+document.getElementById('id');
+document.querySelector('element');
+
+To add/ remove element
+------------------------------
+document.createElement();
+document.removeChild();
+document.appendChild();
+
+Data Types
+-----------------
+1) Number 
+2) String
+3) Boolean
+4) Null
+5) Undefined
+6) Object
+7) Symbol
+
+
+
+
+
+
+
+

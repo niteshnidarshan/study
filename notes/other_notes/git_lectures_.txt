@@ -1,0 +1,141 @@
+Git Repository
+-----------------
+It synchronise code between different members with version of file.
+
+1) login to github.com
+    - Create a new repository
+    - copy the created url
+2) To get this repository clone in your pc
+    - Open terminal & go to the directory where you want to clone the repository.
+    - use the command :
+      $ git clone <GIT_REPOSITORY_URL>
+
+      It will download the repository to your pc
+3) To create a file in the repository
+    - go to the local repository
+      $ touch <file_name>
+      $ atom .
+
+      It will open the file in Atom editor.
+
+4) git add - This command is used to add the file to the repository for commit.
+    $ git add <file_name>
+
+5) git commit - To commit in the github
+    $ git commit -m "commit_notes"
+
+	$ git commit -am "comment"
+	-----------------------------------
+	-am represents add & commit with message
+	Helpful to add & commit, if multiple file changes are there.
+ 
+
+6) git status - It says whats going on inside the Repository currently
+    $ git status
+
+7) git push - To push the code to github web repository.
+    $ git push
+
+8) git pull - To get/ download others changes/ merge in your local
+    $ git pull
+
+9) merge conflicts - a concept
+
+10) git log - to see history
+    $ git log
+
+11) git reflog - To show all the changes references
+    $ git reflog
+
+12) git reset - Once you get messed up & need to reset with previous version
+    $ git reset --hard <commit> [In log command, you will get commit head hash numbers-that need to copy here - It will reset the file to that point]
+    $ git reset --hard origin/master [To reset from when you cloned]
+
+To revert local changes
+---------------------------
+$ git reset --hard
+
+
+Branching
+=================
+	
+	‘Branching’ is a feature of Git that allows a project to move in multiple different directions simultaneously. 
+	There is one master branch that is always usable, but any number of new branches can be created to develop new features. Once ready, these branches can then be merged back into master.
+	When working in a Git repository, HEAD refers to the current branch being worked on. When a different branch is ‘checked out’, the HEAD changes to indicate the new working branch.
+	When merging a branch back into master, there is the possibility for merge conflicts to arise which can be resolved by head revision in the conflicted file. 	
+
+	1) $ git branch   -return current working branch
+	
+	2) To create new branch
+		$ git branch <branch_name>	
+	
+		$ git branch feature  - Creating a new branch named 'feature' to give project a new feature.
+
+	3) Moving the branch
+		$ git checkout feature  - Changing the HEAD to 'feature' branch. 
+	
+	4) Push brach to GitHub
+		$ git push --set-upstream origin feature
+
+
+	5) Merging the branch
+		4.1) Checkout to Master branch
+		4.2) run the command - 
+
+			$ git merge feature     - Will merge feature changes to Master branch.
+
+
+	$ git branch
+	$ git branch new_branch
+	$ git checkout
+	$ git merge 
+
+Remotes [pull]
+===============
+- to fetch latest version 
+
+	$ git fetch
+	$ git merge origin/master
+
+	This two commands simplified with pull.
+	$ git pull.
+
+
+Forks & pull request
+------------------------
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
