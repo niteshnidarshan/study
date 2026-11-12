@@ -494,7 +494,50 @@ public, protected and private :
 These are accessibility modifiers. Private is the most restrictive, while public is the least restrictive. 
 There is no real difference between protected and the default type (also known as package protected) within the context of the same package,
 however the protected keyword allows visibility to a derived class in a different package.
-protected is accessible in within same package as default and also accessible in different packages only with child classes.
+- protected member is accessible within same package as default and also accessible in different packages only with child classes with child reference only.
+	For example(protected member):
+
+	In same package:
+		package pack1;
+		public class A{
+			protected void m1(){
+				System.out.println("A class protected method");
+			}
+		}
+
+		public class B extends A{
+			psvm(String []args){
+				A a = new A();//parent reference with parent object
+				a.m1(); // works fine in same package
+
+				B b = new B(); //Child reference with child object
+				b.m1(); //works fine in same package
+
+				A a1 = new B(); //parent reference with child object
+				a1.m1(); //works fine in same package
+			}
+		}
+
+
+	In different package:
+		package pack2;
+		import pack1.A;
+		public class B extends A{
+			psvm(String []args){
+				A a = new A();//parent reference with parent object
+				a.m1(); // compiler error
+
+				B b = new B(); //Child reference with child object
+				b.m1(); //works fine in different package
+
+				A a1 = new B(); //parent reference with child object
+				a1.m1(); //compiler error
+			}
+		}
+
+	So, 
+	- protected member is accessible in same package
+	- protected member is accessible in different package only with child reference and child object.
 
 **  'Transient' is a variable that may not be serialized.
 
