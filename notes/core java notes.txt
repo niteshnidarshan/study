@@ -149,8 +149,8 @@ Constants in java : [using 'final' keyword]
 
 String :
 ---------------
-	 A string in literal terms is a sequence of characters like the word ìhelloî. 
-	 Hey, did you say characters, isnít it a primitive data type in Java. Yes, so in technical terms, the basic Java String is basically an array of characters.
+	 A string in literal terms is a sequence of characters like the word ‚Äúhello‚Äù. 
+	 Hey, did you say characters, isn‚Äôt it a primitive data type in Java. Yes, so in technical terms, the basic Java String is basically an array of characters.
 	 In the java programming language, string is object.
 
  
@@ -158,7 +158,7 @@ String :
 Immutable String :
 ----------------------
 	Java String is an immutable object. 
-	For an immutable object you cannot modify any of its attributeís values. 
+	For an immutable object you cannot modify any of its attribute‚Äôs values. 
 	Once you have created a java String object it cannot be modified to some other object or a different String. 
 	A reference to a java String instance is mutable. There are multiple ways to make an object immutable. 
 	Simple and straight forward way is to make all the attributes of that class as final. Java String has all attributes marked as final except hash field.
@@ -494,6 +494,7 @@ public, protected and private :
 These are accessibility modifiers. Private is the most restrictive, while public is the least restrictive. 
 There is no real difference between protected and the default type (also known as package protected) within the context of the same package,
 however the protected keyword allows visibility to a derived class in a different package.
+protected is accessible in within same package as default and also accessible in different packages only with child classes.
 
 **  'Transient' is a variable that may not be serialized.
 
